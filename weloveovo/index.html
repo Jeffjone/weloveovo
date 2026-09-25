@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="An interactive Drake discography archive built from a 414-track CSV dataset." />
+  <title>DRAKE // 6IX FILES</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="6IX Files home">
+      <span class="brand-mark">6</span>
+      <span class="brand-copy">DRAKE <b>//</b> 6IX FILES</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#archive">Archive</a>
+      <a href="#eras">Eras</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="ghost-button" href="#archive">Open archive <span>↘</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">TORONTO // 2009—2026 DATASET</p>
+        <h1><span>THE</span> <strong>6IX</strong><br />FILES</h1>
+        <p class="hero-deck">A data-driven archive of Drake tracks, collaborators, releases and sonic traits — built from your CSV, not a hand-picked list.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#archive">Explore all songs</a>
+          <button class="text-button" id="randomTrack" type="button">Random track <span>↗</span></button>
+        </div>
+      </div>
+
+      <div class="hero-art reveal" aria-label="Abstract Toronto night visual">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="six-glyph">6</div>
+        <div class="waveform" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+        <div class="hero-caption mono">
+          <span>ARCHIVE STATUS</span>
+          <b>ONLINE</b>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-strip" aria-label="Dataset summary">
+      <div><span class="stat-value" id="songCount">—</span><span class="stat-label">tracks indexed</span></div>
+      <div><span class="stat-value" id="releaseCount">—</span><span class="stat-label">releases / albums</span></div>
+      <div><span class="stat-value" id="collabCount">—</span><span class="stat-label">artist credits</span></div>
+      <div><span class="stat-value" id="yearRange">—</span><span class="stat-label">release span</span></div>
+    </section>
+
+    <section class="section-shell spotlight-section" id="eras">
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow">DATA SPOTLIGHT</p>
+          <h2>Numbers behind<br />the catalog.</h2>
+        </div>
+        <p>Popularity and audio features in the source file turn the discography into a visual map. The cards below are calculated directly from the dataset.</p>
+      </div>
+      <div class="spotlight-grid" id="spotlightGrid"></div>
+    </section>
+
+    <section class="archive-section" id="archive">
+      <div class="section-shell">
+        <div class="archive-heading reveal">
+          <div>
+            <p class="eyebrow">THE COMPLETE INDEX</p>
+            <h2>Every track.<br />One archive.</h2>
+          </div>
+          <div class="archive-count"><span id="filteredCount">0</span> results</div>
+        </div>
+
+        <div class="filter-panel reveal" aria-label="Track filters">
+          <label class="search-field">
+            <span class="sr-only">Search tracks</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+            <input id="searchInput" type="search" placeholder="Search song, artist, album…" autocomplete="off" />
+            <kbd>/</kbd>
+          </label>
+          <label>
+            <span>Album / release</span>
+            <select id="albumFilter"><option value="all">All releases</option></select>
+          </label>
+          <label>
+            <span>Year</span>
+            <select id="yearFilter"><option value="all">All years</option></select>
+          </label>
+          <label>
+            <span>Sort by</span>
+            <select id="sortFilter">
+              <option value="rank">CSV order</option>
+              <option value="popularity">Popularity</option>
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+              <option value="title">Title A–Z</option>
+              <option value="energy">Energy</option>
+              <option value="dance">Danceability</option>
+              <option value="bpm">BPM</option>
+            </select>
+          </label>
+          <label class="toggle-field">
+            <input id="explicitToggle" type="checkbox" />
+            <span class="toggle-ui" aria-hidden="true"></span>
+            <span>Hide explicit</span>
+          </label>
+          <button id="clearFilters" class="clear-button" type="button">Reset filters</button>
+        </div>
+
+        <div class="table-wrap reveal">
+          <div class="track-table-header mono" aria-hidden="true">
+            <span>#</span><span>Track</span><span>Release</span><span>Year</span><span>Pop.</span><span>Time</span>
+          </div>
+          <div class="track-list" id="trackList" aria-live="polite"></div>
+          <div class="empty-state" id="emptyState" hidden>
+            <strong>No tracks found.</strong>
+            <span>Try a broader search or reset the filters.</span>
+          </div>
+        </div>
+
+        <div class="pagination" id="pagination" aria-label="Track list pagination"></div>
+      </div>
+    </section>
+
+    <section class="section-shell about-section" id="about">
+      <div class="about-number reveal">06</div>
+      <div class="about-copy reveal">
+        <p class="eyebrow">ABOUT THE ARTIST</p>
+        <h2>A catalog built between rap, R&amp;B and pop.</h2>
+        <p>Aubrey Drake Graham is a Toronto-born rapper, singer and songwriter whose releases have moved across hip-hop, R&amp;B, pop and dance. This page treats the catalog as an archive: every song shown here comes from the supplied dataset, including features and collaborative releases.</p>
+        <p class="data-note"><span>DATA NOTE</span> The archive reflects the contents and dates in <code>drizzy.csv</code>. Replace the CSV and run the included build script to refresh the site data.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="brand"><span class="brand-mark">6</span><span class="brand-copy">DRAKE <b>//</b> 6IX FILES</span></div>
+    <p>Independent fan-built data archive. Music metadata supplied via <code>drizzy.csv</code>.</p>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <dialog class="track-modal" id="trackModal">
+    <button class="modal-close" id="modalClose" aria-label="Close track details">×</button>
+    <div id="modalContent"></div>
+  </dialog>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
