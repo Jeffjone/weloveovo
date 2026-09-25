@@ -11,6 +11,7 @@
     "test": "node --import tsx --test tests/*.test.ts",
     "test:ui": "vitest run",
     "test:e2e": "playwright test",
+    "genius:check": "node --env-file-if-exists=.env.local --conditions=react-server --import tsx scripts/genius.ts",
     "db:migrate": "node --env-file-if-exists=.env.local --import tsx scripts/database.ts migrate",
     "db:seed": "node --env-file-if-exists=.env.local --import tsx scripts/database.ts seed",
     "format": "prettier --write .",
@@ -31,6 +32,7 @@
     "postgres": "^3.4.9",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
+    "server-only": "^0.0.1",
     "tus-js-client": "^4.3.1",
     "zod": "^4.6.5"
   },
