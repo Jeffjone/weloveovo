@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+:root {
+  --body: 'DM Sans', Arial, sans-serif;
+  --display: 'Barlow Condensed', 'Arial Narrow', Impact, sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+  --text: #e9f0f7;
+  --muted: #91a4b8;
+  --ice: #c2dff4;
+  --line: #a3c3e022;
+  color-scheme: dark;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  background: #050b12;
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  color: var(--text);
+  font: 14px/1.6 var(--body);
+  overflow-x: hidden;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button,
+a {
+  touch-action: manipulation;
+}
+button {
+  cursor: pointer;
+  color: inherit;
+}
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+button,
+input,
+select,
+textarea {
+  border-radius: 0;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #9cd8ff;
+  outline-offset: 5px;
+}
+::selection {
+  background: #8bbbd8;
+  color: #08111e;
+}
+[hidden] {
+  display: none !important;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+input,
+select,
+textarea {
+  background: #0d1928;
+  border: 1px solid #3e536c;
+  color: var(--text);
+  padding: 11px 13px;
+  max-width: 100%;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #75899d;
+}
+select {
+  min-width: 0;
+}
+button {
+  background: none;
+  border: 0;
+}
+.react-flow__attribution {
+  background: #101a27 !important;
+  color: #c0d6e9 !important;
+}
+.react-flow__controls button {
+  background: #172337 !important;
+  border-color: #3d5670 !important;
+  color: white !important;
+}
+.react-flow__controls button svg {
+  fill: currentColor;
+}
+.react-flow__edge-textbg {
+  fill: #0c1726 !important;
+}
+.react-flow__edge-text {
+  fill: #a4bdd3 !important;
+}
+.react-flow__node:focus {
+  outline: 2px solid #a3d7fe !important;
+}
+.react-flow__edge-path {
+  stroke: #6485a2 !important;
+}
+.react-flow__edge.animated path {
+  stroke: #b2ddf8 !important;
+}
+.react-flow__handle {
+  background: #b4d9f5 !important;
+  border-color: #142a3d !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *:before,
+  *:after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

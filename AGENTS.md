@@ -2,4 +2,4 @@
 
 - After completing a requested task, run the relevant checks, commit the finished changes, and push to the configured GitHub remote. This is the owner's standing instruction.
 - Preserve unrelated work and never force-push or rewrite existing history unless explicitly requested.
-- The website lives at the repository root and runs as a static site. See `README.md` for the preview and music-library maintenance workflow.
+- The application is a Next.js project at the repository root. See `README.md` for local development, database setup, and deployment.

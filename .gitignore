@@ -1,3 +1,14 @@
 .DS_Store
 __pycache__/
 *.pyc
+node_modules/
+.next/
+.env*
+!.env.example
+*.tsbuildinfo
+.data/
+playwright-report/
+test-results/
+*.mp3
+.vercel/
+coverage/
