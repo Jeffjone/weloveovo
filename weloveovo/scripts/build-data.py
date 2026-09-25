@@ -1,8 +1,8 @@
 from pathlib import Path
-import csv, json
+import json
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "data" / "drizzy.csv"
+SOURCE = ROOT / "data" / "tracks.json"
 TARGET = ROOT / "js" / "data.js"
 
 COLUMN_MAP = {
@@ -17,7 +17,7 @@ COLUMN_MAP = {
 NUMERIC = {"rank", "bpm", "energy", "popularity", "dance", "acoustic", "instrumental", "valence", "speech", "live", "loudDb", "timeSignature"}
 
 with SOURCE.open(newline="", encoding="utf-8-sig") as fh:
-    reader = csv.DictReader(fh)
+    reader = json.load(fh)
     rows = []
     for raw in reader:
         raw = {str(k).strip(): v for k, v in raw.items()}
@@ -30,10 +30,10 @@ with SOURCE.open(newline="", encoding="utf-8-sig") as fh:
         rows.append(item)
 
 TARGET.write_text(
-    "// Auto-generated from data/drizzy.csv. Run scripts/build-data.py after replacing the CSV.\n"
+    "// Music library. Rebuild with scripts/build-data.py after editing data/tracks.json.\n"
     + "window.DRAKE_SONGS = "
     + json.dumps(rows, ensure_ascii=False, separators=(",", ":"))
     + ";\n",
     encoding="utf-8",
 )
-print(f"Built {TARGET.relative_to(ROOT)} from {len(rows)} CSV rows.")
+print(f"Built {TARGET.relative_to(ROOT)} from {len(rows)} tracks.")

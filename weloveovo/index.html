@@ -3,157 +3,87 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="An interactive Drake discography archive built from a 414-track CSV dataset." />
-  <title>DRAKE // 6IX FILES</title>
+  <meta name="theme-color" content="#eeebe3" />
+  <meta name="description" content="From Toronto to everywhere. An independent listening room for Drake’s music, eras, and enduring influence. Find your next favorite in the 6." />
+  <title>WE LOVE OVO — A soundtrack to everything.</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" as="image" href="assets/toronto-after-dark.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <div class="noise" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="6IX Files home">
-      <span class="brand-mark">6</span>
-      <span class="brand-copy">DRAKE <b>//</b> 6IX FILES</span>
-    </a>
-    <nav class="desktop-nav" aria-label="Primary navigation">
-      <a href="#archive">Archive</a>
-      <a href="#eras">Eras</a>
-      <a href="#about">About</a>
-    </nav>
-    <a class="ghost-button" href="#archive">Open archive <span>↘</span></a>
+    <a class="brand" href="#top" aria-label="We Love OVO home">WE LOVE OVO<span class="brand-star">✳</span></a>
+    <nav aria-label="Main navigation"><a href="#eras">The story</a><a href="#discography">The records</a><a href="#archive">The music</a><a href="#legacy">The legacy</a></nav>
+    <span class="header-location"><span class="status-dot"></span> TORONTO, CA <time id="torontoClock">—</time></span>
   </header>
-
-  <main id="top">
-    <section class="hero section-shell">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">TORONTO // 2009—2026 DATASET</p>
-        <h1><span>THE</span> <strong>6IX</strong><br />FILES</h1>
-        <p class="hero-deck">A data-driven archive of Drake tracks, collaborators, releases and sonic traits — built from your CSV, not a hand-picked list.</p>
-        <div class="hero-actions">
-          <a class="primary-button" href="#archive">Explore all songs</a>
-          <button class="text-button" id="randomTrack" type="button">Random track <span>↗</span></button>
-        </div>
+  <main id="main">
+    <section class="hero shell" id="top" aria-labelledby="heroTitle">
+      <div class="hero-topline mono"><span>AN INDEPENDENT TRIBUTE TO DRAKE</span><span>EST. IN THE 6 &nbsp; / &nbsp; FELT EVERYWHERE</span></div>
+      <h1 id="heroTitle">A SOUNDTRACK<br>TO <em>EVERYTHING.</em><span class="hero-asterisk" aria-hidden="true">✳</span></h1>
+      <div class="hero-scene">
+        <img class="city-image" src="assets/toronto-after-dark.jpg" alt="An imagined Toronto skyline beneath a burning orange moon, reflected in the water at night" width="1536" height="1024" fetchpriority="high" />
+        <div class="scene-grain" aria-hidden="true"></div>
+        <div class="scene-top mono"><span>43°39′13.4″N &nbsp; 79°23′02.5″W</span><span>VOLUME 001 — THE DRAKE ARCHIVE</span></div>
+        <div class="scene-copy"><span class="scene-label mono">THE CITY. THE SOUND. THE FEELING.</span><p>Some music you listen to.<br>Some music you live in.</p><a class="round-link" href="#eras"><span>Enter the story</span><span class="arrow-circle">↘</span></a></div>
+        <div class="scene-side mono">TORONTO AFTER DARK / AN IMAGINED VIEW</div>
+        <div class="scene-bottom mono"><span>DRAKE &nbsp; / &nbsp; AUBREY DRAKE GRAHAM</span><span>SCROLL TO FEEL SOMETHING ↓</span></div>
       </div>
+      <div class="hero-foot"><p>The late nights. The long drives. The songs that took you back.<br>A place for every version of Drake — and every version of you.</p><button id="randomTrack" class="text-link" type="button">Let fate pick a track <span>↗</span></button></div>
+    </section>
+    <div class="ticker" aria-hidden="true"><div>FROM THE 6 TO THE WORLD <span>✳</span> NOTHING WAS THE SAME <span>✳</span> MORE LIFE. MORE MEMORIES. <span>✳</span> FROM THE 6 TO THE WORLD <span>✳</span> NOTHING WAS THE SAME <span>✳</span></div></div>
 
-      <div class="hero-art reveal" aria-label="Abstract Toronto night visual">
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-        <div class="six-glyph">6</div>
-        <div class="waveform" aria-hidden="true">
-          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-        </div>
-        <div class="hero-caption mono">
-          <span>ARCHIVE STATUS</span>
-          <b>ONLINE</b>
-        </div>
-      </div>
+    <section class="story-section shell section-space" id="eras" aria-labelledby="storyTitle">
+      <div class="section-heading"><div><p class="eyebrow">01 / THE EVOLUTION</p><h2 id="storyTitle">Different eras.<br><em>Same late nights.</em></h2></div><p>From a Toronto introduction to a world of his own.<br>Every chapter has a feeling. Find yours.</p></div>
+      <div class="era-tabs" role="tablist" aria-label="Explore Drake’s eras" id="eraTabs"></div>
+      <div class="era-panel" id="eraPanel" role="tabpanel" tabindex="0"></div>
     </section>
 
-    <section class="stats-strip" aria-label="Dataset summary">
-      <div><span class="stat-value" id="songCount">—</span><span class="stat-label">tracks indexed</span></div>
-      <div><span class="stat-value" id="releaseCount">—</span><span class="stat-label">releases / albums</span></div>
-      <div><span class="stat-value" id="collabCount">—</span><span class="stat-label">artist credits</span></div>
-      <div><span class="stat-value" id="yearRange">—</span><span class="stat-label">release span</span></div>
+    <section class="records-section section-space" id="discography" aria-labelledby="recordsTitle">
+      <div class="shell"><div class="section-heading"><div><p class="eyebrow">02 / THE RECORD SHELF</p><h2 id="recordsTitle">You know the covers.<br><em>You remember the feeling.</em></h2></div><div class="shelf-controls"><button class="circle-button" id="shelfPrev" aria-label="Previous records">←</button><button class="circle-button" id="shelfNext" aria-label="Next records">→</button></div></div>
+      <div class="record-shelf" id="recordShelf" role="region" aria-label="Album collection" tabindex="0"></div>
+      <div class="shelf-foot mono"><span>ALBUMS, MIXTAPES & COLLABORATIVE PROJECTS</span><span>SCROLL THROUGH THE COLLECTION →</span></div></div>
     </section>
 
-    <section class="section-shell spotlight-section" id="eras">
-      <div class="section-heading reveal">
-        <div>
-          <p class="eyebrow">DATA SPOTLIGHT</p>
-          <h2>Numbers behind<br />the catalog.</h2>
-        </div>
-        <p>Popularity and audio features in the source file turn the discography into a visual map. The cards below are calculated directly from the dataset.</p>
-      </div>
-      <div class="spotlight-grid" id="spotlightGrid"></div>
-    </section>
-
-    <section class="archive-section" id="archive">
-      <div class="section-shell">
-        <div class="archive-heading reveal">
-          <div>
-            <p class="eyebrow">THE COMPLETE INDEX</p>
-            <h2>Every track.<br />One archive.</h2>
-          </div>
-          <div class="archive-count"><span id="filteredCount">0</span> results</div>
-        </div>
-
-        <div class="filter-panel reveal" aria-label="Track filters">
-          <label class="search-field">
-            <span class="sr-only">Search tracks</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
-            <input id="searchInput" type="search" placeholder="Search song, artist, album…" autocomplete="off" />
-            <kbd>/</kbd>
-          </label>
-          <label>
-            <span>Album / release</span>
-            <select id="albumFilter"><option value="all">All releases</option></select>
-          </label>
-          <label>
-            <span>Year</span>
-            <select id="yearFilter"><option value="all">All years</option></select>
-          </label>
-          <label>
-            <span>Sort by</span>
-            <select id="sortFilter">
-              <option value="rank">CSV order</option>
-              <option value="popularity">Popularity</option>
-              <option value="newest">Newest first</option>
-              <option value="oldest">Oldest first</option>
-              <option value="title">Title A–Z</option>
-              <option value="energy">Energy</option>
-              <option value="dance">Danceability</option>
-              <option value="bpm">BPM</option>
-            </select>
-          </label>
-          <label class="toggle-field">
-            <input id="explicitToggle" type="checkbox" />
-            <span class="toggle-ui" aria-hidden="true"></span>
-            <span>Hide explicit</span>
-          </label>
-          <button id="clearFilters" class="clear-button" type="button">Reset filters</button>
-        </div>
-
-        <div class="table-wrap reveal">
-          <div class="track-table-header mono" aria-hidden="true">
-            <span>#</span><span>Track</span><span>Release</span><span>Year</span><span>Pop.</span><span>Time</span>
-          </div>
-          <div class="track-list" id="trackList" aria-live="polite"></div>
-          <div class="empty-state" id="emptyState" hidden>
-            <strong>No tracks found.</strong>
-            <span>Try a broader search or reset the filters.</span>
-          </div>
-        </div>
-
-        <div class="pagination" id="pagination" aria-label="Track list pagination"></div>
+    <section class="moods-section shell section-space" aria-labelledby="moodsTitle">
+      <div class="section-heading"><div><p class="eyebrow">03 / FIND YOUR FREQUENCY</p><h2 id="moodsTitle">What’s the <em>mood?</em></h2></div><p>There’s a Drake song for that.<br>Pick a feeling. See where it takes you.</p></div>
+      <div class="mood-grid">
+        <button class="mood-card mood-night" data-mood="night"><span class="mono">01 / LOW LIGHT, LOUD THOUGHTS</span><span class="mood-symbol" aria-hidden="true">☾</span><span class="mood-name">After hours <span>↗</span></span><span class="mood-description">For the things you almost texted.</span></button>
+        <button class="mood-card mood-drive" data-mood="drive"><span class="mono">02 / WINDOWS DOWN</span><span class="mood-symbol" aria-hidden="true">≈</span><span class="mood-name">The long way home <span>↗</span></span><span class="mood-description">One more song. One more exit.</span></button>
+        <button class="mood-card mood-energy" data-mood="energy"><span class="mono">03 / MAIN CHARACTER ENERGY</span><span class="mood-symbol" aria-hidden="true">✳</span><span class="mood-name">Headlines <span>↗</span></span><span class="mood-description">Walk in like you already won.</span></button>
       </div>
     </section>
 
-    <section class="section-shell about-section" id="about">
-      <div class="about-number reveal">06</div>
-      <div class="about-copy reveal">
-        <p class="eyebrow">ABOUT THE ARTIST</p>
-        <h2>A catalog built between rap, R&amp;B and pop.</h2>
-        <p>Aubrey Drake Graham is a Toronto-born rapper, singer and songwriter whose releases have moved across hip-hop, R&amp;B, pop and dance. This page treats the catalog as an archive: every song shown here comes from the supplied dataset, including features and collaborative releases.</p>
-        <p class="data-note"><span>DATA NOTE</span> The archive reflects the contents and dates in <code>drizzy.csv</code>. Replace the CSV and run the included build script to refresh the site data.</p>
+    <section class="archive-section section-space" id="archive" aria-labelledby="archiveTitle">
+      <div class="shell"><div class="section-heading"><div><p class="eyebrow">04 / DEEP IN THE CATALOG</p><h2 id="archiveTitle">Find your <em>rotation.</em></h2></div><p><span id="songCount">414</span> tracks. Albums, deep cuts, and guest verses.<br>Old favorites. New connections.</p></div>
+      <div class="archive-toolbar"><div class="library-tabs" role="group" aria-label="Library view"><button id="allTracks" class="active" aria-pressed="true">All tracks</button><button id="savedTracks" aria-pressed="false">Your favorites <span id="savedCount">0</span></button></div><span id="activeMood" class="active-mood" hidden></span></div>
+      <div class="filter-panel">
+        <label class="search-field"><span class="sr-only">Search tracks, artists, and releases</span><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="A song, an artist, a memory…" autocomplete="off" /><kbd>/</kbd></label>
+        <label><span class="sr-only">Release</span><select id="albumFilter"><option value="all">All releases</option></select></label>
+        <label><span class="sr-only">Year</span><select id="yearFilter"><option value="all">All years</option></select></label>
+        <label><span class="sr-only">Sort tracks</span><select id="sortFilter"><option value="rank">Collection order</option><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option><option value="popularity">Popularity</option><option value="energy">Energy</option></select></label>
+      </div>
+      <div class="filter-summary"><span id="resultStatus" role="status" aria-live="polite"></span><div><label class="explicit-control"><input id="explicitToggle" type="checkbox" /> Hide explicit</label><button id="clearFilters" class="text-link">Reset filters ↺</button></div></div>
+      <div class="table-wrap"><div class="track-table-header mono" aria-hidden="true"><span>#</span><span>TRACK / ARTIST</span><span>RELEASE</span><span>YEAR</span><span>TIME</span><span>LOVE</span></div><div id="trackList"></div><div class="empty-state" id="emptyState" hidden><h3>A little too quiet in here.</h3><p id="emptyMessage">Try another search, or reset your filters.</p><button class="text-link" id="emptyReset">Explore all tracks ↗</button></div></div>
+      <nav class="pagination" id="pagination" aria-label="Track pages"></nav>
+      <p class="library-note">A living collection, always in rotation. Explore the wider catalog on <a href="https://music.apple.com/us/artist/drake/271256" target="_blank" rel="noopener">Apple Music ↗</a>.</p>
       </div>
     </section>
+
+    <section class="legacy-section shell section-space" id="legacy" aria-labelledby="legacyTitle">
+      <div class="legacy-intro"><p class="eyebrow">05 / BIGGER THAN THE MUSIC</p><h2 id="legacyTitle">A city in his voice.<br><em>A generation in<br>the echoes.</em></h2><p>Drake’s story lives in the space between confidence and confession. The rap verse and the melody. The hometown and the whole world. A catalog that can make an arena feel enormous — and a pair of headphones feel personal.</p><span class="legacy-signature">From Toronto, with love.</span></div>
+      <div class="legacy-chapters"><article><span class="mono">01 / THE CITY</span><h3>Putting the 6 on the map.</h3><p>Toronto is more than a backdrop. It’s the atmosphere: the cold air, the after-hours glow, the hometown references. Across the records, a place becomes a point of view.</p></article><article><span class="mono">02 / THE SOUND</span><h3>The space between rap & R&B.</h3><p>A melody can carry a confession. A verse can carry a victory lap. Moving between them is the thread that connects the intimate world of <i>Take Care</i> to the scale of <i>Views</i>.</p></article><article><span class="mono">03 / THE RIPPLE EFFECT</span><h3>A world beyond the records.</h3><p>With Noah “40” Shebib and Oliver El-Khatib, the OVO collective extends that sensibility into a wider musical community. <i>Take Care</i> earned Drake his first Grammy in 2013 — one milestone in a story still unfolding.</p><a href="https://www.grammy.com/artists/drake/12370/" target="_blank" rel="noopener">The Grammy story ↗</a><a href="https://music.apple.com/us/artist/drake/271256" target="_blank" rel="noopener">Explore the artist & OVO Sound ↗</a></article></div>
+    </section>
+
+    <section class="closing"><div class="shell"><p class="eyebrow">WHATEVER ERA YOU FOUND HIM IN.</p><p class="closing-title">YOU HAD TO<br><em>BE THERE.</em><span aria-hidden="true">✳</span></p><div class="closing-bottom"><p>And if you weren’t?<br>There’s a whole world waiting.</p><a href="#archive" class="round-link">Find your first favorite <span class="arrow-circle">↗</span></a></div></div></section>
   </main>
-
-  <footer class="site-footer">
-    <div class="brand"><span class="brand-mark">6</span><span class="brand-copy">DRAKE <b>//</b> 6IX FILES</span></div>
-    <p>Independent fan-built data archive. Music metadata supplied via <code>drizzy.csv</code>.</p>
-    <a href="#top">Back to top ↑</a>
-  </footer>
-
-  <dialog class="track-modal" id="trackModal">
-    <button class="modal-close" id="modalClose" aria-label="Close track details">×</button>
-    <div id="modalContent"></div>
-  </dialog>
-
-  <script src="js/data.js"></script>
-  <script src="js/app.js"></script>
+  <footer class="site-footer shell"><a class="brand" href="#top">WE LOVE OVO<span class="brand-star">✳</span></a><p>An independent fan-made tribute. Not affiliated with Drake or OVO.<br>Music and cover artwork belong to their respective rights holders.</p><a href="#top" class="mono">BACK TO THE TOP ↑</a></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <dialog class="track-modal" id="trackModal" aria-labelledby="modalTitle"><button class="modal-close circle-button" id="modalClose" aria-label="Close track details">×</button><div id="modalContent"></div></dialog>
+  <noscript><p class="noscript">Enable JavaScript to explore the music library. You can also <a href="https://music.apple.com/us/artist/drake/271256">listen on Apple Music</a>.</p></noscript>
+  <script src="js/data.js"></script><script src="js/artwork.js"></script><script src="js/app.js"></script>
 </body>
 </html>
