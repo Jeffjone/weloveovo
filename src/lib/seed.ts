@@ -3,10 +3,12 @@ export type Database = {
   query<T = Record<string, unknown>>(text: string, params?: unknown[]): Promise<{ rows: T[] }>;
   exec(text: string): Promise<unknown>;
 };
-export async function seed(db: Database) {
+export async function seed(db: Database, progress: (message: string) => void = () => {}) {
   await db.exec('BEGIN');
   try {
     for (const table of ['releases', 'artists', 'tracks', 'eras', 'milestones'] as const) {
+      let completed = 0;
+      progress(`Importing ${catalog[table].length} ${table}…`);
       for (const record of catalog[table]) {
         const row = { ...record } as Record<string, unknown>;
         const artistIds = row.artist_ids as string[] | undefined;
@@ -22,11 +24,16 @@ export async function seed(db: Database) {
               'INSERT INTO track_artists(track_id,artist_id,position) VALUES($1,$2,$3) ON CONFLICT DO NOTHING',
               [row.id, artistIds[i], i],
             );
+        completed++;
+        if (completed % 25 === 0 || completed === catalog[table].length)
+          progress(`${table}: ${completed}/${catalog[table].length}`);
       }
     }
+    progress('Updating search index…');
     await db.exec(
       "UPDATE tracks t SET search_document=to_tsvector('simple',t.title || ' ' || (SELECT title FROM releases WHERE id=t.release_id) || ' ' || coalesce((SELECT string_agg(a.name,' ') FROM artists a JOIN track_artists ta ON a.id=ta.artist_id WHERE ta.track_id=t.id),''))",
     );
+    progress('Committing catalog…');
     await db.exec('COMMIT');
   } catch (error) {
     await db.exec('ROLLBACK');
