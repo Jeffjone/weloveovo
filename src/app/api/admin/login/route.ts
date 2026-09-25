@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import { authClient, allowedEmail, configured, AccessError } from '@/lib/supabase';
 import { adminFailure } from '@/lib/admin';
+import { loginError } from '@/lib/login-error';
 export async function POST(request: Request) {
   try {
     if (!configured()) throw new AccessError('Hosted curator access is not configured.', 503);
@@ -15,7 +16,11 @@ export async function POST(request: Request) {
       email,
       options: { shouldCreateUser: false, emailRedirectTo: site + '/auth/confirm' },
     });
-    if (error) throw error;
+    if (error) {
+      console.error('Curator sign-in email failed', { code: error.code, status: error.status });
+      const failure = loginError(error);
+      return NextResponse.json({ error: failure.error }, { status: failure.status });
+    }
     return NextResponse.json({ message: 'Check your email for a sign-in link.' });
   } catch (e) {
     return adminFailure(e);
