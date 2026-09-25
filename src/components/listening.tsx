@@ -6,6 +6,9 @@ import type { Track, Release, Era } from '@/lib/types';
 import { TrackList, ui } from './ui';
 import { useExperience } from './experience';
 import s from './listening.module.css';
+import { SongCards } from './song-cards';
+import { RandomSong } from './random-song';
+import songStyles from './songs.module.css';
 type Results = { tracks: Track[]; total: number; page: number; pages: number; limit: number };
 export function Listening({
   initial,
@@ -225,7 +228,28 @@ export function Listening({
         </div>
       ) : result.tracks.length ? (
         <div aria-busy={pending || loading} className={pending ? s.pending : ''}>
-          <TrackList tracks={result.tracks} />
+          <div className={songStyles.tools}>
+            <div className={songStyles.view} role="group" aria-label="Song display">
+              <button
+                aria-pressed={filterParams.get('view') !== 'list'}
+                onClick={() => update('view', '')}
+              >
+                Song cards
+              </button>
+              <button
+                aria-pressed={filterParams.get('view') === 'list'}
+                onClick={() => update('view', 'list')}
+              >
+                Track list
+              </button>
+            </div>
+            <RandomSong />
+          </div>
+          {filterParams.get('view') === 'list' ? (
+            <TrackList tracks={result.tracks} />
+          ) : (
+            <SongCards tracks={result.tracks} />
+          )}
         </div>
       ) : (
         <div className={ui.empty}>

@@ -142,6 +142,12 @@
 .roomHeading > span:first-child {
   color: #bad0df;
 }
+.roomHeading > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #c0deef;
+}
 .rooms {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));

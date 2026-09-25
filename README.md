@@ -21,6 +21,7 @@ The former static `index.html` has been replaced by Next.js routes. `npm run bui
 - **Records `/records`** — featured projects or all releases, with `/records/[id]` detail pages.
 - **Eras `/eras`** — six chapters with their own `/eras/[id]` stories and records.
 - **Listening Room `/listening-room`** — server-side search, mood/release/era/explicit filters, sorting, pagination, and browser-local favorites. Press `/` to search.
+- **Game Room `/games`** — ten-question learning rounds for song-to-release matching, album artwork, release years, and collaborators. Answers are checked on the server and explain the catalog connection. Replay missed questions; study counts stay in browser-local storage.
 - **Tracks `/tracks/[spotifyId]`** — musical traits, related tracks with explanations, Spotify, and published MP3 downloads.
 - **Legacy `/legacy`** — sourced stories and milestones.
 - **Connections `/connections`** — an expandable chronological graph with an equivalent list view. Tab to a node and press Enter or Space to expand it. Optional `?root=era:the-blue-hour`, `release:take-care-deluxe`, or `track:<Spotify ID>` opens a neighborhood.
@@ -29,6 +30,10 @@ The former static `index.html` has been replaced by Next.js routes. `npm run bui
 Spotify loads only after Listen is selected. Its iframe remains mounted during room navigation and while the tray is collapsed; closing the tray removes it. Playback availability depends on Spotify and the visitor's account/browser. External Spotify and Apple Music links remain available. No audio is autoplayed or extracted from Spotify.
 
 Favorites reuse the existing `weloveovo.favorites` storage key and Spotify IDs. If storage is blocked, they work for the current visit. Effects honor reduced motion, pause when the page is hidden, and can be disabled independently. There are no public accounts, comments, ratings, locked chapters, or progress gates.
+
+The Listening Room defaults to clickable song cards, with a URL-backed Track list option. Every song file includes a reading section generated from its catalog metadata, performer credits, and release edition. The header's Random song button selects a track on the server, excludes the current song, and opens its page without autoplay. The Game Room is linked from the lobby and Rooms menu; `/games?mode=release`, `cover`, `year`, and `credits` preselect a mode. Quizzes use this collection's release editions, not claims about a song's earliest release. Lyric quizzes are deferred until a permitted lyric source is supplied.
+
+Learning progress uses `weloveovo.learning.v1`. It records question totals and distinct studied Spotify IDs, remains separate from favorites, and falls back to the current visit when storage is blocked. Games are for personal practice, with no competitive scores or public account requirements.
 
 ## Architecture
 
@@ -110,6 +115,8 @@ Search limits are validated: page size 1–50, query length up to 120 characters
 
 The download endpoint also accepts `Accept: application/json` to return `{ url }` without redirecting. The track page uses this to display retry feedback if signing fails; the MP3 still downloads directly from storage.
 
+`GET /api/tracks/random?exclude=<Spotify ID>` returns an existing random track ID. `GET /api/games?mode=release|cover|year|credits` returns up to ten questions with four distinct choices each, without the answers. `POST /api/games/answer` accepts `{ id, mode, choice }` and checks the answer against current catalog data, returning feedback and the song metadata. These endpoints do not cache randomized rounds or write to the catalog. No new migrations or environment variables are needed for games or song cards.
+
 ## Checks
 
 ```bash
@@ -126,6 +133,8 @@ Backend tests run real PostgreSQL queries through PGlite, including metadata pre
 Playwright covers direct routes, history, URL filters, favorite migration/persistence, map/list navigation, persistent embeds, mobile widths, reduced motion, and anonymous access rejection. It uses installed Google Chrome on macOS when available; elsewhere run `npx playwright install chromium`. Set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` to use another Chrome/Chromium installation. Visual captures and failure traces go into the ignored `test-results/` directory.
 
 To run these browser checks against the production build, stop other servers on port 3000, run `npm run build`, then `PLAYWRIGHT_PRODUCTION=true npm run test:e2e`.
+
+For an isolated public-catalog test server while your local Supabase app runs, use `PLAYWRIGHT_CATALOG_FIXTURE=true PLAYWRIGHT_PORT=3100 npm run test:e2e`. This explicitly clears hosted credentials for the test server, uses the bundled PostgreSQL catalog, and leaves `.env.local` unchanged. Browser tests also cover game completion, missed-answer review, saved study progress, song cards, random discovery, and mobile/keyboard play.
 
 ## Deploy to Vercel
 

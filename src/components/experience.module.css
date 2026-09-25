@@ -363,7 +363,7 @@
     display: none;
   }
   .utility {
-    gap: 0;
+    gap: 8px;
   }
   .main {
     min-height: calc(100svh - 145px);
@@ -397,7 +397,7 @@
     letter-spacing: 0.1em;
   }
   .navigation {
-    gap: 15px;
+    gap: 10px;
   }
   .navigation > a {
     font-size: 10px;
@@ -418,6 +418,7 @@
   }
   .utility {
     margin-left: -3px;
+    gap: 5px;
   }
   .dropdown {
     left: -100px;
@@ -446,5 +447,14 @@
   .favorite {
     font-size: 10px;
     padding: 11px 12px;
+  }
+}
+@media (max-width: 370px) {
+  .header {
+    padding-inline: 12px;
+    gap: 8px;
+  }
+  .brandMark {
+    display: none;
   }
 }

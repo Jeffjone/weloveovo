@@ -1,5 +1,14 @@
 import Link from 'next/link';
-import { ArrowRight, ArrowUpRight, Disc3, Radio, Route, Orbit, Network } from 'lucide-react';
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Disc3,
+  Radio,
+  Route,
+  Orbit,
+  Network,
+  Gamepad2,
+} from 'lucide-react';
 import { statistics } from '@/lib/catalog';
 import s from './home.module.css';
 export const dynamic = 'force-dynamic';
@@ -83,7 +92,9 @@ export default async function HomePage() {
       </section>
       <div className={s.roomHeading}>
         <span>CHOOSE YOUR ROOM</span>
-        <span>FOUR ENTRANCES. ONE WORLD.</span>
+        <Link href="/games">
+          <Gamepad2 size={13} /> NEW / THE GAME ROOM ↗
+        </Link>
       </div>
       <section className={s.rooms} aria-label="Choose a room">
         {entrances.map((room) => (

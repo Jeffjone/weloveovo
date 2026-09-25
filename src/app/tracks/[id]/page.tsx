@@ -60,6 +60,42 @@ export default async function TrackPage({ params }: { params: Promise<{ id: stri
           </div>
         </div>
       </section>
+      <section className={ui.narrative} aria-labelledby="song-file-heading">
+        <div>
+          <p className={ui.eyebrow}>THE SONG FILE / {track.release_date.slice(0, 4)}</p>
+          <h2 id="song-file-heading">Inside this song.</h2>
+          <Link className={ui.outlineButton} href="/games">
+            Test your catalog knowledge ↗
+          </Link>
+        </div>
+        <div>
+          <p>
+            “{track.title}” appears on{' '}
+            <Link href={'/records/' + track.release_id}>{track.release_title}</Link>. The collection
+            dates this edition to {track.release_date}. Its credited performers are{' '}
+            {track.artist_names.join(', ')}.
+          </p>
+          <p>
+            At {track.duration}, the track is cataloged at {track.bpm} BPM in {track.musical_key}.
+            Its audio profile pairs an energy score of {track.energy}/100 with danceability of{' '}
+            {track.dance}/100 and acoustic character of {track.acoustic}/100. Use those traits to
+            follow a similar sound in the recommendations below.
+          </p>
+          <p className={ui.subtle}>
+            These notes describe the supplied catalog metadata and this release edition.
+          </p>
+          {track.apple_url && (
+            <a
+              className={ui.source}
+              href={track.apple_url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Explore the release on Apple Music ↗
+            </a>
+          )}
+        </div>
+      </section>
       <div className={ui.narrative}>
         <div>
           <p className={ui.eyebrow}>THE FEEL OF THE TRACK</p>

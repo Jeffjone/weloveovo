@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import type { Track } from '@/lib/types';
 import s from './experience.module.css';
+import { RandomSong } from './random-song';
 type Playing = Pick<Track, 'id' | 'title' | 'artist_names' | 'apple_url'>;
 type Experience = {
   favorites: string[];
@@ -51,6 +52,7 @@ export const rooms = [
     number: '03',
   },
   { href: '/legacy', label: 'The legacy', subtitle: 'Bigger than the music.', number: '04' },
+  { href: '/games', label: 'The game room', subtitle: 'Know it by heart.', number: '05' },
 ];
 export function ExperienceProvider({ children }: { children: ReactNode }) {
   const path = usePathname();
@@ -256,6 +258,7 @@ export function ExperienceProvider({ children }: { children: ReactNode }) {
             </Link>
           </nav>
           <div className={s.utility}>
+            <RandomSong compact />
             <span className={s.clock}>
               <i />
               {time} <span>IN THE 6</span>

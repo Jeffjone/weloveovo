@@ -90,6 +90,12 @@ export async function getTrack(id: string) {
   if (!trackId.safeParse(id).success) return null;
   return (await query<Track>(`${trackSelect} WHERE t.id=$1`, [id]))[0] || null;
 }
+export async function randomTracks(limit = 1, exclude?: string) {
+  return query<Track>(
+    `${trackSelect} WHERE ($1::text IS NULL OR t.id<>$1) ORDER BY random() LIMIT $2`,
+    [exclude || null, Math.min(Math.max(limit, 1), 414)],
+  );
+}
 export async function releases(featured = false) {
   return query<Release>(
     `SELECT r.*,count(t.id)::int track_count FROM releases r LEFT JOIN tracks t ON t.release_id=r.id ${featured ? 'WHERE r.featured' : ''} GROUP BY r.id ORDER BY r.release_date,r.title`,
