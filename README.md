@@ -4,7 +4,7 @@ An independent, fan-made Drake listening room. A cinematic Toronto opening leads
 
 ## Run locally
 
-From this directory:
+From the repository root (where `index.html` lives):
 
 ```bash
 python3 -m http.server 8000
