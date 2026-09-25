@@ -1,6 +1,10 @@
 # WE LOVE OVO / Toronto After Dark
 
-A cinematic Drake discovery app: four rooms over a persistent Toronto nightscape, connected by a branching timeline of eras, records, tracks, artists, and milestones. The app preserves the original 414-track collection, 117 releases, 104 credited artists, and six career chapters.
+A cinematic Drake discovery and learning app: five rooms over a persistent Toronto nightscape, connected by a branching timeline of eras, records, tracks, artists, and milestones. Explore song cards, open a random song, or learn the catalog through four quiz modes. The app preserves the original 414-track collection, 117 releases, 104 credited artists, and six career chapters.
+
+[Visit WE LOVE OVO](https://www.weloveovo.com) · [Game Room](https://www.weloveovo.com/games) · [License](LICENSE)
+
+**Proprietary project — all rights reserved.** The original code, design, and project content are not offered under an open-source license. Reuse requires the rights holder's written permission, subject to the exceptions in [LICENSE](LICENSE). Setup instructions below are for the owner and authorized developers.
 
 ## Run locally
 
@@ -17,7 +21,7 @@ The former static `index.html` has been replaced by Next.js routes. `npm run bui
 
 ## The experience
 
-- **Lobby `/`** — four entrances; persistent room switcher, skyline, and effects control.
+- **Lobby `/`** — four main entrances plus a Game Room link; persistent room switcher, skyline, random-song button, and effects control.
 - **Records `/records`** — featured projects or all releases, with `/records/[id]` detail pages.
 - **Eras `/eras`** — six chapters with their own `/eras/[id]` stories and records.
 - **Listening Room `/listening-room`** — server-side search, mood/release/era/explicit filters, sorting, pagination, and browser-local favorites. Press `/` to search.
@@ -155,3 +159,13 @@ The collection reflects the supplied library, not a claim to contain every recor
 - The Toronto nightscape is original AI-generated editorial artwork, an imagined view rather than a documentary photograph.
 
 Independent fan-made project. Not affiliated with Drake, OVO, Spotify, or Apple Music.
+
+## License and permissions
+
+Copyright (c) 2026 Jeffjone. All rights reserved in the original, copyrightable project material owned by Jeffjone. See [LICENSE](LICENSE) for the governing terms.
+
+Without prior written permission, you may not copy, modify, redistribute, sell, sublicense, or deploy that material as another website or product, except as permitted by applicable law or the license's express exceptions. Giving credit alone does not grant permission. Request permission from [Jeffjone on GitHub](https://github.com/Jeffjone); permission must be explicitly granted in writing.
+
+This notice does not claim ownership of Drake's music, lyrics, album artwork, third-party trademarks, factual catalog data, or other third-party material. Dependencies and separately licensed assets retain their own terms. The AI-generated skyline is subject only to rights that actually exist under applicable law.
+
+Visitors may use the deployed site through its intended interface. This license does not prevent copying technically or override rights granted under [GitHub's Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service), including viewing and forking a public repository within GitHub. See [GitHub's licensing guidance](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository). Keep the repository private if source access should be limited to authorized collaborators; browser-delivered site assets remain accessible to visitors.
