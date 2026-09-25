@@ -1,8 +1,8 @@
-# WE LOVE OVO / Toronto After Dark
+# weloveovo
 
 A cinematic Drake discovery and learning app: five rooms over a persistent Toronto nightscape, connected by a branching timeline of eras, records, tracks, artists, and milestones. Explore song cards, open a random song, or learn the catalog through four quiz modes. The app preserves the original 414-track collection, 117 releases, 104 credited artists, and six career chapters.
 
-[Visit WE LOVE OVO](https://www.weloveovo.com) · [Game Room](https://www.weloveovo.com/games) · [License](LICENSE)
+[Visit weloveovo](https://www.weloveovo.com) · [Game Room](https://www.weloveovo.com/games) · [License](LICENSE)
 
 **Proprietary project — all rights reserved.** The original code, design, and project content are not offered under an open-source license. Reuse requires the rights holder's written permission, subject to the exceptions in [LICENSE](LICENSE).
 

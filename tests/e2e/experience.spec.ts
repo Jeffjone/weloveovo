@@ -7,7 +7,9 @@ test('lobby and room routes support direct visits, history and refresh', async (
       errors.push(message.text());
   });
   await page.goto('/');
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('TORONTO');
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('weloveovo');
+  await expect(page).toHaveTitle('weloveovo');
+  await expect(page.getByRole('link', { name: 'weloveovo home' })).toBeVisible();
   await expect(page.getByRole('region', { name: 'Choose a room' })).toBeVisible();
   await page.getByRole('region', { name: 'Choose a room' }).getByRole('link').first().click();
   await expect(page).toHaveURL(/\/records$/);

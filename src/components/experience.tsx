@@ -214,12 +214,12 @@ export function ExperienceProvider({ children }: { children: ReactNode }) {
           Skip to content
         </a>
         <header className={s.header}>
-          <Link href="/" className={s.brand} aria-label="OVO After Dark home">
+          <Link href="/" className={s.brand} aria-label="weloveovo home">
             <span className={s.brandMark}>
               <AudioLines size={24} />
             </span>
             <span>
-              WE LOVE OVO<small>TORONTO AFTER DARK</small>
+              weloveovo<small>TORONTO BY HEART</small>
             </span>
           </Link>
           <nav className={s.navigation} aria-label="Main navigation">

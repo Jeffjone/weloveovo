@@ -60,9 +60,7 @@ export default async function HomePage() {
         <div className={s.heroCopy}>
           <p className={s.kicker}>WELCOME TO THE OTHER SIDE OF MIDNIGHT</p>
           <h1>
-            TORONTO
-            <br />
-            <span>AFTER DARK.</span>
+            welove<span>ovo</span>
           </h1>
           <p className={s.deck}>
             One city. A thousand memories.
