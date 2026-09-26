@@ -458,3 +458,7 @@
     display: none;
   }
 }
+
+.environment[data-room='vault'] .city {
+  filter: saturate(0.6) brightness(0.65);
+}

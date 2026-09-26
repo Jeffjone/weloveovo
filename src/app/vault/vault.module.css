@@ -1,0 +1,32 @@
+.note {
+  color: #a5bfd1;
+  max-width: 780px;
+  line-height: 1.8;
+}
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: end;
+  margin: 32px 0;
+}
+.filters label {
+  display: grid;
+  gap: 10px;
+  flex: 1 1 240px;
+  color: #c0dcee;
+}
+.filters input,
+.filters select {
+  min-width: 0;
+  width: 100%;
+  padding: 14px;
+  background: #0a1726;
+  border: 1px solid #536f89;
+  border-radius: 6px;
+  color: #e4f3ff;
+  font: inherit;
+}
+.empty {
+  padding: 40px 0;
+}

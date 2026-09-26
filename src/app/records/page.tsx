@@ -21,7 +21,7 @@ export default async function Records({
       <div className={ui.sectionBar}>
         <h2>{all ? 'The complete collection' : 'The essential shelf'}</h2>
         <Link href={all ? '/records' : '/records?all=true'}>
-          {all ? 'Featured projects' : 'All 117 releases'} ↗
+          {all ? 'Featured projects' : 'All releases'} ↗
         </Link>
       </div>
       <div className={ui.recordGrid}>

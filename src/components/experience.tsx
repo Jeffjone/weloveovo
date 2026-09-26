@@ -54,6 +54,7 @@ export const rooms = [
   },
   { href: '/legacy', label: 'The legacy', subtitle: 'Bigger than the music.', number: '04' },
   { href: '/games', label: 'The game room', subtitle: 'Know it by heart.', number: '05' },
+  { href: '/vault', label: 'The vault', subtitle: 'Beyond the official record.', number: '06' },
 ];
 export function ExperienceProvider({ children }: { children: ReactNode }) {
   const path = usePathname();

@@ -23,11 +23,13 @@ async function main() {
         '002_security.sql',
         '003_external_catalog.sql',
         '004_genius_metadata.sql',
+        '005_early_records_vault.sql',
       ])
         await db.exec(await readFile('supabase/migrations/' + file, 'utf8'));
       console.log('Schema and access policies applied.');
     } else if (process.argv[2] === 'seed') {
       await seed(db, console.log);
+      await db.exec(await readFile('supabase/migrations/005_early_records_vault.sql', 'utf8'));
       console.log('Catalog imported. Existing curator edits were retained.');
     } else throw new Error('Use migrate or seed.');
   } finally {

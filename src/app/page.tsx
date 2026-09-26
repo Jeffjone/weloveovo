@@ -8,6 +8,7 @@ import {
   Orbit,
   Network,
   Gamepad2,
+  Archive,
 } from 'lucide-react';
 import { statistics } from '@/lib/catalog';
 import s from './home.module.css';
@@ -44,6 +45,14 @@ const entrances = [
     icon: Orbit,
     number: '04',
     image: 'scorpion.jpg',
+  },
+  {
+    href: '/vault',
+    title: 'The vault',
+    description: 'Unreleased recordings. Fragments. Freestyle references.',
+    icon: Archive,
+    number: '06',
+    image: 'dark-lane-demo-tapes.jpg',
   },
 ];
 export default async function HomePage() {

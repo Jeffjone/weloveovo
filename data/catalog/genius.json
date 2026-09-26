@@ -3,7 +3,7 @@
     {
       "id": "genius-album-31785",
       "title": "So Far Gone (EP)",
-      "release_date": "",
+      "release_date": "2009-09-15",
       "cover_url": "https://images.genius.com/4154dcf4deec4daf8f1dea65de8ab9b1.1000x1000x1.png",
       "apple_url": null,
       "featured": false
@@ -43,7 +43,7 @@
     {
       "id": "genius-album-348688",
       "title": "Young Sweet Jones 2",
-      "release_date": "",
+      "release_date": "2010-09-17",
       "cover_url": "https://images.genius.com/d0129f5c63f1ee10f591e6ce8849c5c5.500x500x1.jpg",
       "apple_url": null,
       "featured": false
@@ -67,10 +67,10 @@
     {
       "id": "genius-album-2622",
       "title": "Comeback Season",
-      "release_date": "",
+      "release_date": "2007-09-01",
       "cover_url": "https://images.genius.com/866a4a7df935705e834f236499d617c6.1000x1000x1.jpg",
       "apple_url": null,
-      "featured": false
+      "featured": true
     },
     {
       "id": "genius-album-1236",
@@ -131,10 +131,10 @@
     {
       "id": "genius-album-2625",
       "title": "Room for Improvement",
-      "release_date": "",
+      "release_date": "2006-02-14",
       "cover_url": "https://images.genius.com/b0d2206f7edb32fcd8ddcfeb008ddc98.500x500x1.jpg",
       "apple_url": null,
-      "featured": false
+      "featured": true
     },
     {
       "id": "genius-album-924577",
@@ -171,7 +171,7 @@
     {
       "id": "genius-album-516437",
       "title": "Drake Demo Disc",
-      "release_date": "",
+      "release_date": "2006",
       "cover_url": "https://images.genius.com/01629aa5ac92c95d24b0b28cc19685c7.1000x1000x1.jpg",
       "apple_url": null,
       "featured": false

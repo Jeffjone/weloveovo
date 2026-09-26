@@ -1,6 +1,6 @@
 # weloveovo
 
-A cinematic Drake discovery and learning app: five rooms over a persistent Toronto nightscape, connected by a branching timeline of eras, records, tracks, artists, and milestones. Explore song cards, open a random song, or learn the catalog through four quiz modes and a song-naming challenge. The catalog combines the original 414-track collection with additional Drake recordings and collaborations sourced from Genius, across six career chapters.
+A cinematic Drake discovery and learning app: six rooms over a persistent Toronto nightscape, connected by a branching timeline of eras, records, tracks, artists, and milestones. Explore song cards, open a random song, or learn the catalog through four quiz modes and a song-naming challenge. The catalog combines the original 414-track collection with additional Drake recordings and collaborations sourced from Genius, across six career chapters.
 
 [Visit weloveovo](https://www.weloveovo.com) · [Game Room](https://www.weloveovo.com/games) · [License](LICENSE)
 
@@ -8,12 +8,13 @@ A cinematic Drake discovery and learning app: five rooms over a persistent Toron
 
 ## The experience
 
-- **Lobby `/`** — four main entrances plus a Game Room link; persistent room switcher, skyline, random-song button, and effects control.
+- **Lobby `/`** — five main entrances plus a Game Room link; persistent room switcher, skyline, random-song button, and effects control.
 - **Records `/records`** — featured projects or all releases, with `/records/[id]` detail pages.
 - **Eras `/eras`** — six chapters with their own `/eras/[id]` stories and records.
 - **Listening Room `/listening-room`** — server-side search, mood/release/era/explicit filters, sorting, pagination, and browser-local favorites. Press `/` to search.
 - **Game Room `/games`** — ten-question learning rounds for song-to-release matching, album artwork, release years, and collaborators. Answers are checked on the server and explain the catalog connection. Replay missed questions; study counts stay in browser-local storage.
 - **Tracks `/tracks/[id]`** — musical traits, related tracks with explanations, Spotify, and published MP3 downloads.
+- **Vault `/vault`** — an empty archive prepared for unreleased recordings, leaks, snippets, and unrecorded freestyle references, with search and material filters ready for future entries.
 - **Legacy `/legacy`** — sourced stories and milestones.
 - **Connections `/connections`** — an expandable chronological graph with an equivalent list view. Tab to a node and press Enter or Space to expand it.
 

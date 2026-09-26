@@ -1,4 +1,6 @@
 'use client';
+import { releaseDate } from '@/lib/release-date';
+
 import { useEffect, useRef, useState, useTransition, useOptimistic } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Search, ArrowLeft, ArrowRight, Moon, Waves, Zap, Heart } from 'lucide-react';
@@ -165,7 +167,7 @@ export function Listening({
             <option value="">All releases</option>
             {releases.map((r) => (
               <option value={r.id} key={r.id}>
-                {r.title}
+                {r.title} — {releaseDate(r.release_date)}
               </option>
             ))}
           </select>

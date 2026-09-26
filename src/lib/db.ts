@@ -43,6 +43,12 @@ async function initialize(): Promise<Database> {
     ),
   );
   await seed(db);
+  await db.exec(
+    await readFile(
+      path.join(process.cwd(), 'supabase/migrations/005_early_records_vault.sql'),
+      'utf8',
+    ),
+  );
   return db;
 }
 export async function query<T>(text: string, params: unknown[] = []): Promise<T[]> {
