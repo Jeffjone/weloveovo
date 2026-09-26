@@ -277,3 +277,42 @@
     font-size: 34px;
   }
 }
+
+.memoryLabel {
+  display: block;
+  margin: 24px 0 10px;
+}
+.memoryInput {
+  background: #071520;
+  color: #ecf6ff;
+  border: 1px solid #658aa3;
+  padding: 14px;
+  border-radius: 6px;
+  font: inherit;
+  width: 100%;
+  min-width: 0;
+}
+.memoryForm {
+  display: flex;
+  gap: 12px;
+}
+.memoryForm button {
+  flex-shrink: 0;
+}
+.memorySongs {
+  columns: 2;
+  padding-left: 24px;
+  line-height: 2;
+  overflow-wrap: anywhere;
+}
+.memorySongs li {
+  break-inside: avoid;
+}
+@media (max-width: 600px) {
+  .memoryForm {
+    flex-direction: column;
+  }
+  .memorySongs {
+    columns: 1;
+  }
+}

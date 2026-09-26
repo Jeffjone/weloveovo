@@ -1,4 +1,4 @@
-import { Games } from '@/components/games';
+import { GameRoomGames } from '@/components/game-room';
 import { PageHeader, ui } from '@/components/ui';
 import { statistics } from '@/lib/catalog';
 import { gameMode } from '@/lib/game-server';
@@ -19,7 +19,7 @@ export default async function GameRoom({
         title="Know it by heart."
         description="Turn a familiar sound into a familiar story. Learn the songs, the records, and the people in between."
       />
-      <Games total={stats.tracks} initialMode={parsed.success ? parsed.data : 'release'} />
+      <GameRoomGames total={stats.tracks} initialMode={parsed.success ? parsed.data : 'release'} />
     </div>
   );
 }

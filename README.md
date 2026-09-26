@@ -1,6 +1,6 @@
 # weloveovo
 
-A cinematic Drake discovery and learning app: five rooms over a persistent Toronto nightscape, connected by a branching timeline of eras, records, tracks, artists, and milestones. Explore song cards, open a random song, or learn the catalog through four quiz modes. The catalog combines the original 414-track collection with additional Drake recordings and collaborations sourced from Genius, across six career chapters.
+A cinematic Drake discovery and learning app: five rooms over a persistent Toronto nightscape, connected by a branching timeline of eras, records, tracks, artists, and milestones. Explore song cards, open a random song, or learn the catalog through four quiz modes and a song-naming challenge. The catalog combines the original 414-track collection with additional Drake recordings and collaborations sourced from Genius, across six career chapters.
 
 [Visit weloveovo](https://www.weloveovo.com) · [Game Room](https://www.weloveovo.com/games) · [License](LICENSE)
 
@@ -24,6 +24,8 @@ Favorites stay in your browser. If storage is blocked, they work for the current
 The Listening Room defaults to clickable song cards, with a URL-backed Track list option. Every song file includes a reading section generated from its catalog metadata, performer credits, and release edition. The header's Random song button selects a track on the server, excludes the current song, and opens its page without autoplay. The Game Room is linked from the lobby and Rooms menu. Quizzes use this collection's release editions, not claims about a song's earliest release.
 
 Learning progress records question totals and the songs you have studied. It stays in your browser, remains separate from favorites, and lasts only for the current visit when storage is blocked. Games are for personal practice, with no competitive scores or public account requirements.
+
+The Game Room also includes **Name Drake songs**: enter titles from memory with a 1-, 3-, 5-, or 10-minute timer, or choose no time limit. The server checks each title against the collection; punctuation, capitalization, and featured-artist credits are ignored, and repeated titles count once. Timed sessions show the number of songs named. Untimed sessions add fan-level milestones, from First listen to Legend of the 6. Naming progress lasts while the Game Room stays open; switching experiences keeps the session running, including its timer. Completed lists link to song pages.
 
 ## Content and credits
 
