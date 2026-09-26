@@ -1,5 +1,5 @@
-import original from '../../data/catalog.json';
-import additions from '../../data/genius-catalog.json';
+import original from '../../data/catalog/original.json';
+import additions from '../../data/catalog/genius.json';
 const catalog = {
   ...original,
   releases: [...original.releases, ...additions.releases],

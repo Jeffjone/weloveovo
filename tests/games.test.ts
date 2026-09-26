@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { gameDeck, checkAnswer, gameMode, answerInput } from '../src/lib/game-server';
 import { getTrack, randomTracks } from '../src/lib/catalog';
-import additions from '../data/genius-catalog.json';
+import additions from '../data/catalog/genius.json';
 import { readProgress } from '../src/lib/game-types';
 test('every game mode produces ten distinct, answerable questions without exposing the answer', async () => {
   for (const mode of gameMode.options) {

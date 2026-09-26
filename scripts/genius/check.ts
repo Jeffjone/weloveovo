@@ -1,4 +1,4 @@
-import { geniusClient } from '../src/lib/genius';
+import { geniusClient } from '../../src/lib/genius';
 
 async function main() {
   try {

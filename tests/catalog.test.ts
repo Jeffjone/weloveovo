@@ -14,14 +14,14 @@ import {
 import { seed } from '../src/lib/seed';
 import { saveContent } from '../src/lib/admin';
 import { suggestTracks, uploadSchema, looksLikeMP3, safeFilename } from '../src/lib/audio';
-import catalog from '../data/catalog.json';
-import additions from '../data/genius-catalog.json';
+import catalog from '../data/catalog/original.json';
+import additions from '../data/catalog/genius.json';
 const first = catalog.tracks[0];
 test('all original music metadata is preserved in normalized PostgreSQL tables', async () => {
   const rows = await query<{ raw: unknown }>(
     "SELECT raw FROM tracks WHERE id !~ '^genius-' ORDER BY rank",
   );
-  const original = JSON.parse(await readFile('data/tracks.json', 'utf8'));
+  const original = JSON.parse(await readFile('data/source/tracks.json', 'utf8'));
   assert.deepEqual(
     rows.map((r) => r.raw),
     original,

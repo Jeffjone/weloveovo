@@ -13,7 +13,7 @@ A cinematic Drake discovery and learning app: five rooms over a persistent Toron
 - **Eras `/eras`** — six chapters with their own `/eras/[id]` stories and records.
 - **Listening Room `/listening-room`** — server-side search, mood/release/era/explicit filters, sorting, pagination, and browser-local favorites. Press `/` to search.
 - **Game Room `/games`** — ten-question learning rounds for song-to-release matching, album artwork, release years, and collaborators. Answers are checked on the server and explain the catalog connection. Replay missed questions; study counts stay in browser-local storage.
-- **Tracks `/tracks/[spotifyId]`** — musical traits, related tracks with explanations, Spotify, and published MP3 downloads.
+- **Tracks `/tracks/[id]`** — musical traits, related tracks with explanations, Spotify, and published MP3 downloads.
 - **Legacy `/legacy`** — sourced stories and milestones.
 - **Connections `/connections`** — an expandable chronological graph with an equivalent list view. Tab to a node and press Enter or Space to expand it.
 
@@ -46,3 +46,24 @@ Without prior written permission, you may not copy, modify, redistribute, sell, 
 This notice does not claim ownership of Drake's music, lyrics, album artwork, third-party trademarks, factual catalog data, or other third-party material. Dependencies and separately licensed assets retain their own terms. The AI-generated skyline is subject only to rights that actually exist under applicable law.
 
 Visitors may use the deployed site through its intended interface. This license does not prevent copying technically or override rights granted under [GitHub's Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service), including viewing and forking a public repository within GitHub. See [GitHub's licensing guidance](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository).
+
+## Project map
+
+| Directory              | Contents                                                        |
+| ---------------------- | --------------------------------------------------------------- |
+| `src/app/`             | Pages, layouts, and API routes                                  |
+| `src/components/`      | Interactive experiences and their CSS Modules                   |
+| `src/lib/`             | Catalog queries, authentication, integrations, and shared logic |
+| `public/assets/`       | Album artwork, fonts, Toronto background, and `brand/` favicon  |
+| `data/catalog/`        | Original and Genius catalog seeds                               |
+| `data/source/`         | Original source metadata                                        |
+| `data/review/`         | Curated Genius import decisions                                 |
+| `reports/genius/`      | Complete import audit and readable review lists                 |
+| `scripts/genius/`      | Catalog discovery, comparison, reporting, and import tools      |
+| `scripts/database/`    | Database maintenance tools                                      |
+| `supabase/migrations/` | Versioned database schema and policies                          |
+| `tests/`               | Backend, UI, and integration tests; browser checks in `e2e/`    |
+
+Framework and tool configuration stays at the repository root. Local credentials, caches, audio uploads, and generated build artifacts are excluded from Git.
+
+See the [excluded and uncertain entries](reports/genius/excluded-and-uncertain.md) and [duplicate entries](reports/genius/duplicates.md) for the catalog review, including reasons and Genius source links.

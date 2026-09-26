@@ -11,14 +11,15 @@
     "test": "node --import tsx --test tests/*.test.ts",
     "test:ui": "vitest run",
     "test:e2e": "playwright test",
-    "genius:apply": "node --env-file-if-exists=.env.local --import tsx scripts/genius-apply.ts",
-    "genius:fetch": "node --env-file-if-exists=.env.local scripts/genius-fetch.cjs",
-    "genius:plan": "node --import tsx scripts/genius-import.ts",
-    "genius:check": "node --env-file-if-exists=.env.local --conditions=react-server --import tsx scripts/genius.ts",
-    "db:migrate": "node --env-file-if-exists=.env.local --import tsx scripts/database.ts migrate",
-    "db:seed": "node --env-file-if-exists=.env.local --import tsx scripts/database.ts seed",
+    "genius:apply": "node --env-file-if-exists=.env.local --import tsx scripts/genius/apply.ts",
+    "genius:fetch": "node --env-file-if-exists=.env.local scripts/genius/fetch.cjs",
+    "genius:plan": "node --import tsx scripts/genius/plan.ts && npm run genius:report",
+    "genius:check": "node --env-file-if-exists=.env.local --conditions=react-server --import tsx scripts/genius/check.ts",
+    "db:migrate": "node --env-file-if-exists=.env.local --import tsx scripts/database/manage.ts migrate",
+    "db:seed": "node --env-file-if-exists=.env.local --import tsx scripts/database/manage.ts seed",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "genius:report": "node --import tsx scripts/genius/report.ts"
   },
   "engines": {
     "node": ">=22.0.0"

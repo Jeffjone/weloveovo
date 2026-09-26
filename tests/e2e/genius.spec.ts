@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import additions from '../../data/genius-catalog.json';
+import additions from '../../data/catalog/genius.json';
 test('Genius-only songs support direct pages, favorites, and source links without fake playback', async ({
   page,
 }) => {

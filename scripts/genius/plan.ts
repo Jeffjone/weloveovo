@@ -1,13 +1,13 @@
 import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
-import catalog from '../data/catalog.json';
-import type { Release } from '../src/lib/types';
+import catalog from '../../data/catalog/original.json';
+import type { Release } from '../../src/lib/types';
 import {
   titleKey,
   alternateKey,
   versionKey,
   exclusion,
   type GeniusEntry,
-} from '../src/lib/genius-import';
+} from '../../src/lib/genius-import';
 const directory = '.data/genius';
 const list: GeniusEntry[] = JSON.parse(readFileSync(directory + '/list.json', 'utf8'));
 const files = new Set(readdirSync(directory));
@@ -22,8 +22,8 @@ const existing = JSON.parse(readFileSync('.data/hosted-catalog-before.json', 'ut
   artist_names: string[];
   raw: Record<string, unknown>;
 }[];
-const previous = existsSync('data/genius-catalog.json')
-  ? (JSON.parse(readFileSync('data/genius-catalog.json', 'utf8')) as {
+const previous = existsSync('data/catalog/genius.json')
+  ? (JSON.parse(readFileSync('data/catalog/genius.json', 'utf8')) as {
       tracks: Record<string, unknown>[];
       releases: Release[];
       artists: { id: string; name: string }[];
@@ -36,7 +36,7 @@ const retainedArtists = new Set(retained.flatMap((t) => t.artist_ids as string[]
 const reviewed: Record<
   string,
   { action: 'exclude' | 'include' | 'duplicate' | 'review'; reason: string; existingId?: string }
-> = JSON.parse(readFileSync('data/genius-review.json', 'utf8'));
+> = JSON.parse(readFileSync('data/review/genius-decisions.json', 'utf8'));
 const trusted = new Set([
   ...catalog.artists.map((a) => titleKey(a.name)),
   ...[
@@ -266,9 +266,9 @@ for (const song of songs) {
 }
 const used = new Set(tracks.map((t) => t.release_id));
 const result = { releases: newRecords.filter((r) => used.has(r.id)), artists: newArtists, tracks };
-writeFileSync('data/genius-catalog.json', JSON.stringify(result, null, 2) + '\n');
+writeFileSync('data/catalog/genius.json', JSON.stringify(result, null, 2) + '\n');
 writeFileSync(
-  'data/genius-import-report.json',
+  'reports/genius/import-audit.json',
   JSON.stringify(
     {
       artist_id: 130,

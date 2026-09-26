@@ -1,8 +1,8 @@
 import { readFile } from 'node:fs/promises';
 import postgres from 'postgres';
-import additions from '../data/genius-catalog.json';
-import { seedCatalog, type Database } from '../src/lib/seed';
-import { titleKey } from '../src/lib/genius-import';
+import additions from '../../data/catalog/genius.json';
+import { seedCatalog, type Database } from '../../src/lib/seed';
+import { titleKey } from '../../src/lib/genius-import';
 async function main() {
   if (!process.env.DATABASE_URL) throw new Error('Set DATABASE_URL.');
   const sql = postgres(process.env.DATABASE_URL, { prepare: false, max: 1, connect_timeout: 15 });

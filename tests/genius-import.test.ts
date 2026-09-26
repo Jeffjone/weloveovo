@@ -1,8 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import additions from '../data/genius-catalog.json';
-import report from '../data/genius-import-report.json';
-import original from '../data/catalog.json';
+import additions from '../data/catalog/genius.json';
+import report from '../reports/genius/import-audit.json';
+import original from '../data/catalog/original.json';
 import {
   titleKey,
   versionKey,

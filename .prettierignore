@@ -6,3 +6,4 @@ public
 playwright-report
 test-results
 next-env.d.ts
+reports/genius

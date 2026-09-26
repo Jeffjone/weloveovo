@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="night" x2="1" y2="1"><stop stop-color="#102943"/><stop offset="1" stop-color="#030914"/></linearGradient>
+    <linearGradient id="moon" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#edfbff"/><stop offset=".5" stop-color="#8ed5ff"/><stop offset="1" stop-color="#478cff"/></linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="17" fill="url(#night)"/>
+  <path d="M43 10a23 23 0 1 0 11 32A21 21 0 0 1 43 10Z" fill="url(#moon)"/>
+  <path d="m38 27 5 11 5-11" fill="none" stroke="#b8e8ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m51 12 1.5 4.5L57 18l-4.5 1.5L51 24l-1.5-4.5L45 18l4.5-1.5Z" fill="#d9f5ff"/>
+  <path d="M18 53h20" stroke="#8ed5ff" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+</svg>

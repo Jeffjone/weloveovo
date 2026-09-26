@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import postgres from 'postgres';
-import { seed, type Database } from '../src/lib/seed';
+import { seed, type Database } from '../../src/lib/seed';
 async function main() {
   if (!process.env.DATABASE_URL)
     throw new Error('Set DATABASE_URL before running hosted migrations or imports.');

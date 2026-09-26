@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   applicationName: 'weloveovo',
   description:
     'A city. A catalog. A world of connections. Explore Drake’s music, eras, and legacy after dark.',
-  icons: { icon: '/assets/favicon.svg' },
+  icons: { icon: '/assets/brand/moonlight.svg' },
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import additions from '../../data/genius-catalog.json';
+import additions from '../../data/catalog/genius.json';
 test('lobby and room routes support direct visits, history and refresh', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
