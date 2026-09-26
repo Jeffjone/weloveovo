@@ -3,7 +3,7 @@ import { adminContent } from '@/lib/admin';
 import { Curator, CuratorLogin } from '@/components/curator';
 import { PageHeader, ui } from '@/components/ui';
 export const dynamic = 'force-dynamic';
-export const metadata = { title: 'Curator studio', robots: { index: false, follow: false } };
+export const metadata = { title: 'Curator Studio', robots: { index: false, follow: false } };
 export default async function Admin({
   searchParams,
 }: {
@@ -14,12 +14,12 @@ export default async function Admin({
       <div className={ui.container}>
         <PageHeader
           number="00"
-          eyebrow="Curator studio"
-          title="The story behind the story."
+          eyebrow="Curator Studio"
+          title="The Story Behind the Story."
           description="This private workspace connects to your hosted archive."
         />
         <div className={ui.empty}>
-          <h2>Connect your curator workspace.</h2>
+          <h2>Connect Your Curator Workspace.</h2>
           <p>
             The public archive is available. Curator sign-in and audio uploads become available once
             Supabase, storage, and your invited account are configured.
@@ -33,8 +33,8 @@ export default async function Admin({
     <div className={ui.container}>
       <PageHeader
         number="00"
-        eyebrow="Curator studio"
-        title="Look after the archive."
+        eyebrow="Curator Studio"
+        title="Look After the Archive."
         description="The catalog, the connections, and the stories that make this world yours."
       />
       {user ? (

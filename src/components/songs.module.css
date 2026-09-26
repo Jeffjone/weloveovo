@@ -43,7 +43,7 @@
   display: flex;
   justify-content: space-between;
   background: linear-gradient(transparent, #07111eef);
-  font: 8px var(--mono);
+  font: 10px var(--mono);
   letter-spacing: 0.12em;
   color: #e0effb;
 }
@@ -51,11 +51,11 @@
   padding: 18px 17px 14px;
 }
 .meta {
-  font: 9px var(--mono);
+  font: 10px var(--mono);
   color: #9abbcf;
 }
 .copy h3 {
-  font: 500 30px/1.08 var(--display);
+  font: 500 24px/1.08 var(--display);
   margin: 12px 0 8px;
   overflow-wrap: anywhere;
 }
@@ -79,7 +79,7 @@
   border-top: 1px solid #86aed021;
 }
 .cardFooter > span {
-  font: 7px var(--mono);
+  font: 10px var(--mono);
   color: #7896ad;
   letter-spacing: 0.1em;
 }

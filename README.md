@@ -28,6 +28,10 @@ Learning progress records question totals and the songs you have studied. It sta
 
 The Game Room also includes **Name Drake songs**: enter titles from memory with a 1-, 3-, 5-, or 10-minute timer, or choose no time limit. The server checks each title against the collection; punctuation, capitalization, and featured-artist credits are ignored, and repeated titles count once. Timed sessions show the number of songs named. Untimed sessions add fan-level milestones, from First listen to Legend of the 6. Naming progress lasts while the Game Room stays open; switching experiences keeps the session running, including its timer. Completed lists link to song pages.
 
+## Typography
+
+Space Grotesk gives headings their geometric character; Manrope carries reading text, and IBM Plex Mono marks navigation details and metadata. Font files are served locally, with their SIL Open Font Licenses in `public/assets/fonts/`. Interface headings and controls use title case; the weloveovo wordmark and original music titles retain their spelling.
+
 ## Content and credits
 
 The collection reflects the supplied library, not a claim to contain every recording or every version.

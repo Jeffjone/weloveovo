@@ -41,20 +41,20 @@ export const useExperience = () => useContext(Context);
 export const rooms = [
   {
     href: '/records',
-    label: 'The records',
+    label: 'The Records',
     subtitle: 'Every record. A different world.',
     number: '01',
   },
-  { href: '/eras', label: 'The eras', subtitle: 'Follow the evolution.', number: '02' },
+  { href: '/eras', label: 'The Eras', subtitle: 'Follow the evolution.', number: '02' },
   {
     href: '/listening-room',
-    label: 'The listening room',
-    subtitle: 'Find your frequency.',
+    label: 'The Listening Room',
+    subtitle: 'Find Your Frequency.',
     number: '03',
   },
-  { href: '/legacy', label: 'The legacy', subtitle: 'Bigger than the music.', number: '04' },
-  { href: '/games', label: 'The game room', subtitle: 'Know it by heart.', number: '05' },
-  { href: '/vault', label: 'The vault', subtitle: 'Beyond the official record.', number: '06' },
+  { href: '/legacy', label: 'The Legacy', subtitle: 'Bigger than the music.', number: '04' },
+  { href: '/games', label: 'The Game Room', subtitle: 'Know It by Heart.', number: '05' },
+  { href: '/vault', label: 'The Vault', subtitle: 'Beyond the Official Record.', number: '06' },
 ];
 export function ExperienceProvider({ children }: { children: ReactNode }) {
   const path = usePathname();
@@ -270,7 +270,7 @@ export function ExperienceProvider({ children }: { children: ReactNode }) {
               onClick={toggleEffects}
               aria-pressed={effects}
               aria-label={effects ? 'Turn ambient effects off' : 'Turn ambient effects on'}
-              title={ready && reduced ? 'Reduced motion is active' : 'Ambient effects'}
+              title={ready && reduced ? 'Reduced Motion Is Active' : 'Ambient Effects'}
             >
               {effects ? <Sparkles size={16} /> : <Pause size={16} />}
             </button>
@@ -307,12 +307,12 @@ export function ExperienceProvider({ children }: { children: ReactNode }) {
               </a>
               <button
                 onClick={() => setCollapsed(!collapsed)}
-                aria-label={collapsed ? 'Expand player' : 'Collapse player'}
+                aria-label={collapsed ? 'Expand Player' : 'Collapse Player'}
                 aria-expanded={!collapsed}
               >
                 {collapsed ? <ChevronUp size={17} /> : <ChevronDown size={17} />}
               </button>
-              <button onClick={() => setPlaying(null)} aria-label="Close player">
+              <button onClick={() => setPlaying(null)} aria-label="Close Player">
                 <X size={17} />
               </button>
             </div>

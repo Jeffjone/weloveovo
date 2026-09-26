@@ -3,25 +3,25 @@ import type { Track } from './types';
 export const gameModes = [
   {
     id: 'release',
-    title: 'Find the record',
+    title: 'Find the Record',
     description: 'You know the song. Can you place it on the shelf?',
     label: 'SONGS → RECORDS',
   },
   {
     id: 'cover',
-    title: 'Cover to cover',
+    title: 'Cover to Cover',
     description: 'Recognize the artwork. Remember the world inside.',
     label: 'THE VISUAL MEMORY',
   },
   {
     id: 'year',
-    title: 'Place the moment',
+    title: 'Place the Moment',
     description: 'Put a release on the timeline. Build the bigger picture.',
     label: 'THE DISCOGRAPHY',
   },
   {
     id: 'credits',
-    title: 'Who’s on the track?',
+    title: 'Who’s on the Track?',
     description: 'Get to know the voices sharing the record.',
     label: 'THE COLLABORATORS',
   },

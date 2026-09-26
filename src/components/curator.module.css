@@ -31,7 +31,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font: 9px var(--mono);
+  font: 10px var(--mono);
   color: #829fb8;
   margin: 10px 0 24px;
 }
@@ -117,7 +117,7 @@
   background: #0b1b2c99;
 }
 .preview > span {
-  font: 9px var(--mono);
+  font: 10px var(--mono);
   color: #86b2d1;
 }
 .preview h2 {
@@ -171,7 +171,7 @@
   color: #a7c7de;
 }
 .upload strong {
-  font: 500 30px var(--display);
+  font: 500 24px var(--display);
 }
 .upload > span {
   font-size: 11px;

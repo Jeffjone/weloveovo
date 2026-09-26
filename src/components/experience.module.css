@@ -93,7 +93,7 @@
 }
 .brand small {
   display: block;
-  font: 8px var(--mono);
+  font: 10px var(--mono);
   letter-spacing: 0.23em;
   color: #7e93ab;
   margin-top: 6px;
@@ -156,7 +156,7 @@
   background: #142335;
 }
 .dropdown a span {
-  font: 9px var(--mono);
+  font: 10px var(--mono);
   color: #6f8daa;
 }
 .dropdown a svg {
@@ -168,7 +168,7 @@
   gap: 24px;
 }
 .clock {
-  font: 9px var(--mono);
+  font: 10px var(--mono);
   display: flex;
   align-items: center;
   gap: 9px;
@@ -211,7 +211,7 @@
   gap: 18px;
   border-top: 1px solid #bdd4ec13;
   color: #607389;
-  font: 8px var(--mono);
+  font: 10px var(--mono);
   letter-spacing: 0.07em;
 }
 .footer > span:nth-child(2) {

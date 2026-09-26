@@ -15,7 +15,7 @@ test('lobby and room routes support direct visits, history and refresh', async (
   await page.getByRole('region', { name: 'Choose a room' }).getByRole('link').first().click();
   await expect(page).toHaveURL(/\/records$/);
   await page.reload();
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Every cover');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Every Cover');
   await page.goBack();
   await expect(page).toHaveURL(/\/$/);
   for (const route of ['/eras', '/legacy', '/records/take-care-deluxe', '/eras/the-blue-hour']) {
@@ -45,7 +45,7 @@ test('search, URL filters, pagination and favorites survive navigation', async (
   await expect(
     page.getByRole('button', { name: 'Favorite Marvins Room', exact: true }),
   ).toHaveAttribute('aria-pressed', 'true');
-  await page.getByRole('button', { name: 'Your collection' }).click();
+  await page.getByRole('button', { name: 'Your Collection' }).click();
   await expect(page.getByRole('status').first()).toContainText('1 TRACKS');
   await page.getByRole('button', { name: 'Favorite Marvins Room', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Make this room yours.' })).toBeVisible();
@@ -53,7 +53,7 @@ test('search, URL filters, pagination and favorites survive navigation', async (
   await expect(page.getByRole('status').first()).toContainText(
     `${414 + additions.tracks.length} TRACKS`,
   );
-  await page.getByRole('button', { name: 'Next page', exact: true }).click();
+  await page.getByRole('button', { name: 'Next Page', exact: true }).click();
   await expect(page).toHaveURL(/page=2/);
   await expect(page.getByRole('status').first()).toContainText('PAGE 2');
   await page.getByLabel('Sort tracks').selectOption('title');
@@ -65,7 +65,7 @@ test('search, URL filters, pagination and favorites survive navigation', async (
 });
 test('all moods filter and clear without losing browser history', async ({ page }) => {
   await page.goto('/listening-room');
-  for (const mood of ['After hours', 'The long way home', 'Headlines']) {
+  for (const mood of ['After Hours', 'The Long Way Home', 'Headlines']) {
     await page.getByRole('button', { name: new RegExp(mood) }).click();
     await expect(page).toHaveURL(/mood=/);
     await expect(page.getByRole('button', { name: new RegExp(mood) })).toHaveAttribute(
@@ -93,16 +93,16 @@ test('Spotify is user initiated and its frame survives room navigation', async (
   await page.getByRole('button', { name: 'Rooms' }).click();
   await page
     .locator('#room-switcher')
-    .getByRole('link', { name: /The eras/ })
+    .getByRole('link', { name: /The Eras/ })
     .click();
   await expect(page).toHaveURL(/\/eras$/);
   await expect(frame).toHaveAttribute('src', source!);
   await expect(frame).toHaveAttribute('data-test-persistent', 'yes');
-  await page.getByRole('button', { name: 'Collapse player' }).click();
+  await page.getByRole('button', { name: 'Collapse Player' }).click();
   await expect(frame).toBeHidden();
-  await page.getByRole('button', { name: 'Expand player' }).click();
+  await page.getByRole('button', { name: 'Expand Player' }).click();
   await expect(frame).toBeVisible();
-  await page.getByRole('button', { name: 'Close player' }).click();
+  await page.getByRole('button', { name: 'Close Player' }).click();
   await expect(frame).toHaveCount(0);
 });
 test('map and list expose the same graph, with expandable nodes', async ({ page }) => {
@@ -145,10 +145,10 @@ test('anonymous admin mutations and unavailable downloads fail safely', async ({
   expect((await request.get('/api/tracks/1qIwin7JMVuX70qN6wD8ww/download')).status()).toBe(404);
   await page.goto('/admin');
   await expect(
-    page.getByRole('heading', { name: 'Connect your curator workspace.' }),
+    page.getByRole('heading', { name: 'Connect Your Curator Workspace.' }),
   ).toBeVisible();
   await page.goto('/tracks/not-a-valid-track');
-  await expect(page.getByRole('heading', { name: 'This room isn’t on the map.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'This Room Isn’t on the Map.' })).toBeVisible();
 });
 test('mobile layouts, effects preference, reduced motion and local collection fallback', async ({
   page,

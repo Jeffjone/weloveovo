@@ -3,7 +3,7 @@ import { PageHeader, ui } from '@/components/ui';
 import { statistics } from '@/lib/catalog';
 import { gameMode } from '@/lib/game-server';
 export const dynamic = 'force-dynamic';
-export const metadata = { title: 'The game room' };
+export const metadata = { title: 'The Game Room' };
 export default async function GameRoom({
   searchParams,
 }: {
@@ -15,8 +15,8 @@ export default async function GameRoom({
     <div className={ui.container}>
       <PageHeader
         number="05"
-        eyebrow="The game room"
-        title="Know it by heart."
+        eyebrow="The Game Room"
+        title="Know It by Heart."
         description="Turn a familiar sound into a familiar story. Learn the songs, the records, and the people in between."
       />
       <GameRoomGames total={stats.tracks} initialMode={parsed.success ? parsed.data : 'release'} />

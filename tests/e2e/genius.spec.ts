@@ -20,7 +20,7 @@ test('Genius-only songs support direct pages, favorites, and source links withou
   ).toHaveAttribute('aria-pressed', 'true');
   await page.goto('/listening-room?favorites=true');
   // Select the collection tab through the public UI; it supplies browser-local IDs.
-  await page.getByRole('button', { name: 'Your collection' }).click();
+  await page.getByRole('button', { name: 'Your Collection' }).click();
   await expect(
     page.getByRole('link', { name: `Read about ${song.title}`, exact: true }),
   ).toBeVisible();

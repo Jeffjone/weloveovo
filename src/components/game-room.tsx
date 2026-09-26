@@ -14,14 +14,14 @@ export function GameRoomGames({ total, initialMode }: { total: number; initialMo
           aria-pressed={!naming}
           onClick={() => setNaming(false)}
         >
-          Catalog quizzes
+          Catalog Quizzes
         </button>
         <button
           className={naming ? ui.primaryButton : ui.outlineButton}
           aria-pressed={naming}
           onClick={() => setNaming(true)}
         >
-          Name Drake songs
+          Name Drake Songs
         </button>
       </div>
       <p>

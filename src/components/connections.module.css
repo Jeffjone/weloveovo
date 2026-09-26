@@ -50,7 +50,7 @@
   box-shadow: 0 0 25px #7ab7e225;
 }
 .nodeType {
-  font: 7px var(--mono);
+  font: 10px var(--mono);
   color: #7aa6c7;
   letter-spacing: 0.18em;
 }
@@ -61,7 +61,7 @@
   margin: 9px 0;
 }
 .nodeIdentity strong {
-  font: 500 21px/1.1 var(--display);
+  font: 500 18px/1.1 var(--display);
 }
 .nodeIdentity img {
   width: 32px;
@@ -71,7 +71,7 @@
 .node small {
   display: block;
   color: #7492aa;
-  font: 8px var(--mono);
+  font: 10px var(--mono);
   max-width: 170px;
   white-space: nowrap;
   overflow: hidden;
@@ -141,7 +141,7 @@
   gap: 5px;
 }
 .list button span {
-  font: 7px var(--mono);
+  font: 10px var(--mono);
   text-transform: uppercase;
   color: #739dbf;
 }
@@ -158,7 +158,7 @@
   color: #a7cee9;
 }
 .mapNote {
-  font: 8px var(--mono);
+  font: 10px var(--mono);
   color: #6e8da5;
   margin-top: 17px;
   line-height: 1.8;

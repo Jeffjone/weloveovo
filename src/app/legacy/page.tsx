@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { milestones } from '@/lib/catalog';
 import { PageHeader, ui } from '@/components/ui';
 export const dynamic = 'force-dynamic';
-export const metadata = { title: 'The legacy' };
+export const metadata = { title: 'The Legacy' };
 export default async function Legacy() {
   const moments = await milestones();
   return (
@@ -10,7 +10,7 @@ export default async function Legacy() {
       <PageHeader
         number="04"
         eyebrow="Beyond the records"
-        title="A city in his voice."
+        title="A City in His Voice."
         description="The hometown and the whole world. The melody and the verse. A story that keeps unfolding."
       />
       <section className={ui.narrative}>
@@ -46,7 +46,7 @@ export default async function Legacy() {
         </div>
       </section>
       <div className={ui.sectionBar}>
-        <h2>Moments in the story</h2>
+        <h2>Moments in the Story</h2>
         <Link href="/connections">See how they connect ↗</Link>
       </div>
       {moments.map((m) => (

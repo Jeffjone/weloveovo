@@ -16,7 +16,7 @@ export const dynamic = 'force-dynamic';
 const entrances = [
   {
     href: '/records',
-    title: 'The records',
+    title: 'The Records',
     description: 'The albums. The deep cuts. The feeling.',
     icon: Disc3,
     number: '01',
@@ -24,7 +24,7 @@ const entrances = [
   },
   {
     href: '/eras',
-    title: 'The eras',
+    title: 'The Eras',
     description: 'Every chapter changed the story.',
     icon: Route,
     number: '02',
@@ -32,7 +32,7 @@ const entrances = [
   },
   {
     href: '/listening-room',
-    title: 'The listening room',
+    title: 'The Listening Room',
     description: 'Late nights have a frequency.',
     icon: Radio,
     number: '03',
@@ -40,15 +40,15 @@ const entrances = [
   },
   {
     href: '/legacy',
-    title: 'The legacy',
-    description: 'A city in his voice. A world in the echoes.',
+    title: 'The Legacy',
+    description: 'A City in His Voice. A world in the echoes.',
     icon: Orbit,
     number: '04',
     image: 'scorpion.jpg',
   },
   {
     href: '/vault',
-    title: 'The vault',
+    title: 'The Vault',
     description: 'Unreleased recordings. Fragments. Freestyle references.',
     icon: Archive,
     number: '06',
@@ -77,7 +77,7 @@ export default async function HomePage() {
             Step inside the sound, the stories, and the world of Drake.
           </p>
           <Link href="/listening-room" className={s.enter}>
-            Find your frequency <ArrowRight size={17} />
+            Find Your Frequency <ArrowRight size={17} />
           </Link>
         </div>
         <div className={s.heroAside}>

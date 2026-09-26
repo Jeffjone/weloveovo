@@ -18,14 +18,14 @@ test('early releases display corrected dates and Demo Disc in the era', async ({
 test('vault is an empty mobile-accessible room with shareable filters', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/vault');
-  await expect(page.getByRole('heading', { name: 'Nothing filed here yet.' })).toBeVisible();
-  await page.getByLabel('Material type').selectOption('snippet');
-  await page.getByRole('button', { name: 'Search vault' }).click();
+  await expect(page.getByRole('heading', { name: 'Nothing Filed Here Yet.' })).toBeVisible();
+  await page.getByLabel('Material Type').selectOption('snippet');
+  await page.getByRole('button', { name: 'Search Vault' }).click();
   await expect(page).toHaveURL(/category=snippet/);
   await page.reload();
-  await expect(page.getByLabel('Material type')).toHaveValue('snippet');
+  await expect(page.getByLabel('Material Type')).toHaveValue('snippet');
   await page.getByRole('link', { name: 'Reset', exact: true }).click();
   await expect(page).toHaveURL(/\/vault$/);
   await page.getByRole('button', { name: 'Rooms', exact: true }).click();
-  await expect(page.getByRole('link', { name: /The vault/ })).toBeVisible();
+  await expect(page.getByRole('link', { name: /The Vault/ })).toBeVisible();
 });

@@ -104,10 +104,10 @@ export function Listening({
     <>
       <div className={s.moods} aria-label="Choose a mood">
         {[
-          { id: 'night', label: 'After hours', text: 'Low light. Loud thoughts.', icon: Moon },
+          { id: 'night', label: 'After Hours', text: 'Low light. Loud thoughts.', icon: Moon },
           {
             id: 'drive',
-            label: 'The long way home',
+            label: 'The Long Way Home',
             text: 'One more song. One more exit.',
             icon: Waves,
           },
@@ -141,7 +141,7 @@ export function Listening({
           aria-pressed={saved}
           onClick={() => update('saved', 'true')}
         >
-          <Heart size={13} /> Your collection <span>{favorites.length}</span>
+          <Heart size={13} /> Your Collection <span>{favorites.length}</span>
         </button>
       </div>
       <div className={s.filters}>
@@ -164,7 +164,7 @@ export function Listening({
             value={filterParams.get('release') || ''}
             onChange={(e) => update('release', e.target.value)}
           >
-            <option value="">All releases</option>
+            <option value="">All Releases</option>
             {releases.map((r) => (
               <option value={r.id} key={r.id}>
                 {r.title} — {releaseDate(r.release_date)}
@@ -178,7 +178,7 @@ export function Listening({
             value={filterParams.get('era') || ''}
             onChange={(e) => update('era', e.target.value)}
           >
-            <option value="">All eras</option>
+            <option value="">All Eras</option>
             {eras.map((e) => (
               <option value={e.id} key={e.id}>
                 {e.start_year}–{e.end_year}
@@ -192,10 +192,10 @@ export function Listening({
             value={filterParams.get('sort') || 'rank'}
             onChange={(e) => update('sort', e.target.value)}
           >
-            <option value="rank">Collection order</option>
+            <option value="rank">Collection Order</option>
             <option value="title">Title A–Z</option>
-            <option value="newest">Newest first</option>
-            <option value="oldest">Oldest first</option>
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
             <option value="energy">Energy</option>
             <option value="popularity">Popularity</option>
           </select>
@@ -236,13 +236,13 @@ export function Listening({
                 aria-pressed={filterParams.get('view') !== 'list'}
                 onClick={() => update('view', '')}
               >
-                Song cards
+                Song Cards
               </button>
               <button
                 aria-pressed={filterParams.get('view') === 'list'}
                 onClick={() => update('view', 'list')}
               >
-                Track list
+                Track List
               </button>
             </div>
             <RandomSong />
@@ -268,7 +268,7 @@ export function Listening({
       )}
       <nav aria-label="Track pages" className={s.pagination}>
         <button
-          aria-label="Previous page"
+          aria-label="Previous Page"
           disabled={result.page <= 1 || pending || loading}
           onClick={() => update('page', String(result.page - 1))}
         >
@@ -278,7 +278,7 @@ export function Listening({
           {result.page} <i>/</i> {result.pages}
         </span>
         <button
-          aria-label="Next page"
+          aria-label="Next Page"
           disabled={result.page >= result.pages || pending || loading}
           onClick={() => update('page', String(result.page + 1))}
         >

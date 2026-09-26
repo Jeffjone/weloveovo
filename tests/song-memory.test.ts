@@ -13,8 +13,8 @@ test('song naming accepts punctuation and credit variants but not partial or inv
   assert.equal(songGuess.safeParse({ title: 'a'.repeat(201) }).success, false);
 });
 test('fan milestones advance only at their threshold', () => {
-  assert.equal(fanLevel(0).title, 'First listen');
-  assert.equal(fanLevel(4).title, 'First listen');
-  assert.equal(fanLevel(5).title, 'In rotation');
+  assert.equal(fanLevel(0).title, 'First Listen');
+  assert.equal(fanLevel(4).title, 'First Listen');
+  assert.equal(fanLevel(5).title, 'In Rotation');
   assert.equal(fanLevel(200).title, 'Legend of the 6');
 });

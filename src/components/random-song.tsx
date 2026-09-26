@@ -41,15 +41,15 @@ export function RandomSong({ compact = false }: { compact?: boolean }) {
         className={compact ? s.randomIcon : s.randomButton}
         onClick={() => void pick()}
         disabled={busy}
-        aria-label={busy ? 'Finding a random song' : 'Random song'}
+        aria-label={busy ? 'Finding a random song' : 'Random Song'}
         title="Open a random song"
       >
         <Shuffle size={16} />
-        {!compact && (busy ? 'Finding your next song…' : 'Random song')}
+        {!compact && (busy ? 'Finding your next song…' : 'Random Song')}
       </button>
       {error && (
         <p className={s.randomError} role="alert">
-          {error} Select Random song to retry.
+          {error} Select Random Song to retry.
         </p>
       )}
     </div>

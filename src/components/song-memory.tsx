@@ -90,22 +90,22 @@ export function SongMemory() {
     }
   }
   return (
-    <section className={s.main} aria-label="Name Drake songs">
+    <section className={s.main} aria-label="Name Drake Songs">
       <p className={ui.eyebrow}>OFF THE TOP / YOUR CATALOG FROM MEMORY</p>
       <h2 className={s.title}>
-        How many can
+        How Many Can
         <br />
-        <em>you name?</em>
+        <em>You Name?</em>
       </h2>
       {phase === 'setup' ? (
         <>
           <p>
-            Name Drake songs and collaborations from this collection. Each title counts once, even
+            Name Drake Songs and collaborations from this collection. Each title counts once, even
             across release editions. Capitalization, punctuation, and featured-artist credits do not
             matter.
           </p>
           <label className={s.memoryLabel} htmlFor="time-limit">
-            Time limit
+            Time Limit
           </label>
           <select
             id="time-limit"
@@ -113,7 +113,7 @@ export function SongMemory() {
             value={duration}
             onChange={(e) => setDuration(Number(e.target.value))}
           >
-            <option value={0}>No time limit</option>
+            <option value={0}>No Time Limit</option>
             <option value={60}>1 minute</option>
             <option value={180}>3 minutes</option>
             <option value={300}>5 minutes</option>
@@ -136,7 +136,7 @@ export function SongMemory() {
               setPhase('playing');
             }}
           >
-            Start naming songs
+            Start Naming Songs
           </button>
         </>
       ) : (
@@ -174,7 +174,7 @@ export function SongMemory() {
             <>
               <form onSubmit={submit}>
                 <label className={s.memoryLabel} htmlFor="song-title">
-                  Song title
+                  Song Title
                 </label>
                 <div className={s.memoryForm}>
                   <input
@@ -188,7 +188,7 @@ export function SongMemory() {
                     readOnly={busy}
                   />
                   <button className={ui.primaryButton} disabled={busy || !title.trim()}>
-                    {busy ? 'Checking…' : 'Add song'}
+                    {busy ? 'Checking…' : 'Add Song'}
                   </button>
                 </div>
               </form>
@@ -196,7 +196,7 @@ export function SongMemory() {
                 {message || 'Enter a title, then press Enter.'}
               </p>
               <button className={ui.outlineButton} onClick={finish}>
-                Finish session
+                Finish Session
               </button>
             </>
           ) : (
@@ -205,13 +205,13 @@ export function SongMemory() {
                 Session complete — {songs.length} songs named.
               </h3>
               <button className={ui.primaryButton} onClick={() => setPhase('setup')}>
-                Play again
+                Play Again
               </button>
             </>
           )}
           {songs.length > 0 && (
             <>
-              <h3>Your songs</h3>
+              <h3>Your Songs</h3>
               <ol className={s.memorySongs}>
                 {songs.map((song) => (
                   <li key={song.key}>

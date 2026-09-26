@@ -3,7 +3,7 @@ import { searchTracks, searchSchema, releases, eras } from '@/lib/catalog';
 import { Listening } from '@/components/listening';
 import { PageHeader, ui } from '@/components/ui';
 export const dynamic = 'force-dynamic';
-export const metadata = { title: 'The listening room' };
+export const metadata = { title: 'The Listening Room' };
 export default async function ListeningRoom({
   searchParams,
 }: {
@@ -17,8 +17,8 @@ export default async function ListeningRoom({
     <div className={ui.container}>
       <PageHeader
         number="03"
-        eyebrow="Find your frequency"
-        title="Stay for one more song."
+        eyebrow="Find Your Frequency"
+        title="Stay for One More Song."
         description="Old favorites. New connections. A catalog for every version of you."
       />
       {!parsed.success && (

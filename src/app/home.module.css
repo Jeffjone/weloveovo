@@ -12,7 +12,7 @@
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  font: 8px var(--mono);
+  font: 10px var(--mono);
   letter-spacing: 0.13em;
   color: #6f899e;
 }
@@ -38,13 +38,13 @@
   gap: 40px;
 }
 .kicker {
-  font: 8px var(--mono);
+  font: 10px var(--mono);
   letter-spacing: 0.2em;
   color: #9dbbd2;
   margin-bottom: 19px;
 }
 .hero h1 {
-  font: 600 clamp(76px, 8.3vw, 130px)/0.85 var(--display);
+  font: 600 clamp(52px, 7.5vw, 108px)/1.05 var(--display);
   letter-spacing: -0.025em;
 }
 .hero h1 > span {
@@ -82,7 +82,7 @@
   margin-right: 6%;
 }
 .coordinates {
-  font: 8px var(--mono);
+  font: 10px var(--mono);
   letter-spacing: 0.28em;
   color: #9badaf;
 }
@@ -204,7 +204,7 @@
   color: #83a6c0;
 }
 .roomTop > span {
-  font: 8px var(--mono);
+  font: 10px var(--mono);
   letter-spacing: 0.11em;
 }
 .room h2 {
@@ -225,7 +225,7 @@
 }
 .bottomline {
   margin-top: 24px;
-  font-size: 7px;
+  font-size: 9px;
   letter-spacing: 0.09em;
 }
 .bottomline > span:first-child {
@@ -259,7 +259,7 @@
     padding: 20px 17px;
   }
   .room h2 {
-    font-size: 26px;
+    font-size: 22px;
   }
   .room p {
     font-size: 9px;
@@ -274,7 +274,7 @@
     padding: 22px 0 24px;
   }
   .topline {
-    font-size: 7px;
+    font-size: 9px;
   }
   .topline > span:last-child {
     display: none;
@@ -288,10 +288,10 @@
     display: none;
   }
   .hero h1 {
-    font-size: clamp(76px, 15vw, 105px);
+    font-size: clamp(45px, 12vw, 80px);
   }
   .kicker {
-    font-size: 7px;
+    font-size: 9px;
     letter-spacing: 0.11em;
   }
   .deck {
@@ -306,7 +306,7 @@
     padding: 18px 16px;
   }
   .room h2 {
-    font-size: 26px;
+    font-size: 22px;
   }
   .room h2 svg {
     width: 15px;
@@ -315,14 +315,14 @@
     margin-bottom: 25px;
   }
   .roomHeading {
-    font-size: 7px;
+    font-size: 9px;
     letter-spacing: 0.03em;
   }
   .roomHeading > span:last-child {
     font-size: 6px;
   }
   .bottomline {
-    font-size: 7px;
+    font-size: 9px;
   }
   .enter {
     font-size: 10px;

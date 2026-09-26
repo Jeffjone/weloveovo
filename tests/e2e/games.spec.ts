@@ -5,20 +5,20 @@ test('song cards open song files and random discovery opens a different track wi
 }) => {
   await page.goto('/listening-room?q=Marvins');
   await page.getByRole('link', { name: 'Read about Marvins Room', exact: true }).click();
-  await expect(page.getByRole('heading', { name: 'Inside this song.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Inside This Song.' })).toBeVisible();
   const original = page.url();
-  await page.getByRole('button', { name: 'Random song', exact: true }).click();
+  await page.getByRole('button', { name: 'Random Song', exact: true }).click();
   await expect(page).not.toHaveURL(original);
   await expect(page).toHaveURL(/\/tracks\/(?:[a-zA-Z0-9]{22}|genius-[0-9]+)$/);
-  await expect(page.getByRole('heading', { name: 'Inside this song.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Inside This Song.' })).toBeVisible();
   await expect(page.locator('iframe')).toHaveCount(0);
   await page.goBack();
   await expect(page).toHaveURL(original);
   await page.goto('/listening-room');
-  await page.getByRole('button', { name: 'Track list', exact: true }).click();
+  await page.getByRole('button', { name: 'Track List', exact: true }).click();
   await expect(page).toHaveURL(/view=list/);
   await page.reload();
-  await expect(page.getByRole('button', { name: 'Track list', exact: true })).toHaveAttribute(
+  await expect(page.getByRole('button', { name: 'Track List', exact: true })).toHaveAttribute(
     'aria-pressed',
     'true',
   );
@@ -31,7 +31,7 @@ test('ten-question round teaches answers, reviews mistakes, and preserves browse
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/games');
   const deckResponse = page.waitForResponse((r) => r.url().includes('/api/games?mode=release'));
-  await page.getByRole('button', { name: 'Start a round' }).click();
+  await page.getByRole('button', { name: 'Start a Round' }).click();
   const { questions } = (await (await deckResponse).json()) as { questions: Question[] };
   for (const [i, q] of questions.entries()) {
     await expect(page.getByText(`QUESTION ${i + 1} / 10`, { exact: true })).toBeVisible();
@@ -44,11 +44,11 @@ test('ten-question round teaches answers, reviews mistakes, and preserves browse
         name: new RegExp(chosen.label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')),
       })
       .click();
-    await expect(page.getByRole('link', { name: 'Read about this song' })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Read About This Song' })).toBeVisible();
     await expect(
       page.getByText(i === 1 ? 'ONE TO REMEMBER' : 'RIGHT ON THE RECORD', { exact: true }),
     ).toBeVisible();
-    await page.getByRole('button', { name: i === 9 ? 'See results' : 'Next question' }).click();
+    await page.getByRole('button', { name: i === 9 ? 'See Results' : 'Next Question' }).click();
   }
   await expect(page.getByText('ROUND COMPLETE', { exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Review 1 missed answers' }).click();
@@ -69,28 +69,28 @@ test('game modes, retry states and keyboard play work at mobile widths', async (
 }) => {
   for (const mode of ['cover', 'year', 'credits']) {
     await page.goto('/games?mode=' + mode);
-    await page.getByRole('button', { name: 'Start a round' }).click();
+    await page.getByRole('button', { name: 'Start a Round' }).click();
     await expect(page.getByText('QUESTION 1 / 10', { exact: true })).toBeVisible();
-    await expect(page.getByRole('button', { name: 'Back to games' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Back to Games' })).toBeVisible();
     if (mode === 'cover') await expect(page.getByAltText('Record cover to identify')).toBeVisible();
     await page.locator('[aria-label="Answer choices"] button').first().focus();
     await page.keyboard.press('Enter');
-    await expect(page.getByRole('button', { name: 'Next question' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Next Question' })).toBeVisible();
   }
   await page.route('**/api/games?*', (route) =>
     route.fulfill({
       status: 503,
       contentType: 'application/json',
-      body: JSON.stringify({ error: 'Connection interrupted. Try again.' }),
+      body: JSON.stringify({ error: 'Connection interrupted. Try Again.' }),
     }),
   );
   await page.goto('/games');
-  await page.getByRole('button', { name: 'Start a round' }).click();
+  await page.getByRole('button', { name: 'Start a Round' }).click();
   await expect(
     page.getByRole('region', { name: 'Learning game' }).getByRole('alert'),
   ).toContainText('Connection interrupted');
   await page.unroute('**/api/games?*');
-  await page.getByRole('button', { name: 'Start a round' }).click();
+  await page.getByRole('button', { name: 'Start a Round' }).click();
   await expect(page.getByText('QUESTION 1 / 10', { exact: true })).toBeVisible();
   for (const width of [320, 390, 768]) {
     await page.setViewportSize({ width, height: 900 });

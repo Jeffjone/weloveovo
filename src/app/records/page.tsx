@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { releases } from '@/lib/catalog';
 import { PageHeader, RecordCard, ui } from '@/components/ui';
 export const dynamic = 'force-dynamic';
-export const metadata = { title: 'The records' };
+export const metadata = { title: 'The Records' };
 export default async function Records({
   searchParams,
 }: {
@@ -14,14 +14,14 @@ export default async function Records({
     <div className={ui.container}>
       <PageHeader
         number="01"
-        eyebrow="The record room"
-        title="Every cover holds a world."
+        eyebrow="The Record Room"
+        title="Every Cover Holds a World."
         description="The albums you grew up with. The projects you found at 2 AM. Pull something off the shelf."
       />
       <div className={ui.sectionBar}>
-        <h2>{all ? 'The complete collection' : 'The essential shelf'}</h2>
+        <h2>{all ? 'The Complete Collection' : 'The Essential Shelf'}</h2>
         <Link href={all ? '/records' : '/records?all=true'}>
-          {all ? 'Featured projects' : 'All releases'} ↗
+          {all ? 'Featured Projects' : 'All Releases'} ↗
         </Link>
       </div>
       <div className={ui.recordGrid}>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { ExperienceProvider } from '@/components/experience';
+import './fonts.css';
 import './globals.css';
 export const metadata: Metadata = {
   title: { default: 'weloveovo', template: '%s / weloveovo' },

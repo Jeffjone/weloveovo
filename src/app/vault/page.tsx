@@ -4,7 +4,7 @@ import { SongCards } from '@/components/song-cards';
 import { vaultTracks, vaultSearch, vaultCategories } from '@/lib/vault';
 import s from './vault.module.css';
 export const dynamic = 'force-dynamic';
-export const metadata = { title: 'The vault' };
+export const metadata = { title: 'The Vault' };
 export default async function Vault({
   searchParams,
 }: {
@@ -20,12 +20,12 @@ export default async function Vault({
     <div className={ui.container}>
       <PageHeader
         number="06"
-        eyebrow="The vault"
-        title="Beyond the official record."
+        eyebrow="The Vault"
+        title="Beyond the Official Record."
         description="Unreleased recordings, leaks, snippets, and unrecorded freestyle references. A place for the fragments and unfinished stories."
       />
       <p className={s.note}>
-        The vault is being prepared. No entries have been added yet. This space will hold unreleased
+        The Vault is being prepared. No entries have been added yet. This space will hold unreleased
         recordings, leaks, snippets, and unrecorded freestyle references, with source context and
         clear audio availability.
       </p>
@@ -36,7 +36,7 @@ export default async function Vault({
       )}
       <form action="/vault" className={s.filters}>
         <label>
-          Search the vault
+          Search the Vault
           <input
             type="search"
             name="q"
@@ -46,9 +46,9 @@ export default async function Vault({
           />
         </label>
         <label>
-          Material type
+          Material Type
           <select name="category" defaultValue={filters.category}>
-            <option value="">All material</option>
+            <option value="">All Material</option>
             {Object.entries(vaultCategories).map(([key, label]) => (
               <option key={key} value={key}>
                 {label}
@@ -56,7 +56,7 @@ export default async function Vault({
             ))}
           </select>
         </label>
-        <button className={ui.primaryButton}>Search vault</button>
+        <button className={ui.primaryButton}>Search Vault</button>
         <Link className={ui.outlineButton} href="/vault">
           Reset
         </Link>
@@ -73,7 +73,7 @@ export default async function Vault({
         <SongCards tracks={result.tracks} vaultEntries={result.entries} />
       ) : (
         <div className={s.empty}>
-          <h2>Nothing filed here yet.</h2>
+          <h2>Nothing Filed Here Yet.</h2>
           <p>
             Try another category or clear your search. This drawer is ready for future additions.
           </p>
@@ -83,12 +83,12 @@ export default async function Vault({
       <nav aria-label="Vault pages" className={ui.actions}>
         {result.page > 1 && (
           <Link href={pageLink(result.page - 1)} className={ui.outlineButton}>
-            Previous page
+            Previous Page
           </Link>
         )}
         {result.page < result.pages && (
           <Link href={pageLink(result.page + 1)} className={ui.outlineButton}>
-            Next page
+            Next Page
           </Link>
         )}
       </nav>

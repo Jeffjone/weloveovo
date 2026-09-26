@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
 :root {
-  --body: 'DM Sans', Arial, sans-serif;
-  --display: 'Barlow Condensed', 'Arial Narrow', Impact, sans-serif;
+  --body: 'Manrope', Arial, sans-serif;
+  --display: 'Space Grotesk', Arial, sans-serif;
   --mono: 'IBM Plex Mono', monospace;
   --text: #e9f0f7;
   --muted: #91a4b8;
@@ -19,7 +18,8 @@ html {
 body {
   margin: 0;
   color: var(--text);
-  font: 14px/1.6 var(--body);
+  font: 14px/1.7 var(--body);
+  -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 button,
@@ -146,4 +146,15 @@ button {
     transition: none !important;
     scroll-behavior: auto !important;
   }
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+button,
+select {
+  letter-spacing: 0;
 }

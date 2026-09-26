@@ -16,7 +16,7 @@ export default async function ConnectionPage({
         number="06"
         eyebrow="Everything is connected"
         title="Follow the thread."
-        description="The eras are just the beginning. Trace a path through the records, the voices, and the moments that connect them."
+        description="The Eras are just the beginning. Trace a path through the records, the voices, and the moments that connect them."
       />
       <Connections initial={await graph(valid)} />
     </div>

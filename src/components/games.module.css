@@ -11,7 +11,7 @@
   background: linear-gradient(135deg, #102336db, #07131eed);
 }
 .title {
-  font: 500 clamp(44px, 5vw, 74px)/1 var(--display);
+  font: 500 clamp(34px, 4.5vw, 62px)/1.1 var(--display);
   margin: 24px 0 32px;
 }
 .title em {
@@ -44,11 +44,11 @@
   background: #193b5166;
 }
 .modes small {
-  font: 8px var(--mono);
+  font: 10px var(--mono);
   letter-spacing: 0.1em;
 }
 .modes strong {
-  font: 500 30px/1 var(--display);
+  font: 500 24px/1 var(--display);
   color: #ecf6ff;
 }
 .modes span {
@@ -80,7 +80,7 @@
   margin: 12px 0 20px;
 }
 .aside h3 {
-  font: 500 30px var(--display);
+  font: 500 24px var(--display);
 }
 .stats {
   display: grid;
@@ -95,7 +95,7 @@
 }
 .stats b {
   display: block;
-  font: 500 30px var(--display);
+  font: 500 24px var(--display);
   color: #dbefff;
   margin-bottom: 4px;
 }
@@ -112,7 +112,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  font: 9px var(--mono);
+  font: 10px var(--mono);
   color: #b8d6eb;
 }
 .roundBar button {
@@ -174,7 +174,7 @@
   line-height: 1.6;
 }
 .choices button > span {
-  font: 9px var(--mono);
+  font: 10px var(--mono);
   color: #93b1c9;
 }
 .choices button:hover:not(:disabled) {

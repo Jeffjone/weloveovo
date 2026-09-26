@@ -3,15 +3,15 @@ import { ArrowUpRight } from 'lucide-react';
 import { eras } from '@/lib/catalog';
 import { Cover, PageHeader, ui } from '@/components/ui';
 export const dynamic = 'force-dynamic';
-export const metadata = { title: 'The eras' };
+export const metadata = { title: 'The Eras' };
 export default async function Eras() {
   const chapters = await eras();
   return (
     <div className={ui.container}>
       <PageHeader
         number="02"
-        eyebrow="The evolution"
-        title="Different eras. Same late nights."
+        eyebrow="The Evolution"
+        title="Different Eras. Same Late Nights."
         description="A voice from Toronto. A world of its own. Step into a chapter and follow what changed."
       />
       <div className={ui.eraGrid}>

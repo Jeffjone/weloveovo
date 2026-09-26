@@ -65,7 +65,7 @@ export default async function TrackPage({ params }: { params: Promise<{ id: stri
           <p className={ui.eyebrow}>
             THE SONG FILE / {track.release_date.slice(0, 4) || 'Date unknown'}
           </p>
-          <h2 id="song-file-heading">Inside this song.</h2>
+          <h2 id="song-file-heading">Inside This Song.</h2>
           <Link className={ui.outlineButton} href="/games">
             Test your catalog knowledge ↗
           </Link>
@@ -155,7 +155,7 @@ export default async function TrackPage({ params }: { params: Promise<{ id: stri
         </div>
       </div>
       <div className={ui.sectionBar}>
-        <h2>Stay in this feeling</h2>
+        <h2>Stay in This Feeling</h2>
         <span>RELATED BY SOUND & SHARED CREDITS</span>
       </div>
       {recommendations.map((item) => (

@@ -26,7 +26,7 @@
   flex-shrink: 0;
 }
 .moods strong {
-  font: 500 26px var(--display);
+  font: 500 22px var(--display);
   display: block;
 }
 .moods small {
@@ -59,7 +59,7 @@
   color: #e0edf7;
 }
 .tabs button span {
-  font: 8px var(--mono);
+  font: 10px var(--mono);
   color: #92bedb;
 }
 .filters {
@@ -106,7 +106,7 @@
   display: flex;
   gap: 25px;
   align-items: center;
-  font: 8px var(--mono);
+  font: 10px var(--mono);
   color: #86a2ba;
   padding: 19px 0 25px;
 }
@@ -122,7 +122,7 @@
   accent-color: #a8d4f0;
 }
 .summary button {
-  font: 8px var(--mono);
+  font: 10px var(--mono);
   color: #94b2c9;
 }
 .pagination {

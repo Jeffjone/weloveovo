@@ -163,9 +163,9 @@ export function Games({
               TEN QUESTIONS / NO TIMER / EVERY ANSWER TEACHES YOU SOMETHING
             </p>
             <h2 className={s.title}>
-              How well do you
+              How Well do You
               <br />
-              <em>know the catalog?</em>
+              <em>Know the Catalog?</em>
             </h2>
             <div className={s.modes} role="group" aria-label="Game mode">
               {gameModes.map((item, i) => {
@@ -194,7 +194,7 @@ export function Games({
               disabled={busy || !ready}
               onClick={() => void start()}
             >
-              {busy ? 'Building your round…' : 'Start a round'}
+              {busy ? 'Building your round…' : 'Start a Round'}
               <ArrowRight size={16} />
             </button>
             <p className={s.note}>
@@ -223,7 +223,7 @@ export function Games({
                 </button>
               )}
               <button className={ui.outlineButton} onClick={reset}>
-                Choose another round
+                Choose Another Round
               </button>
             </div>
             <div className={s.review}>
@@ -243,7 +243,7 @@ export function Games({
               <span>
                 QUESTION {index + 1} / {questions.length}
               </span>
-              <button onClick={reset}>Back to games</button>
+              <button onClick={reset}>Back to Games</button>
             </div>
             <progress
               className={s.progress}
@@ -297,12 +297,12 @@ export function Games({
                 <p>{answer.explanation}</p>
                 <div className={ui.actions}>
                   <Link href={'/tracks/' + answer.track.id} className={ui.outlineButton}>
-                    Read about this song ↗
+                    Read About This Song ↗
                   </Link>
                   <TrackActions track={answer.track} compact />
                 </div>
                 <button className={ui.primaryButton} onClick={nextQuestion}>
-                  {index + 1 === questions.length ? 'See results' : 'Next question'}
+                  {index + 1 === questions.length ? 'See Results' : 'Next Question'}
                   <ArrowRight size={15} />
                 </button>
               </div>
@@ -336,11 +336,11 @@ export function Games({
             : 'Progress stays on this browser. No account needed.'}
         </p>
         <hr className={ui.divider} />
-        <h3>Learn by wandering.</h3>
+        <h3>Learn by Wandering.</h3>
         <p>Open a song file. Meet its collaborators. Follow it back to the record.</p>
         <RandomSong />
         <Link className={s.catalogLink} href="/listening-room">
-          Browse the song cards <ArrowRight size={14} />
+          Browse the Song Cards <ArrowRight size={14} />
         </Link>
       </aside>
     </div>

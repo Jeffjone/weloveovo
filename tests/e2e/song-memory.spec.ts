@@ -3,13 +3,13 @@ test('untimed naming counts unique songs, handles retries, and advances fan leve
   page,
 }) => {
   await page.goto('/games');
-  await page.getByRole('button', { name: 'Name Drake songs', exact: true }).click();
-  await page.getByRole('button', { name: 'Start naming songs' }).click();
-  const input = page.getByLabel('Song title', { exact: true });
+  await page.getByRole('button', { name: 'Name Drake Songs', exact: true }).click();
+  await page.getByRole('button', { name: 'Start Naming Songs' }).click();
+  const input = page.getByLabel('Song Title', { exact: true });
   async function name(title: string) {
     await input.fill(title);
-    await page.getByRole('button', { name: 'Add song', exact: true }).click();
-    await expect(page.getByRole('button', { name: 'Add song', exact: true })).toBeVisible();
+    await page.getByRole('button', { name: 'Add Song', exact: true }).click();
+    await expect(page.getByRole('button', { name: 'Add Song', exact: true })).toBeVisible();
   }
   await name("God's Plan");
   await expect(page.getByText('1 songs named', { exact: true })).toBeVisible();
@@ -18,16 +18,16 @@ test('untimed naming counts unique songs, handles retries, and advances fan leve
   await name('This song does not exist in the archive');
   await expect(page.getByText('No match in this collection.', { exact: false })).toBeVisible();
   await page.route('**/api/games/name-song', (route) =>
-    route.fulfill({ status: 503, json: { error: 'Try again shortly.' } }),
+    route.fulfill({ status: 503, json: { error: 'Try Again shortly.' } }),
   );
   await name('Hotline Bling');
-  await expect(page.getByText('Try again shortly.')).toBeVisible();
+  await expect(page.getByText('Try Again shortly.')).toBeVisible();
   await page.unroute('**/api/games/name-song');
   for (const title of ['Hotline Bling', 'One Dance', 'Passionfruit', 'Headlines'])
     await name(title);
   await expect(page.getByText('5 songs named', { exact: true })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'In rotation', exact: true })).toBeVisible();
-  await page.getByRole('button', { name: 'Finish session' }).click();
+  await expect(page.getByRole('heading', { name: 'In Rotation', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: 'Finish Session' }).click();
   await expect(
     page.getByRole('heading', { name: 'Session complete — 5 songs named.' }),
   ).toBeFocused();
@@ -39,9 +39,9 @@ test('timed mobile session expires, rejects late responses, and shows no fan lev
   await page.setViewportSize({ width: 390, height: 844 });
   await page.clock.install();
   await page.goto('/games');
-  await page.getByRole('button', { name: 'Name Drake songs', exact: true }).click();
-  await page.getByLabel('Time limit').selectOption('60');
-  await page.getByRole('button', { name: 'Start naming songs' }).click();
+  await page.getByRole('button', { name: 'Name Drake Songs', exact: true }).click();
+  await page.getByLabel('Time Limit').selectOption('60');
+  await page.getByRole('button', { name: 'Start Naming Songs' }).click();
   await expect(page.getByRole('timer')).toHaveText('1:00');
   await expect(page.getByText('YOUR FAN LEVEL')).toHaveCount(0);
   await page.route('**/api/games/name-song', async (route) => {
@@ -50,14 +50,14 @@ test('timed mobile session expires, rejects late responses, and shows no fan lev
       .fulfill({ json: { song: { id: 'test', title: 'Late answer', key: 'lateanswer' } } })
       .catch(() => {});
   });
-  await page.getByLabel('Song title', { exact: true }).fill('Late answer');
-  await page.getByRole('button', { name: 'Add song', exact: true }).click();
+  await page.getByLabel('Song Title', { exact: true }).fill('Late answer');
+  await page.getByRole('button', { name: 'Add Song', exact: true }).click();
   await expect(
     page.getByRole('heading', { name: 'Session complete — 0 songs named.' }),
   ).toBeVisible();
-  await expect(page.getByLabel('Song title', { exact: true })).toHaveCount(0);
-  await page.getByRole('button', { name: 'Play again' }).click();
-  await page.getByLabel('Time limit').selectOption('0');
-  await page.getByRole('button', { name: 'Start naming songs' }).click();
+  await expect(page.getByLabel('Song Title', { exact: true })).toHaveCount(0);
+  await page.getByRole('button', { name: 'Play Again' }).click();
+  await page.getByLabel('Time Limit').selectOption('0');
+  await page.getByRole('button', { name: 'Start Naming Songs' }).click();
   await expect(page.getByText('YOUR FAN LEVEL')).toBeVisible();
 });
