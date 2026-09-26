@@ -18,7 +18,12 @@ async function main() {
     await sql`SELECT 1`;
     console.log('Connected.');
     if (process.argv[2] === 'migrate') {
-      for (const file of ['001_catalog.sql', '002_security.sql', '003_external_catalog.sql'])
+      for (const file of [
+        '001_catalog.sql',
+        '002_security.sql',
+        '003_external_catalog.sql',
+        '004_genius_metadata.sql',
+      ])
         await db.exec(await readFile('supabase/migrations/' + file, 'utf8'));
       console.log('Schema and access policies applied.');
     } else if (process.argv[2] === 'seed') {

@@ -7,6 +7,7 @@ async function main() {
   if (!process.env.DATABASE_URL) throw new Error('Set DATABASE_URL.');
   const sql = postgres(process.env.DATABASE_URL, { prepare: false, max: 1, connect_timeout: 15 });
   try {
+    await sql.unsafe(await readFile('supabase/migrations/004_genius_metadata.sql', 'utf8'));
     const before = await sql`SELECT id,title,raw FROM tracks`;
     const ids = new Set(before.map((t) => t.id));
     const titles = new Map(before.map((t) => [titleKey(t.title), t.id]));

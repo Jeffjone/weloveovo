@@ -77,8 +77,9 @@ test('new identifiers work in search, favorites, graphs, and recommendations wit
         Number.isFinite(r.score) && !r.reason.includes('energy') && !r.reason.includes('rhythm'),
     ),
   );
-  const map = await graph('track:' + t.id);
-  assert.ok(map.nodes.some((n) => n.id === 'track:' + t.id));
+  const last = additions.tracks.filter((t) => t.release_id === 'genius-unassigned').at(-1)!;
+  const map = await graph('track:' + last.id);
+  assert.ok(map.nodes.some((n) => n.id === 'track:' + last.id));
   assert.ok(
     map.edges.every(
       (e) => map.nodes.some((n) => n.id === e.source) && map.nodes.some((n) => n.id === e.target),
@@ -87,4 +88,30 @@ test('new identifiers work in search, favorites, graphs, and recommendations wit
   const before = await query<{ count: number }>('SELECT count(*)::int count FROM tracks');
   await seed(await database());
   assert.deepEqual(await query('SELECT count(*)::int count FROM tracks'), before);
+});
+
+test('Genius metadata repair unwraps only imported JSON and is repeatable', async () => {
+  const { PGlite } = await import('@electric-sql/pglite');
+  const { readFile } = await import('node:fs/promises');
+  const db = new PGlite();
+  try {
+    await db.exec('CREATE TABLE tracks (id text PRIMARY KEY, raw jsonb NOT NULL)');
+    const metadata = { genius_id: 123, genius_url: 'https://genius.com/example-lyrics' };
+    const encoded = JSON.stringify(JSON.stringify(metadata));
+    await db.query('INSERT INTO tracks VALUES ($1,$2::jsonb),($3,$2::jsonb)', [
+      'genius-123',
+      encoded,
+      'original',
+    ]);
+    const migration = await readFile('supabase/migrations/004_genius_metadata.sql', 'utf8');
+    await db.exec(migration);
+    await db.exec(migration);
+    const rows = (
+      await db.query<{ id: string; raw: unknown }>('SELECT id,raw FROM tracks ORDER BY id')
+    ).rows;
+    assert.deepEqual(rows[0].raw, metadata);
+    assert.equal(rows[1].raw, JSON.stringify(metadata));
+  } finally {
+    await db.close();
+  }
 });

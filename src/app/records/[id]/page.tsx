@@ -7,10 +7,21 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const r = await getRelease((await params).id);
   return { title: r?.title || 'Record not found' };
 }
-export default async function Record({ params }: { params: Promise<{ id: string }> }) {
+export default async function Record({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ page?: string }>;
+}) {
   const r = await getRelease((await params).id);
   if (!r) notFound();
-  const { tracks, total } = await searchTracks({ release: r.id, limit: 50 });
+  const requested = Number((await searchParams).page || 1);
+  const { tracks, total, page, pages } = await searchTracks({
+    release: r.id,
+    limit: 50,
+    page: Number.isSafeInteger(requested) && requested > 0 ? Math.min(requested, 10000) : 1,
+  });
   return (
     <div className={ui.container}>
       <nav className={ui.breadcrumb} aria-label="Breadcrumb">
@@ -56,6 +67,23 @@ export default async function Record({ params }: { params: Promise<{ id: string 
         <span>SELECT A TRACK TO GO DEEPER</span>
       </div>
       <TrackList tracks={tracks} />
+      {pages > 1 && (
+        <nav className={ui.actions} aria-label="Record track pages">
+          {page > 1 && (
+            <Link className={ui.outlineButton} href={`/records/${r.id}?page=${page - 1}`}>
+              Previous tracks
+            </Link>
+          )}
+          <span>
+            Page {page} of {pages}
+          </span>
+          {page < pages && (
+            <Link className={ui.outlineButton} href={`/records/${r.id}?page=${page + 1}`}>
+              Next tracks
+            </Link>
+          )}
+        </nav>
+      )}
     </div>
   );
 }

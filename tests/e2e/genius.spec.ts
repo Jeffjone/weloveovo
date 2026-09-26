@@ -30,3 +30,20 @@ test('Genius-only songs support direct pages, favorites, and source links withou
   await expect(page.locator('[data-page-transition]')).toHaveCSS('opacity', '1');
   await page.screenshot({ path: 'test-results/genius-song-mobile.png', fullPage: true });
 });
+
+test('large collections expose all tracks through shareable record pages', async ({ page }) => {
+  await page.goto('/records/genius-unassigned');
+  await page.getByRole('link', { name: 'Next tracks', exact: true }).click();
+  await expect(page).toHaveURL(/page=2/);
+  await expect(page.getByRole('navigation', { name: 'Record track pages' })).toContainText(
+    'Page 2',
+  );
+  await page.reload();
+  await expect(page.getByRole('navigation', { name: 'Record track pages' })).toContainText(
+    'Page 2',
+  );
+  await page.goBack();
+  await expect(page.getByRole('navigation', { name: 'Record track pages' })).toContainText(
+    'Page 1',
+  );
+});

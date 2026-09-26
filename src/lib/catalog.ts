@@ -257,6 +257,7 @@ export async function graph(root: string | null = null): Promise<GraphData> {
       image: release.cover_url,
     });
     const songs = (await searchTracks({ release: release.id, limit: 50 })).tracks;
+    if (track && !songs.some((t) => t.id === track.id)) songs.push(track);
     songs.forEach((t, i) => {
       append({
         id: 'track:' + t.id,
@@ -280,7 +281,7 @@ export async function graph(root: string | null = null): Promise<GraphData> {
         description: 'Artist credit',
         href: '/listening-room?artist=' + artist,
         x: i * 250,
-        y: 1120,
+        y: Math.max(...nodes.filter((n) => n.kind !== 'artist').map((n) => n.y)) + 190,
       });
       addEdge('track:' + track!.id, 'artist:' + artist, 'Featuring');
     });

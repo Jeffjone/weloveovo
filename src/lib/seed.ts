@@ -35,7 +35,7 @@ export async function seedCatalog(
         delete row.artist_ids;
         const keys = Object.keys(row);
         await db.query(
-          `INSERT INTO ${table} (${keys.join(',')}) VALUES (${keys.map((_, i) => '$' + (i + 1)).join(',')}) ON CONFLICT (id) DO NOTHING`,
+          `INSERT INTO ${table} (${keys.join(',')}) VALUES (${keys.map((key, i) => '$' + (i + 1) + (key === 'raw' ? '::text::jsonb' : '')).join(',')}) ON CONFLICT (id) DO NOTHING`,
           keys.map((k) => (k === 'raw' ? JSON.stringify(row[k]) : row[k])),
         );
         if (artistIds)
