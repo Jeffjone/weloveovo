@@ -28,7 +28,7 @@ test('early records have the supplied dates, correct order, and only two feature
   assert.equal((await getEra('the-introduction'))?.start_year, 2006);
   const map = await graph('era:the-introduction');
   assert.ok(map.nodes.some((n) => n.id === 'release:genius-album-2625'));
-  assert.ok(!map.nodes.some((n) => n.id === 'release:genius-album-516437'));
+  assert.ok(map.nodes.some((n) => n.id === 'release:genius-album-516437'));
   assert.equal(releaseDate('2006'), '2006');
   assert.equal(releaseDate('2006-02-14'), 'February 14, 2006');
 });

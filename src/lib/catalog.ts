@@ -103,6 +103,9 @@ export async function releases(featured = false) {
     `SELECT r.*,count(t.id)::int track_count FROM releases r LEFT JOIN tracks t ON t.release_id=r.id ${featured ? 'WHERE r.featured' : ''} GROUP BY r.id ORDER BY r.release_date,r.title`,
   );
 }
+export function onEraShelf(release: Pick<Release, 'id' | 'featured'>) {
+  return release.featured || release.id === 'genius-album-516437';
+}
 export async function getRelease(id: string) {
   return (await query<Release>('SELECT * FROM releases WHERE id=$1', [id]))[0] || null;
 }
@@ -213,7 +216,7 @@ export async function graph(root: string | null = null): Promise<GraphData> {
   if (selectedEra) {
     const albums = (await releases()).filter(
       (r) =>
-        (r.featured || r.id === release?.id) &&
+        (onEraShelf(r) || r.id === release?.id) &&
         Number(r.release_date.slice(0, 4)) >= selectedEra!.start_year &&
         Number(r.release_date.slice(0, 4)) <= selectedEra!.end_year,
     );

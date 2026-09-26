@@ -1,7 +1,5 @@
 import { test, expect } from '@playwright/test';
-test('early releases display corrected dates and only two additions in the era', async ({
-  page,
-}) => {
+test('early releases display corrected dates and Demo Disc in the era', async ({ page }) => {
   await page.goto('/listening-room?release=genius-album-2625');
   await expect(page.getByRole('combobox', { name: 'Release', exact: true })).toContainText(
     'Room for Improvement — February 14, 2006',
@@ -14,7 +12,7 @@ test('early releases display corrected dates and only two additions in the era',
     page.getByRole('heading', { name: 'Room for Improvement', exact: true }),
   ).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Comeback Season', exact: true })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Drake Demo Disc', exact: true })).toHaveCount(0);
+  await expect(page.getByRole('heading', { name: 'Drake Demo Disc', exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'So Far Gone (EP)', exact: true })).toHaveCount(0);
 });
 test('vault is an empty mobile-accessible room with shareable filters', async ({ page }) => {
