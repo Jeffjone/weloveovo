@@ -10559,53 +10559,6 @@
       ]
     },
     {
-      "id": "genius-7165549",
-      "title": "Fucking Fans",
-      "release_id": "certified-lover-boy",
-      "duration": null,
-      "bpm": null,
-      "musical_key": null,
-      "energy": null,
-      "dance": null,
-      "valence": null,
-      "acoustic": null,
-      "popularity": null,
-      "explicit": null,
-      "rank": 10185,
-      "raw": {
-        "source": "genius",
-        "genius_id": 7165549,
-        "genius_url": "https://genius.com/Drake-fucking-fans-lyrics",
-        "spotify_id": null,
-        "source_release_date": "2021-09-03",
-        "source_cover_url": "https://images.genius.com/fa02d8bc4c7ee74b5a1408c2be032fea.1000x1000x1.png",
-        "source_album": {
-          "id": 585647,
-          "name": "Certified Lover Boy",
-          "url": "https://genius.com/albums/Drake/Certified-lover-boy",
-          "cover_art_url": "https://images.genius.com/fa02d8bc4c7ee74b5a1408c2be032fea.1000x1000x1.png"
-        },
-        "media": [
-          {
-            "attribution": "octobersveryown",
-            "provider": "soundcloud",
-            "type": "audio",
-            "url": "https://soundcloud.com/octobersveryown/drake-fucking-fans?in=octobersveryown%2Fsets%2Fcertified-lover-boy-7"
-          },
-          {
-            "provider": "youtube",
-            "start": 0,
-            "type": "video",
-            "url": "https://www.youtube.com/watch?v=EK8aKKeUmmU"
-          }
-        ],
-        "imported_at": "2026-09-26"
-      },
-      "artist_ids": [
-        "drake"
-      ]
-    },
-    {
       "id": "genius-7308550",
       "title": "Stars Align",
       "release_id": "genius-album-547378",
@@ -10618,7 +10571,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10186,
+      "rank": 10185,
       "raw": {
         "source": "genius",
         "genius_id": 7308550,
@@ -10666,7 +10619,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10187,
+      "rank": 10186,
       "raw": {
         "source": "genius",
         "genius_id": 8110893,
@@ -10707,7 +10660,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10188,
+      "rank": 10187,
       "raw": {
         "source": "genius",
         "genius_id": 8111078,
@@ -10748,7 +10701,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10189,
+      "rank": 10188,
       "raw": {
         "source": "genius",
         "genius_id": 8320734,
@@ -10790,7 +10743,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10190,
+      "rank": 10189,
       "raw": {
         "source": "genius",
         "genius_id": 8698772,
@@ -10832,7 +10785,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10191,
+      "rank": 10190,
       "raw": {
         "source": "genius",
         "genius_id": 8819023,
@@ -10881,7 +10834,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10192,
+      "rank": 10191,
       "raw": {
         "source": "genius",
         "genius_id": 9263017,
@@ -10929,7 +10882,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10193,
+      "rank": 10192,
       "raw": {
         "source": "genius",
         "genius_id": 9592364,
@@ -10976,7 +10929,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10194,
+      "rank": 10193,
       "raw": {
         "source": "genius",
         "genius_id": 9592375,
@@ -11023,7 +10976,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10195,
+      "rank": 10194,
       "raw": {
         "source": "genius",
         "genius_id": 9592602,
@@ -11070,7 +11023,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10196,
+      "rank": 10195,
       "raw": {
         "source": "genius",
         "genius_id": 10066751,
@@ -11118,7 +11071,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10197,
+      "rank": 10196,
       "raw": {
         "source": "genius",
         "genius_id": 10350591,
@@ -11166,7 +11119,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10198,
+      "rank": 10197,
       "raw": {
         "source": "genius",
         "genius_id": 10419894,
@@ -11214,7 +11167,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10199,
+      "rank": 10198,
       "raw": {
         "source": "genius",
         "genius_id": 10467427,
@@ -11261,7 +11214,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10200,
+      "rank": 10199,
       "raw": {
         "source": "genius",
         "genius_id": 10642346,
@@ -11303,7 +11256,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10201,
+      "rank": 10200,
       "raw": {
         "source": "genius",
         "genius_id": 10690122,
@@ -11345,7 +11298,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10202,
+      "rank": 10201,
       "raw": {
         "source": "genius",
         "genius_id": 10734785,
@@ -11386,7 +11339,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10203,
+      "rank": 10202,
       "raw": {
         "source": "genius",
         "genius_id": 10800165,
@@ -11427,7 +11380,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10204,
+      "rank": 10203,
       "raw": {
         "source": "genius",
         "genius_id": 10965325,
@@ -11470,7 +11423,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10205,
+      "rank": 10204,
       "raw": {
         "source": "genius",
         "genius_id": 11273485,
@@ -11518,7 +11471,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10206,
+      "rank": 10205,
       "raw": {
         "source": "genius",
         "genius_id": 11473554,
@@ -11566,7 +11519,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10207,
+      "rank": 10206,
       "raw": {
         "source": "genius",
         "genius_id": 12102189,
@@ -11607,7 +11560,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10208,
+      "rank": 10207,
       "raw": {
         "source": "genius",
         "genius_id": 12378617,
@@ -11648,7 +11601,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10209,
+      "rank": 10208,
       "raw": {
         "source": "genius",
         "genius_id": 12822837,
@@ -11696,7 +11649,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10210,
+      "rank": 10209,
       "raw": {
         "source": "genius",
         "genius_id": 12965552,
@@ -11739,7 +11692,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10211,
+      "rank": 10210,
       "raw": {
         "source": "genius",
         "genius_id": 12967531,
@@ -11784,7 +11737,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10212,
+      "rank": 10211,
       "raw": {
         "source": "genius",
         "genius_id": 13330176,
@@ -11826,7 +11779,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10213,
+      "rank": 10212,
       "raw": {
         "source": "genius",
         "genius_id": 13560167,
@@ -11873,7 +11826,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10214,
+      "rank": 10213,
       "raw": {
         "source": "genius",
         "genius_id": 13560172,
@@ -11921,7 +11874,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10215,
+      "rank": 10214,
       "raw": {
         "source": "genius",
         "genius_id": 13560176,
@@ -11968,7 +11921,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10216,
+      "rank": 10215,
       "raw": {
         "source": "genius",
         "genius_id": 13560205,
@@ -12015,7 +11968,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10217,
+      "rank": 10216,
       "raw": {
         "source": "genius",
         "genius_id": 13560213,
@@ -12063,7 +12016,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10218,
+      "rank": 10217,
       "raw": {
         "source": "genius",
         "genius_id": 13560219,
@@ -12110,7 +12063,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10219,
+      "rank": 10218,
       "raw": {
         "source": "genius",
         "genius_id": 13560225,
@@ -12158,7 +12111,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10220,
+      "rank": 10219,
       "raw": {
         "source": "genius",
         "genius_id": 13560227,
@@ -12206,7 +12159,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10221,
+      "rank": 10220,
       "raw": {
         "source": "genius",
         "genius_id": 13561319,
@@ -12253,7 +12206,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10222,
+      "rank": 10221,
       "raw": {
         "source": "genius",
         "genius_id": 14111746,
@@ -12295,7 +12248,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10223,
+      "rank": 10222,
       "raw": {
         "source": "genius",
         "genius_id": 14172847,
@@ -12337,7 +12290,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10224,
+      "rank": 10223,
       "raw": {
         "source": "genius",
         "genius_id": 14267563,
@@ -12378,7 +12331,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10225,
+      "rank": 10224,
       "raw": {
         "source": "genius",
         "genius_id": 14267576,
@@ -12419,7 +12372,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10226,
+      "rank": 10225,
       "raw": {
         "source": "genius",
         "genius_id": 14267591,
@@ -12461,7 +12414,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10227,
+      "rank": 10226,
       "raw": {
         "source": "genius",
         "genius_id": 14267605,
@@ -12502,7 +12455,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10228,
+      "rank": 10227,
       "raw": {
         "source": "genius",
         "genius_id": 14267633,
@@ -12543,7 +12496,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10229,
+      "rank": 10228,
       "raw": {
         "source": "genius",
         "genius_id": 14267726,
@@ -12584,7 +12537,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10230,
+      "rank": 10229,
       "raw": {
         "source": "genius",
         "genius_id": 14267754,
@@ -12632,7 +12585,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10231,
+      "rank": 10230,
       "raw": {
         "source": "genius",
         "genius_id": 14267763,
@@ -12673,7 +12626,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10232,
+      "rank": 10231,
       "raw": {
         "source": "genius",
         "genius_id": 1637421,
@@ -12711,7 +12664,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10233,
+      "rank": 10232,
       "raw": {
         "source": "genius",
         "genius_id": 7100317,
@@ -12746,7 +12699,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10234,
+      "rank": 10233,
       "raw": {
         "source": "genius",
         "genius_id": 9537824,
@@ -12781,7 +12734,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10235,
+      "rank": 10234,
       "raw": {
         "source": "genius",
         "genius_id": 13558573,
@@ -12815,7 +12768,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10236,
+      "rank": 10235,
       "raw": {
         "source": "genius",
         "genius_id": 13623677,
@@ -12849,7 +12802,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10237,
+      "rank": 10236,
       "raw": {
         "source": "genius",
         "genius_id": 419,
@@ -12885,7 +12838,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10238,
+      "rank": 10237,
       "raw": {
         "source": "genius",
         "genius_id": 666,
@@ -12930,7 +12883,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10239,
+      "rank": 10238,
       "raw": {
         "source": "genius",
         "genius_id": 1182,
@@ -12972,7 +12925,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10240,
+      "rank": 10239,
       "raw": {
         "source": "genius",
         "genius_id": 1305,
@@ -13008,7 +12961,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10241,
+      "rank": 10240,
       "raw": {
         "source": "genius",
         "genius_id": 1399,
@@ -13051,7 +13004,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10242,
+      "rank": 10241,
       "raw": {
         "source": "genius",
         "genius_id": 1498,
@@ -13087,7 +13040,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10243,
+      "rank": 10242,
       "raw": {
         "source": "genius",
         "genius_id": 1655,
@@ -13123,7 +13076,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10244,
+      "rank": 10243,
       "raw": {
         "source": "genius",
         "genius_id": 1893,
@@ -13160,7 +13113,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10245,
+      "rank": 10244,
       "raw": {
         "source": "genius",
         "genius_id": 2532,
@@ -13202,7 +13155,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10246,
+      "rank": 10245,
       "raw": {
         "source": "genius",
         "genius_id": 2612,
@@ -13238,7 +13191,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10247,
+      "rank": 10246,
       "raw": {
         "source": "genius",
         "genius_id": 3029,
@@ -13275,7 +13228,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10248,
+      "rank": 10247,
       "raw": {
         "source": "genius",
         "genius_id": 3279,
@@ -13311,7 +13264,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10249,
+      "rank": 10248,
       "raw": {
         "source": "genius",
         "genius_id": 3389,
@@ -13348,7 +13301,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10250,
+      "rank": 10249,
       "raw": {
         "source": "genius",
         "genius_id": 3548,
@@ -13384,7 +13337,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10251,
+      "rank": 10250,
       "raw": {
         "source": "genius",
         "genius_id": 4183,
@@ -13429,7 +13382,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10252,
+      "rank": 10251,
       "raw": {
         "source": "genius",
         "genius_id": 4927,
@@ -13471,7 +13424,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10253,
+      "rank": 10252,
       "raw": {
         "source": "genius",
         "genius_id": 5380,
@@ -13507,7 +13460,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10254,
+      "rank": 10253,
       "raw": {
         "source": "genius",
         "genius_id": 5437,
@@ -13546,7 +13499,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10255,
+      "rank": 10254,
       "raw": {
         "source": "genius",
         "genius_id": 6010,
@@ -13582,7 +13535,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10256,
+      "rank": 10255,
       "raw": {
         "source": "genius",
         "genius_id": 6240,
@@ -13619,7 +13572,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10257,
+      "rank": 10256,
       "raw": {
         "source": "genius",
         "genius_id": 49098,
@@ -13655,7 +13608,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10258,
+      "rank": 10257,
       "raw": {
         "source": "genius",
         "genius_id": 49497,
@@ -13691,7 +13644,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10259,
+      "rank": 10258,
       "raw": {
         "source": "genius",
         "genius_id": 49896,
@@ -13727,7 +13680,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10260,
+      "rank": 10259,
       "raw": {
         "source": "genius",
         "genius_id": 50199,
@@ -13771,7 +13724,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10261,
+      "rank": 10260,
       "raw": {
         "source": "genius",
         "genius_id": 50829,
@@ -13809,7 +13762,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10262,
+      "rank": 10261,
       "raw": {
         "source": "genius",
         "genius_id": 50997,
@@ -13852,7 +13805,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10263,
+      "rank": 10262,
       "raw": {
         "source": "genius",
         "genius_id": 51771,
@@ -13888,7 +13841,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10264,
+      "rank": 10263,
       "raw": {
         "source": "genius",
         "genius_id": 51974,
@@ -13929,7 +13882,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10265,
+      "rank": 10264,
       "raw": {
         "source": "genius",
         "genius_id": 53374,
@@ -13966,7 +13919,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10266,
+      "rank": 10265,
       "raw": {
         "source": "genius",
         "genius_id": 55185,
@@ -14009,7 +13962,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10267,
+      "rank": 10266,
       "raw": {
         "source": "genius",
         "genius_id": 56590,
@@ -14052,7 +14005,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10268,
+      "rank": 10267,
       "raw": {
         "source": "genius",
         "genius_id": 57394,
@@ -14088,7 +14041,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10269,
+      "rank": 10268,
       "raw": {
         "source": "genius",
         "genius_id": 57552,
@@ -14124,7 +14077,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10270,
+      "rank": 10269,
       "raw": {
         "source": "genius",
         "genius_id": 61587,
@@ -14167,7 +14120,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10271,
+      "rank": 10270,
       "raw": {
         "source": "genius",
         "genius_id": 61685,
@@ -14204,7 +14157,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10272,
+      "rank": 10271,
       "raw": {
         "source": "genius",
         "genius_id": 62153,
@@ -14241,7 +14194,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10273,
+      "rank": 10272,
       "raw": {
         "source": "genius",
         "genius_id": 62175,
@@ -14277,7 +14230,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10274,
+      "rank": 10273,
       "raw": {
         "source": "genius",
         "genius_id": 63628,
@@ -14313,7 +14266,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10275,
+      "rank": 10274,
       "raw": {
         "source": "genius",
         "genius_id": 65402,
@@ -14352,7 +14305,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10276,
+      "rank": 10275,
       "raw": {
         "source": "genius",
         "genius_id": 68366,
@@ -14388,7 +14341,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10277,
+      "rank": 10276,
       "raw": {
         "source": "genius",
         "genius_id": 68760,
@@ -14424,7 +14377,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10278,
+      "rank": 10277,
       "raw": {
         "source": "genius",
         "genius_id": 69682,
@@ -14460,7 +14413,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10279,
+      "rank": 10278,
       "raw": {
         "source": "genius",
         "genius_id": 71818,
@@ -14497,7 +14450,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10280,
+      "rank": 10279,
       "raw": {
         "source": "genius",
         "genius_id": 72141,
@@ -14534,7 +14487,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10281,
+      "rank": 10280,
       "raw": {
         "source": "genius",
         "genius_id": 75333,
@@ -14571,7 +14524,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10282,
+      "rank": 10281,
       "raw": {
         "source": "genius",
         "genius_id": 79011,
@@ -14607,7 +14560,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10283,
+      "rank": 10282,
       "raw": {
         "source": "genius",
         "genius_id": 81757,
@@ -14643,7 +14596,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10284,
+      "rank": 10283,
       "raw": {
         "source": "genius",
         "genius_id": 83754,
@@ -14692,7 +14645,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10285,
+      "rank": 10284,
       "raw": {
         "source": "genius",
         "genius_id": 88762,
@@ -14730,7 +14683,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10286,
+      "rank": 10285,
       "raw": {
         "source": "genius",
         "genius_id": 99140,
@@ -14772,7 +14725,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10287,
+      "rank": 10286,
       "raw": {
         "source": "genius",
         "genius_id": 99142,
@@ -14808,7 +14761,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10288,
+      "rank": 10287,
       "raw": {
         "source": "genius",
         "genius_id": 111876,
@@ -14844,7 +14797,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10289,
+      "rank": 10288,
       "raw": {
         "source": "genius",
         "genius_id": 180689,
@@ -14883,7 +14836,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10290,
+      "rank": 10289,
       "raw": {
         "source": "genius",
         "genius_id": 202281,
@@ -14920,7 +14873,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10291,
+      "rank": 10290,
       "raw": {
         "source": "genius",
         "genius_id": 292963,
@@ -14957,7 +14910,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10292,
+      "rank": 10291,
       "raw": {
         "source": "genius",
         "genius_id": 395220,
@@ -14995,7 +14948,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10293,
+      "rank": 10292,
       "raw": {
         "source": "genius",
         "genius_id": 436230,
@@ -15033,7 +14986,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10294,
+      "rank": 10293,
       "raw": {
         "source": "genius",
         "genius_id": 479790,
@@ -15070,7 +15023,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10295,
+      "rank": 10294,
       "raw": {
         "source": "genius",
         "genius_id": 503220,
@@ -15106,7 +15059,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10296,
+      "rank": 10295,
       "raw": {
         "source": "genius",
         "genius_id": 512070,
@@ -15151,7 +15104,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10297,
+      "rank": 10296,
       "raw": {
         "source": "genius",
         "genius_id": 602065,
@@ -15187,7 +15140,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10298,
+      "rank": 10297,
       "raw": {
         "source": "genius",
         "genius_id": 633642,
@@ -15237,7 +15190,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10299,
+      "rank": 10298,
       "raw": {
         "source": "genius",
         "genius_id": 748332,
@@ -15274,7 +15227,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10300,
+      "rank": 10299,
       "raw": {
         "source": "genius",
         "genius_id": 1272700,
@@ -15311,7 +15264,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10301,
+      "rank": 10300,
       "raw": {
         "source": "genius",
         "genius_id": 1783757,
@@ -15354,7 +15307,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10302,
+      "rank": 10301,
       "raw": {
         "source": "genius",
         "genius_id": 1891382,
@@ -15390,7 +15343,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10303,
+      "rank": 10302,
       "raw": {
         "source": "genius",
         "genius_id": 1891384,
@@ -15439,7 +15392,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10304,
+      "rank": 10303,
       "raw": {
         "source": "genius",
         "genius_id": 1891792,
@@ -15483,7 +15436,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10305,
+      "rank": 10304,
       "raw": {
         "source": "genius",
         "genius_id": 2297763,
@@ -15520,7 +15473,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10306,
+      "rank": 10305,
       "raw": {
         "source": "genius",
         "genius_id": 2329183,
@@ -15557,7 +15510,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10307,
+      "rank": 10306,
       "raw": {
         "source": "genius",
         "genius_id": 2379488,
@@ -15607,7 +15560,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10308,
+      "rank": 10307,
       "raw": {
         "source": "genius",
         "genius_id": 2447168,
@@ -15649,7 +15602,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10309,
+      "rank": 10308,
       "raw": {
         "source": "genius",
         "genius_id": 2449026,
@@ -15686,7 +15639,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10310,
+      "rank": 10309,
       "raw": {
         "source": "genius",
         "genius_id": 2832141,
@@ -15724,7 +15677,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10311,
+      "rank": 10310,
       "raw": {
         "source": "genius",
         "genius_id": 2832861,
@@ -15760,7 +15713,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10312,
+      "rank": 10311,
       "raw": {
         "source": "genius",
         "genius_id": 2875124,
@@ -15803,7 +15756,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10313,
+      "rank": 10312,
       "raw": {
         "source": "genius",
         "genius_id": 2890565,
@@ -15852,7 +15805,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10314,
+      "rank": 10313,
       "raw": {
         "source": "genius",
         "genius_id": 3004839,
@@ -15892,7 +15845,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10315,
+      "rank": 10314,
       "raw": {
         "source": "genius",
         "genius_id": 3073260,
@@ -15929,7 +15882,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10316,
+      "rank": 10315,
       "raw": {
         "source": "genius",
         "genius_id": 3131778,
@@ -15966,7 +15919,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10317,
+      "rank": 10316,
       "raw": {
         "source": "genius",
         "genius_id": 3134542,
@@ -16010,7 +15963,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10318,
+      "rank": 10317,
       "raw": {
         "source": "genius",
         "genius_id": 3203377,
@@ -16046,7 +15999,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10319,
+      "rank": 10318,
       "raw": {
         "source": "genius",
         "genius_id": 3297998,
@@ -16082,7 +16035,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10320,
+      "rank": 10319,
       "raw": {
         "source": "genius",
         "genius_id": 3393236,
@@ -16124,7 +16077,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10321,
+      "rank": 10320,
       "raw": {
         "source": "genius",
         "genius_id": 3558196,
@@ -16168,7 +16121,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10322,
+      "rank": 10321,
       "raw": {
         "source": "genius",
         "genius_id": 3575512,
@@ -16210,7 +16163,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10323,
+      "rank": 10322,
       "raw": {
         "source": "genius",
         "genius_id": 3588100,
@@ -16248,7 +16201,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10324,
+      "rank": 10323,
       "raw": {
         "source": "genius",
         "genius_id": 3743307,
@@ -16290,7 +16243,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10325,
+      "rank": 10324,
       "raw": {
         "source": "genius",
         "genius_id": 3833965,
@@ -16332,7 +16285,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10326,
+      "rank": 10325,
       "raw": {
         "source": "genius",
         "genius_id": 3893523,
@@ -16368,7 +16321,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10327,
+      "rank": 10326,
       "raw": {
         "source": "genius",
         "genius_id": 4162265,
@@ -16415,7 +16368,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10328,
+      "rank": 10327,
       "raw": {
         "source": "genius",
         "genius_id": 4961578,
@@ -16458,7 +16411,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10329,
+      "rank": 10328,
       "raw": {
         "source": "genius",
         "genius_id": 5004839,
@@ -16494,7 +16447,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10330,
+      "rank": 10329,
       "raw": {
         "source": "genius",
         "genius_id": 5101592,
@@ -16532,7 +16485,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10331,
+      "rank": 10330,
       "raw": {
         "source": "genius",
         "genius_id": 5397199,
@@ -16575,7 +16528,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10332,
+      "rank": 10331,
       "raw": {
         "source": "genius",
         "genius_id": 5701120,
@@ -16611,7 +16564,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10333,
+      "rank": 10332,
       "raw": {
         "source": "genius",
         "genius_id": 5714823,
@@ -16649,7 +16602,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10334,
+      "rank": 10333,
       "raw": {
         "source": "genius",
         "genius_id": 5729659,
@@ -16685,7 +16638,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10335,
+      "rank": 10334,
       "raw": {
         "source": "genius",
         "genius_id": 5758206,
@@ -16722,7 +16675,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10336,
+      "rank": 10335,
       "raw": {
         "source": "genius",
         "genius_id": 7169679,
@@ -16759,7 +16712,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10337,
+      "rank": 10336,
       "raw": {
         "source": "genius",
         "genius_id": 7175492,
@@ -16797,7 +16750,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10338,
+      "rank": 10337,
       "raw": {
         "source": "genius",
         "genius_id": 7179459,
@@ -16834,7 +16787,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10339,
+      "rank": 10338,
       "raw": {
         "source": "genius",
         "genius_id": 7360921,
@@ -16870,7 +16823,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10340,
+      "rank": 10339,
       "raw": {
         "source": "genius",
         "genius_id": 7475353,
@@ -16906,7 +16859,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10341,
+      "rank": 10340,
       "raw": {
         "source": "genius",
         "genius_id": 7616681,
@@ -16943,7 +16896,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10342,
+      "rank": 10341,
       "raw": {
         "source": "genius",
         "genius_id": 9259361,
@@ -16980,7 +16933,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10343,
+      "rank": 10342,
       "raw": {
         "source": "genius",
         "genius_id": 9297649,
@@ -17023,7 +16976,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10344,
+      "rank": 10343,
       "raw": {
         "source": "genius",
         "genius_id": 9335834,
@@ -17059,7 +17012,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10345,
+      "rank": 10344,
       "raw": {
         "source": "genius",
         "genius_id": 9477493,
@@ -17095,7 +17048,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10346,
+      "rank": 10345,
       "raw": {
         "source": "genius",
         "genius_id": 9499904,
@@ -17132,7 +17085,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10347,
+      "rank": 10346,
       "raw": {
         "source": "genius",
         "genius_id": 9644467,
@@ -17170,7 +17123,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10348,
+      "rank": 10347,
       "raw": {
         "source": "genius",
         "genius_id": 9880421,
@@ -17207,7 +17160,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10349,
+      "rank": 10348,
       "raw": {
         "source": "genius",
         "genius_id": 10301035,
@@ -17243,7 +17196,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10350,
+      "rank": 10349,
       "raw": {
         "source": "genius",
         "genius_id": 10356382,
@@ -17279,7 +17232,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10351,
+      "rank": 10350,
       "raw": {
         "source": "genius",
         "genius_id": 10363014,
@@ -17315,7 +17268,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10352,
+      "rank": 10351,
       "raw": {
         "source": "genius",
         "genius_id": 10488353,
@@ -17358,7 +17311,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10353,
+      "rank": 10352,
       "raw": {
         "source": "genius",
         "genius_id": 10775488,
@@ -17395,7 +17348,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10354,
+      "rank": 10353,
       "raw": {
         "source": "genius",
         "genius_id": 10824531,
@@ -17431,7 +17384,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10355,
+      "rank": 10354,
       "raw": {
         "source": "genius",
         "genius_id": 10913817,
@@ -17467,7 +17420,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10356,
+      "rank": 10355,
       "raw": {
         "source": "genius",
         "genius_id": 11010023,
@@ -17504,7 +17457,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10357,
+      "rank": 10356,
       "raw": {
         "source": "genius",
         "genius_id": 11304992,
@@ -17540,7 +17493,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10358,
+      "rank": 10357,
       "raw": {
         "source": "genius",
         "genius_id": 11646033,
@@ -17576,7 +17529,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10359,
+      "rank": 10358,
       "raw": {
         "source": "genius",
         "genius_id": 11696078,
@@ -17613,7 +17566,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10360,
+      "rank": 10359,
       "raw": {
         "source": "genius",
         "genius_id": 11698864,
@@ -17649,7 +17602,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10361,
+      "rank": 10360,
       "raw": {
         "source": "genius",
         "genius_id": 12378735,
@@ -17693,7 +17646,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10362,
+      "rank": 10361,
       "raw": {
         "source": "genius",
         "genius_id": 12378818,
@@ -17729,7 +17682,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10363,
+      "rank": 10362,
       "raw": {
         "source": "genius",
         "genius_id": 12443630,
@@ -17766,7 +17719,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10364,
+      "rank": 10363,
       "raw": {
         "source": "genius",
         "genius_id": 12626677,
@@ -17803,7 +17756,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10365,
+      "rank": 10364,
       "raw": {
         "source": "genius",
         "genius_id": 12734522,
@@ -17840,7 +17793,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10366,
+      "rank": 10365,
       "raw": {
         "source": "genius",
         "genius_id": 13811824,
@@ -17877,7 +17830,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10367,
+      "rank": 10366,
       "raw": {
         "source": "genius",
         "genius_id": 3236,
@@ -17906,7 +17859,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10368,
+      "rank": 10367,
       "raw": {
         "source": "genius",
         "genius_id": 64752,
@@ -17935,7 +17888,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10369,
+      "rank": 10368,
       "raw": {
         "source": "genius",
         "genius_id": 422893,
@@ -17964,7 +17917,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10370,
+      "rank": 10369,
       "raw": {
         "source": "genius",
         "genius_id": 1535420,
@@ -17993,7 +17946,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10371,
+      "rank": 10370,
       "raw": {
         "source": "genius",
         "genius_id": 3221297,
@@ -18022,7 +17975,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10372,
+      "rank": 10371,
       "raw": {
         "source": "genius",
         "genius_id": 3739064,
@@ -18052,7 +18005,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10373,
+      "rank": 10372,
       "raw": {
         "source": "genius",
         "genius_id": 4697078,
@@ -18082,7 +18035,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10374,
+      "rank": 10373,
       "raw": {
         "source": "genius",
         "genius_id": 4718866,
@@ -18111,7 +18064,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10375,
+      "rank": 10374,
       "raw": {
         "source": "genius",
         "genius_id": 4843990,
@@ -18141,7 +18094,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10376,
+      "rank": 10375,
       "raw": {
         "source": "genius",
         "genius_id": 5284400,
@@ -18170,7 +18123,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10377,
+      "rank": 10376,
       "raw": {
         "source": "genius",
         "genius_id": 5362793,
@@ -18200,7 +18153,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10378,
+      "rank": 10377,
       "raw": {
         "source": "genius",
         "genius_id": 5397226,
@@ -18229,7 +18182,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10379,
+      "rank": 10378,
       "raw": {
         "source": "genius",
         "genius_id": 5397386,
@@ -18260,7 +18213,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10380,
+      "rank": 10379,
       "raw": {
         "source": "genius",
         "genius_id": 5522514,
@@ -18289,7 +18242,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10381,
+      "rank": 10380,
       "raw": {
         "source": "genius",
         "genius_id": 5705247,
@@ -18318,7 +18271,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10382,
+      "rank": 10381,
       "raw": {
         "source": "genius",
         "genius_id": 5847025,
@@ -18347,7 +18300,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10383,
+      "rank": 10382,
       "raw": {
         "source": "genius",
         "genius_id": 5999999,
@@ -18376,7 +18329,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10384,
+      "rank": 10383,
       "raw": {
         "source": "genius",
         "genius_id": 6227178,
@@ -18406,7 +18359,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10385,
+      "rank": 10384,
       "raw": {
         "source": "genius",
         "genius_id": 6963954,
@@ -18435,7 +18388,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10386,
+      "rank": 10385,
       "raw": {
         "source": "genius",
         "genius_id": 7162843,
@@ -18464,7 +18417,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10387,
+      "rank": 10386,
       "raw": {
         "source": "genius",
         "genius_id": 7756410,
@@ -18493,7 +18446,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10388,
+      "rank": 10387,
       "raw": {
         "source": "genius",
         "genius_id": 8525022,
@@ -18523,7 +18476,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10389,
+      "rank": 10388,
       "raw": {
         "source": "genius",
         "genius_id": 9496510,
@@ -18552,7 +18505,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10390,
+      "rank": 10389,
       "raw": {
         "source": "genius",
         "genius_id": 9534895,
@@ -18584,7 +18537,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10391,
+      "rank": 10390,
       "raw": {
         "source": "genius",
         "genius_id": 9664150,
@@ -18613,7 +18566,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10392,
+      "rank": 10391,
       "raw": {
         "source": "genius",
         "genius_id": 10735215,
@@ -18642,7 +18595,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10393,
+      "rank": 10392,
       "raw": {
         "source": "genius",
         "genius_id": 10739732,
@@ -18672,7 +18625,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10394,
+      "rank": 10393,
       "raw": {
         "source": "genius",
         "genius_id": 11135669,
@@ -18701,7 +18654,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10395,
+      "rank": 10394,
       "raw": {
         "source": "genius",
         "genius_id": 13087487,
@@ -18718,43 +18671,6 @@
       ]
     },
     {
-      "id": "genius-5424606",
-      "title": "Revenge (Summer Sixteen Original)",
-      "release_id": "genius-unassigned",
-      "duration": null,
-      "bpm": null,
-      "musical_key": null,
-      "energy": null,
-      "dance": null,
-      "valence": null,
-      "acoustic": null,
-      "popularity": null,
-      "explicit": null,
-      "rank": 10396,
-      "raw": {
-        "source": "genius",
-        "genius_id": 5424606,
-        "genius_url": "https://genius.com/Drake-revenge-summer-sixteen-original-lyrics",
-        "spotify_id": null,
-        "source_release_date": null,
-        "source_cover_url": "https://images.genius.com/107c985c2426643916a4db41de0db52d.769x769x1.jpg",
-        "source_album": null,
-        "media": [
-          {
-            "attribution": "user 44417052",
-            "provider": "soundcloud",
-            "type": "audio",
-            "url": "https://soundcloud.com/user-44417052/summer-sixteen-354359194"
-          }
-        ],
-        "imported_at": "2026-09-26"
-      },
-      "artist_ids": [
-        "drake",
-        "kanye-west"
-      ]
-    },
-    {
       "id": "genius-6168379",
       "title": "30 Hours (Drake Reference)",
       "release_id": "genius-unassigned",
@@ -18767,7 +18683,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10397,
+      "rank": 10395,
       "raw": {
         "source": "genius",
         "genius_id": 6168379,
@@ -18792,48 +18708,6 @@
       ]
     },
     {
-      "id": "genius-8148830",
-      "title": "Your Pussy (Calling My Name Original)",
-      "release_id": "genius-unassigned",
-      "duration": null,
-      "bpm": null,
-      "musical_key": null,
-      "energy": null,
-      "dance": null,
-      "valence": null,
-      "acoustic": null,
-      "popularity": null,
-      "explicit": null,
-      "rank": 10398,
-      "raw": {
-        "source": "genius",
-        "genius_id": 8148830,
-        "genius_url": "https://genius.com/Drake-your-pussy-calling-my-name-original-lyrics",
-        "spotify_id": null,
-        "source_release_date": null,
-        "source_cover_url": "https://images.genius.com/107c985c2426643916a4db41de0db52d.769x769x1.jpg",
-        "source_album": null,
-        "media": [
-          {
-            "attribution": "octobersveryown",
-            "provider": "soundcloud",
-            "type": "audio",
-            "url": "https://soundcloud.com/octobersveryown/drake-calling-my-name"
-          },
-          {
-            "provider": "youtube",
-            "start": 0,
-            "type": "video",
-            "url": "https://www.youtube.com/watch?v=fhumS5MsRyE"
-          }
-        ],
-        "imported_at": "2026-09-26"
-      },
-      "artist_ids": [
-        "drake"
-      ]
-    },
-    {
       "id": "genius-8437735",
       "title": "When I See It (Demo)",
       "release_id": "genius-unassigned",
@@ -18846,7 +18720,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10399,
+      "rank": 10396,
       "raw": {
         "source": "genius",
         "genius_id": 8437735,
@@ -18884,7 +18758,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10400,
+      "rank": 10397,
       "raw": {
         "source": "genius",
         "genius_id": 8694308,
@@ -18910,86 +18784,6 @@
       ]
     },
     {
-      "id": "genius-9127593",
-      "title": "Upset (Original)",
-      "release_id": "genius-unassigned",
-      "duration": null,
-      "bpm": null,
-      "musical_key": null,
-      "energy": null,
-      "dance": null,
-      "valence": null,
-      "acoustic": null,
-      "popularity": null,
-      "explicit": null,
-      "rank": 10401,
-      "raw": {
-        "source": "genius",
-        "genius_id": 9127593,
-        "genius_url": "https://genius.com/Drake-upset-original-lyrics",
-        "spotify_id": null,
-        "source_release_date": null,
-        "source_cover_url": "https://images.genius.com/107c985c2426643916a4db41de0db52d.769x769x1.jpg",
-        "source_album": null,
-        "media": [
-          {
-            "attribution": "octobersveryown",
-            "provider": "soundcloud",
-            "type": "audio",
-            "url": "https://soundcloud.com/octobersveryown/drake-im-upset"
-          },
-          {
-            "provider": "youtube",
-            "start": 0,
-            "type": "video",
-            "url": "https://www.youtube.com/watch?v=wS4ESheuHDY"
-          }
-        ],
-        "imported_at": "2026-09-26"
-      },
-      "artist_ids": [
-        "drake"
-      ]
-    },
-    {
-      "id": "genius-10200530",
-      "title": "Trust Issues (Remix) [Demo]",
-      "release_id": "genius-unassigned",
-      "duration": null,
-      "bpm": null,
-      "musical_key": null,
-      "energy": null,
-      "dance": null,
-      "valence": null,
-      "acoustic": null,
-      "popularity": null,
-      "explicit": null,
-      "rank": 10402,
-      "raw": {
-        "source": "genius",
-        "genius_id": 10200530,
-        "genius_url": "https://genius.com/Drake-trust-issues-remix-demo-lyrics",
-        "spotify_id": null,
-        "source_release_date": "2011-07-01",
-        "source_cover_url": "https://images.genius.com/107c985c2426643916a4db41de0db52d.769x769x1.jpg",
-        "source_album": null,
-        "media": [
-          {
-            "provider": "youtube",
-            "start": 0,
-            "type": "video",
-            "url": "https://www.youtube.com/watch?v=BLyJJCb_jbQ"
-          }
-        ],
-        "imported_at": "2026-09-26"
-      },
-      "artist_ids": [
-        "drake",
-        "the-weeknd",
-        "justin-bieber"
-      ]
-    },
-    {
       "id": "genius-10633258",
       "title": "Splash Brothers (Original)",
       "release_id": "genius-unassigned",
@@ -19002,7 +18796,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10403,
+      "rank": 10398,
       "raw": {
         "source": "genius",
         "genius_id": 10633258,
@@ -19041,7 +18835,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10404,
+      "rank": 10399,
       "raw": {
         "source": "genius",
         "genius_id": 10764840,
@@ -19077,7 +18871,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10405,
+      "rank": 10400,
       "raw": {
         "source": "genius",
         "genius_id": 3386807,
@@ -19107,7 +18901,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10406,
+      "rank": 10401,
       "raw": {
         "source": "genius",
         "genius_id": 4941870,
@@ -19136,7 +18930,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10407,
+      "rank": 10402,
       "raw": {
         "source": "genius",
         "genius_id": 7211296,
@@ -19166,7 +18960,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10408,
+      "rank": 10403,
       "raw": {
         "source": "genius",
         "genius_id": 7659435,
@@ -19198,7 +18992,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10409,
+      "rank": 10404,
       "raw": {
         "source": "genius",
         "genius_id": 8240585,
@@ -19227,7 +19021,7 @@
       "acoustic": null,
       "popularity": null,
       "explicit": null,
-      "rank": 10410,
+      "rank": 10405,
       "raw": {
         "source": "genius",
         "genius_id": 8759722,
@@ -19240,65 +19034,6 @@
         "imported_at": "2026-09-26"
       },
       "artist_ids": [
-        "drake"
-      ]
-    },
-    {
-      "id": "genius-9103895",
-      "title": "Against The Wind (The Remorse Original)",
-      "release_id": "genius-unassigned",
-      "duration": null,
-      "bpm": null,
-      "musical_key": null,
-      "energy": null,
-      "dance": null,
-      "valence": null,
-      "acoustic": null,
-      "popularity": null,
-      "explicit": null,
-      "rank": 10411,
-      "raw": {
-        "source": "genius",
-        "genius_id": 9103895,
-        "genius_url": "https://genius.com/Drake-against-the-wind-the-remorse-original-lyrics",
-        "spotify_id": null,
-        "source_release_date": null,
-        "source_cover_url": "https://images.genius.com/107c985c2426643916a4db41de0db52d.769x769x1.jpg",
-        "source_album": null,
-        "media": [],
-        "imported_at": "2026-09-26"
-      },
-      "artist_ids": [
-        "drake"
-      ]
-    },
-    {
-      "id": "genius-10045058",
-      "title": "Far From Perfect (Slow Motion Original)",
-      "release_id": "genius-unassigned",
-      "duration": null,
-      "bpm": null,
-      "musical_key": null,
-      "energy": null,
-      "dance": null,
-      "valence": null,
-      "acoustic": null,
-      "popularity": null,
-      "explicit": null,
-      "rank": 10412,
-      "raw": {
-        "source": "genius",
-        "genius_id": 10045058,
-        "genius_url": "https://genius.com/Usher-far-from-perfect-slow-motion-original-lyrics",
-        "spotify_id": null,
-        "source_release_date": null,
-        "source_cover_url": "https://images.genius.com/0193dc25105a555908860349ee367bf7.400x400x1.jpg",
-        "source_album": null,
-        "media": [],
-        "imported_at": "2026-09-26"
-      },
-      "artist_ids": [
-        "genius-artist-132",
         "drake"
       ]
     }

@@ -210,6 +210,11 @@
     "action": "include",
     "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
   },
+  "5424606": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate working title/version of existing recording",
+    "existingId": "17Q87zeXgsAi9iQQbMu9v0"
+  },
   "5520781": {
     "action": "include",
     "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
@@ -275,6 +280,11 @@
     "action": "include",
     "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
   },
+  "7165549": {
+    "action": "duplicate",
+    "reason": "Censored spelling of an existing explicit recording",
+    "existingId": "3RkNXZvOSMMElmmXztDc94"
+  },
   "7165786": {
     "action": "review",
     "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
@@ -332,6 +342,11 @@
     "action": "review",
     "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
   },
+  "8148830": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate working title/version of existing recording",
+    "existingId": "7sT7kZEYd1MrmzLLIRVZas"
+  },
   "8240585": {
     "action": "include",
     "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
@@ -365,16 +380,18 @@
     "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
   },
   "9103895": {
-    "action": "include",
-    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+    "action": "duplicate",
+    "reason": "Reviewed alternate working title/version of existing recording",
+    "existingId": "1cCXT1cErAY6tmIqHbodrt"
   },
   "9118054": {
     "action": "review",
     "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
   },
   "9127593": {
-    "action": "include",
-    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+    "action": "duplicate",
+    "reason": "Reviewed alternate working title/version of existing recording",
+    "existingId": "3qN5qMTKyEEmiTZD38BNTT"
   },
   "9406756": {
     "action": "review",
@@ -425,8 +442,9 @@
     "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
   },
   "10045058": {
-    "action": "include",
-    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+    "action": "duplicate",
+    "reason": "Alternate title of Slow Motion",
+    "existingId": "genius-5308117"
   },
   "10213648": {
     "action": "review",

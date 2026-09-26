@@ -17,6 +17,8 @@ export function titleKey(title: string) {
     .normalize('NFKD')
     .replace(/[\u0300-\u036f\u200b-\u200f\ufeff]/g, '')
     .toLowerCase()
+    .replace(/f\*+g fans/g, 'fucking fans')
+    .replace(/f\*+kin[’']? problems/g, 'fuckin problems')
     .replace(
       /\([^)]*\b(?:feat\.?|ft\.?|featuring|with)\s[^)]*\)|\[[^\]]*\b(?:feat\.?|ft\.?|featuring|with)\s[^\]]*\]/g,
       '',
@@ -65,7 +67,7 @@ export function versionKey(title: string) {
   return titleKey(
     title
       .replace(
-        /\([^)]*(?:remix|mix|edit|dub|version|verzuz)[^)]*\)|\[[^\]]*(?:remix|mix|edit|dub|version|verzuz)[^\]]*\]/gi,
+        /\([^)]*(?:remix|mix|edit|dub|version|verzuz|demo|original|reference|verse)[^)]*\)|\[[^\]]*(?:remix|mix|edit|dub|version|verzuz|demo|original|reference|verse)[^\]]*\]/gi,
         '',
       )
       .replace(/\s+(?:remix|rmx)$/i, ''),

@@ -1,13 +1,13 @@
 {
   "artist_id": 130,
-  "retrieved_at": "2026-09-26T05:38:40.919Z",
+  "retrieved_at": "2026-09-26T05:44:38.693Z",
   "pages": 69,
   "source_entries": 1942,
-  "seed_tracks": 413,
+  "seed_tracks": 406,
   "existing_tracks": 414,
   "summary": {
-    "duplicate": 599,
-    "added": 413,
+    "duplicate": 606,
+    "added": 406,
     "excluded": 694,
     "review": 236
   },
@@ -5364,9 +5364,9 @@
       "genius_id": 7165549,
       "title": "Fucking Fans",
       "url": "https://genius.com/Drake-fucking-fans-lyrics",
-      "action": "added",
-      "reason": "New Drake performance with recording context",
-      "existing_id": "genius-7165549"
+      "action": "duplicate",
+      "reason": "Censored spelling of an existing explicit recording",
+      "existing_id": "3RkNXZvOSMMElmmXztDc94"
     },
     {
       "genius_id": 7165563,
@@ -14045,9 +14045,9 @@
       "genius_id": 5424606,
       "title": "Revenge (Summer Sixteen Original)",
       "url": "https://genius.com/Drake-revenge-summer-sixteen-original-lyrics",
-      "action": "added",
-      "reason": "New Drake performance with recording context",
-      "existing_id": "genius-5424606"
+      "action": "duplicate",
+      "reason": "Reviewed alternate working title/version of existing recording",
+      "existing_id": "17Q87zeXgsAi9iQQbMu9v0"
     },
     {
       "genius_id": 5522480,
@@ -14101,9 +14101,9 @@
       "genius_id": 8148830,
       "title": "Your Pussy (Calling My Name Original)",
       "url": "https://genius.com/Drake-your-pussy-calling-my-name-original-lyrics",
-      "action": "added",
-      "reason": "New Drake performance with recording context",
-      "existing_id": "genius-8148830"
+      "action": "duplicate",
+      "reason": "Reviewed alternate working title/version of existing recording",
+      "existing_id": "7sT7kZEYd1MrmzLLIRVZas"
     },
     {
       "genius_id": 8279022,
@@ -14148,9 +14148,9 @@
       "genius_id": 9127593,
       "title": "Upset (Original)",
       "url": "https://genius.com/Drake-upset-original-lyrics",
-      "action": "added",
-      "reason": "New Drake performance with recording context",
-      "existing_id": "genius-9127593"
+      "action": "duplicate",
+      "reason": "Reviewed alternate working title/version of existing recording",
+      "existing_id": "3qN5qMTKyEEmiTZD38BNTT"
     },
     {
       "genius_id": 9157879,
@@ -14211,9 +14211,9 @@
       "genius_id": 10200530,
       "title": "Trust Issues (Remix) [Demo]",
       "url": "https://genius.com/Drake-trust-issues-remix-demo-lyrics",
-      "action": "added",
-      "reason": "New Drake performance with recording context",
-      "existing_id": "genius-10200530"
+      "action": "duplicate",
+      "reason": "Title or alternate-edition match",
+      "existing_id": "4Wjhj0WjkyECccfHVIgaTq"
     },
     {
       "genius_id": 10278401,
@@ -14449,9 +14449,9 @@
       "genius_id": 9103895,
       "title": "Against The Wind (The Remorse Original)",
       "url": "https://genius.com/Drake-against-the-wind-the-remorse-original-lyrics",
-      "action": "added",
-      "reason": "New Drake performance with recording context",
-      "existing_id": "genius-9103895"
+      "action": "duplicate",
+      "reason": "Reviewed alternate working title/version of existing recording",
+      "existing_id": "1cCXT1cErAY6tmIqHbodrt"
     },
     {
       "genius_id": 9185259,
@@ -14489,9 +14489,9 @@
       "genius_id": 10045058,
       "title": "Far From Perfect (Slow Motion Original)",
       "url": "https://genius.com/Usher-far-from-perfect-slow-motion-original-lyrics",
-      "action": "added",
-      "reason": "New Drake performance with recording context",
-      "existing_id": "genius-10045058"
+      "action": "duplicate",
+      "reason": "Alternate title of Slow Motion",
+      "existing_id": "genius-5308117"
     },
     {
       "genius_id": 10562173,

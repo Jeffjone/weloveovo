@@ -33,6 +33,9 @@ test('full Genius snapshot is accounted for and imports unique, source-attribute
   }
   assert.equal(titleKey('Marvin’s Room (feat. Drake)'), titleKey("Marvin's Room"));
   assert.equal(versionKey('One Dance (Radio Edit)'), titleKey('One Dance'));
+  assert.equal(titleKey('F*****g Fans'), titleKey('Fucking Fans'));
+  assert.equal(titleKey("F**kin' Problems"), titleKey('Fuckin’ Problems'));
+  assert.equal(versionKey('Trust Issues (Remix) [Demo]'), titleKey('Trust Issues'));
   assert.equal(alternateKey('Desires (Demo)'), titleKey('Desires'));
   const base: GeniusEntry = {
     id: 1,
