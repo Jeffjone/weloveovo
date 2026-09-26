@@ -1,3 +1,4 @@
+import { runtimeDatabaseURL, queryQueue } from './database-connection';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { seed, type Database } from './seed';
@@ -16,18 +17,22 @@ export async function database(): Promise<Database> {
 async function initialize(): Promise<Database> {
   if (process.env.DATABASE_URL) {
     const postgres = (await import('postgres')).default;
-    const sql = postgres(process.env.DATABASE_URL, {
+    const sql = postgres(runtimeDatabaseURL(process.env.DATABASE_URL), {
       prepare: false,
-      max: 5,
-      idle_timeout: 20,
+      max: 1,
+      idle_timeout: 5,
+      max_lifetime: 60,
       connect_timeout: 10,
     });
+    const run = queryQueue();
     return {
       query: async <T>(text: string, params: unknown[] = []) => ({
-        rows: (await sql.unsafe(text, params as never[])) as unknown as T[],
+        rows: await run(async () => (await sql.unsafe(text, params as never[])) as unknown as T[]),
       }),
       exec: async (text) => {
-        await sql.unsafe(text);
+        await run(async () => {
+          await sql.unsafe(text);
+        });
       },
     };
   }
