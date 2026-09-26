@@ -257,7 +257,22 @@ export function Curator({ initial }: { initial: Content }) {
                     {fields[kind].map((field) => (
                       <label key={field}>
                         {field.replaceAll('_', ' ')}
-                        {typeof record[field] === 'boolean' ? (
+                        {field === 'explicit' ? (
+                          <select
+                            value={record[field] === null ? 'unknown' : String(record[field])}
+                            onChange={(e) =>
+                              setRecord({
+                                ...record,
+                                [field]:
+                                  e.target.value === 'unknown' ? null : e.target.value === 'true',
+                              })
+                            }
+                          >
+                            <option value="unknown">Unknown</option>
+                            <option value="true">Explicit</option>
+                            <option value="false">Not explicit</option>
+                          </select>
+                        ) : typeof record[field] === 'boolean' ? (
                           <input
                             type="checkbox"
                             checked={Boolean(record[field])}
@@ -278,7 +293,9 @@ export function Curator({ initial }: { initial: Content }) {
                               setRecord({
                                 ...record,
                                 [field]: numeric.has(field)
-                                  ? Number(e.target.value)
+                                  ? e.target.value === ''
+                                    ? null
+                                    : Number(e.target.value)
                                   : e.target.value || (field === 'track_id' ? null : ''),
                               })
                             }
@@ -558,7 +575,8 @@ export function AudioManager({
               placeholder="Choose a matching track…"
               value={row.matchText}
               onChange={(e) => {
-                const id = e.target.value.match(/[a-zA-Z0-9]{22}$/)?.[0] || '';
+                const id =
+                  e.target.value.match(/(?:[a-zA-Z0-9]{22}|genius-[1-9][0-9]*)$/)?.[0] || '';
                 update(row.key, { trackId: id, matchText: e.target.value, approved: false });
               }}
             />

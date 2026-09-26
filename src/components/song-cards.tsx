@@ -22,7 +22,8 @@ export function SongCards({ tracks }: { tracks: Track[] }) {
             </div>
             <div className={s.copy}>
               <span className={s.meta}>
-                {track.release_date.slice(0, 4)} / {track.duration}
+                {track.release_date.slice(0, 4) || 'Date unknown'} /{' '}
+                {track.duration || 'Time unknown'}
                 {track.explicit ? ' / E' : ''}
               </span>
               <h3>{track.title}</h3>

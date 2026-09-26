@@ -1,6 +1,7 @@
 import { z } from 'zod';
+import { trackId } from './track-identity';
 export const uploadSchema = z.object({
-  trackId: z.string().regex(/^[a-zA-Z0-9]{22}$/),
+  trackId,
   filename: z
     .string()
     .min(5)
@@ -24,7 +25,7 @@ export function suggestTracks(
       .replace(/\.mp3$/, '')
       .replace(/^\d+[.\s_-]*/, '')
       .replace(/[^a-z0-9]/g, '');
-  const id = filename.match(/[a-zA-Z0-9]{22}/)?.[0];
+  const id = filename.match(/genius-[1-9][0-9]*|[a-zA-Z0-9]{22}/)?.[0];
   const exact = tracks.filter((t) => t.id === id);
   if (exact.length) return exact;
   const title = normalize(metadata.title || filename.replace(/^drake\s*[-–]\s*/i, ''));

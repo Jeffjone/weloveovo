@@ -1,0 +1,693 @@
+{
+  "1547": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title or version of a cataloged recording",
+    "existingId": "5UsLjwBaTHBX4ektWIr4XX"
+  },
+  "1562": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title or version of a cataloged recording",
+    "existingId": "genius-36586"
+  },
+  "3055": {
+    "action": "exclude",
+    "reason": "Alternate performance, edit, or reused verse of a cataloged recording"
+  },
+  "3236": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "5622": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title, split medley, or duplicate recording",
+    "existingId": "genius-18057"
+  },
+  "51794": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title, split medley, or duplicate recording",
+    "existingId": "genius-3175722"
+  },
+  "58342": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title, split medley, or duplicate recording",
+    "existingId": "2FbGlEPAjNhWvrVvlentVq"
+  },
+  "58665": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title, split medley, or duplicate recording",
+    "existingId": "2FbGlEPAjNhWvrVvlentVq"
+  },
+  "64752": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "65411": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title, split medley, or duplicate recording",
+    "existingId": "genius-65402"
+  },
+  "70037": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "72331": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "84025": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "93539": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title, split medley, or duplicate recording",
+    "existingId": "4X5f3vT8MRuXF68pfjNte5"
+  },
+  "222450": {
+    "action": "exclude",
+    "reason": "Alternate performance, edit, or reused verse of a cataloged recording"
+  },
+  "422893": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "496317": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title or version of a cataloged recording",
+    "existingId": "genius-93539"
+  },
+  "704657": {
+    "action": "exclude",
+    "reason": "Alternate performance, edit, or reused verse of a cataloged recording"
+  },
+  "1535420": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "2278868": {
+    "action": "exclude",
+    "reason": "Alternate performance, edit, or reused verse of a cataloged recording"
+  },
+  "2318813": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "2343817": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "2651704": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title, split medley, or duplicate recording",
+    "existingId": "genius-49896"
+  },
+  "3221297": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "3297998": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "3386807": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "3393236": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "3533486": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title or version of a cataloged recording",
+    "existingId": "genius-1414"
+  },
+  "3533527": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title or version of a cataloged recording",
+    "existingId": "genius-1414"
+  },
+  "3533586": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title or version of a cataloged recording",
+    "existingId": "genius-1414"
+  },
+  "3725686": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "3725705": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "3739064": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "3893523": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "4216732": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title, split medley, or duplicate recording",
+    "existingId": "genius-4697078"
+  },
+  "4341931": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "4417029": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "4427019": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "4697078": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "4718866": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "4843990": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "4864687": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title, split medley, or duplicate recording",
+    "existingId": "genius-3824736"
+  },
+  "4941870": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "5004839": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "5162678": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "5284400": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "5362793": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "5397226": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "5397386": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "5520781": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "5522514": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "5566195": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "5701120": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "5705247": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "5758206": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "5847025": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "5988823": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title, split medley, or duplicate recording",
+    "existingId": "genius-1368"
+  },
+  "5999999": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "6227178": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "6275289": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "6785237": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "6963954": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "7012409": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "7086924": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "7162843": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "7165786": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "7169679": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "7211296": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "7337475": {
+    "action": "exclude",
+    "reason": "Alternate performance, edit, or reused verse of a cataloged recording"
+  },
+  "7360921": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "7399968": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "7508578": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "7659435": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "7722905": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "7722910": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "7756410": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "7774835": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title or version of a cataloged recording",
+    "existingId": "genius-10764840"
+  },
+  "7815610": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "8111103": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "8240585": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "8525022": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "8694308": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "8759722": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "8859643": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "8962177": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "8962189": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "9029439": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "9103895": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "9118054": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "9127593": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "9406756": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "9446583": {
+    "action": "exclude",
+    "reason": "Alternate performance, edit, or reused verse of a cataloged recording"
+  },
+  "9477493": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "9496510": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "9534895": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "9541149": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "9601356": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "9664150": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "9673560": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "9675287": {
+    "action": "exclude",
+    "reason": "Alternate performance, edit, or reused verse of a cataloged recording"
+  },
+  "9868093": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "10004909": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "10045058": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "10213648": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "10683845": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "10735215": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "10739732": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "10764840": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "10824531": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "10844574": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "10966510": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "11043250": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "11135669": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "11188418": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "11399507": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "11646033": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "11695739": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "11696078": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "11698864": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "11844377": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "11850285": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "11861271": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "11893249": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "11913695": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "11915686": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "11919057": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "11944788": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title or version of a cataloged recording",
+    "existingId": "genius-149"
+  },
+  "11977908": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title or version of a cataloged recording",
+    "existingId": "genius-5367025"
+  },
+  "11997115": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "12056843": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "12063359": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "12078785": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title or version of a cataloged recording",
+    "existingId": "genius-8694308"
+  },
+  "12125032": {
+    "action": "exclude",
+    "reason": "Alternate performance, edit, or reused verse of a cataloged recording"
+  },
+  "12356896": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "12378735": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "12378818": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "12401087": {
+    "action": "exclude",
+    "reason": "Alternate performance, edit, or reused verse of a cataloged recording"
+  },
+  "12411607": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "12429879": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title or version of a cataloged recording",
+    "existingId": "genius-12378617"
+  },
+  "12429934": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title or version of a cataloged recording",
+    "existingId": "genius-11698864"
+  },
+  "12433587": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "12443630": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "12448284": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "12626677": {
+    "action": "include",
+    "reason": "Reviewed named unreleased recording/reference; retain Genius provenance and unknown release fields"
+  },
+  "12829785": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "12830069": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "12848413": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "12856278": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "12896258": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "12896357": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "12967381": {
+    "action": "exclude",
+    "reason": "Alternate performance, edit, or reused verse of a cataloged recording"
+  },
+  "12967487": {
+    "action": "exclude",
+    "reason": "Alternate performance, edit, or reused verse of a cataloged recording"
+  },
+  "13059454": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "13087487": {
+    "action": "include",
+    "reason": "Reviewed named rare recording/reference in Genius catalog; release remains unconfirmed where absent"
+  },
+  "13212440": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "13281515": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "13393670": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "13741935": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "14018209": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "14098338": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "14126633": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "14144345": {
+    "action": "duplicate",
+    "reason": "Reviewed alternate title or version of a cataloged recording",
+    "existingId": "genius-3739064"
+  },
+  "14150013": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "14250639": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "14254698": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "14267561": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  },
+  "14268702": {
+    "action": "review",
+    "reason": "Unverified attribution or suspicious page; not suitable for automatic publication"
+  }
+}

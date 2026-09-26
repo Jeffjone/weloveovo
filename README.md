@@ -1,6 +1,6 @@
 # weloveovo
 
-A cinematic Drake discovery and learning app: five rooms over a persistent Toronto nightscape, connected by a branching timeline of eras, records, tracks, artists, and milestones. Explore song cards, open a random song, or learn the catalog through four quiz modes. The app preserves the original 414-track collection, 117 releases, 104 credited artists, and six career chapters.
+A cinematic Drake discovery and learning app: five rooms over a persistent Toronto nightscape, connected by a branching timeline of eras, records, tracks, artists, and milestones. Explore song cards, open a random song, or learn the catalog through four quiz modes. The catalog combines the original 414-track collection with additional Drake recordings and collaborations sourced from Genius, across six career chapters.
 
 [Visit weloveovo](https://www.weloveovo.com) · [Game Room](https://www.weloveovo.com/games) · [License](LICENSE)
 
@@ -29,9 +29,10 @@ Learning progress records question totals and the songs you have studied. It sta
 
 The collection reflects the supplied library, not a claim to contain every recording or every version.
 
+- [Drake on Genius](https://genius.com/artists/Drake): additional song metadata and performer credits. Uncertain entries are held for review; unavailable playback and audio measurements are shown as unavailable. The catalog does not claim to verify every unreleased recording.
 - [Drake on Apple Music](https://music.apple.com/us/artist/drake/271256): release information, artist context, and OVO Sound background.
 - [Recording Academy](https://www.grammy.com/artists/drake/12370/): the first Grammy win for _Take Care_ in 2013.
-- Cover art is from Apple's music catalog and belongs to its respective rights holders.
+- Cover art is from Apple's music catalog and Genius and belongs to its respective rights holders.
 - The Toronto nightscape is original AI-generated editorial artwork, an imagined view rather than a documentary photograph.
 
 Independent fan-made project. Not affiliated with Drake, OVO, Spotify, or Apple Music.

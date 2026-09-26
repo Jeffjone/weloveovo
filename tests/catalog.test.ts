@@ -15,20 +15,23 @@ import { seed } from '../src/lib/seed';
 import { saveContent } from '../src/lib/admin';
 import { suggestTracks, uploadSchema, looksLikeMP3, safeFilename } from '../src/lib/audio';
 import catalog from '../data/catalog.json';
+import additions from '../data/genius-catalog.json';
 const first = catalog.tracks[0];
 test('all original music metadata is preserved in normalized PostgreSQL tables', async () => {
-  const rows = await query<{ raw: unknown }>('SELECT raw FROM tracks ORDER BY rank');
+  const rows = await query<{ raw: unknown }>(
+    "SELECT raw FROM tracks WHERE id !~ '^genius-' ORDER BY rank",
+  );
   const original = JSON.parse(await readFile('data/tracks.json', 'utf8'));
   assert.deepEqual(
     rows.map((r) => r.raw),
     original,
   );
   assert.equal(rows.length, 414);
-  assert.equal((await releases()).length, 117);
+  assert.equal((await releases()).length, 117 + additions.releases.length);
   assert.equal((await eras()).length, 6);
   assert.equal(
     Number((await query<{ count: string }>('SELECT count(*) FROM track_artists'))[0].count),
-    catalog.tracks.reduce((n, t) => n + t.artist_ids.length, 0),
+    [...catalog.tracks, ...additions.tracks].reduce((n, t) => n + t.artist_ids.length, 0),
   );
 });
 test('search, partial matching, filtering, pagination and sorting are database backed', async () => {
@@ -37,14 +40,17 @@ test('search, partial matching, filtering, pagination and sorting are database b
   assert.ok(clean.tracks.every((t) => !t.explicit));
   assert.equal(clean.total, 38);
   const all = await searchTracks();
-  assert.equal(all.total, 414);
+  assert.equal(all.total, 414 + additions.tracks.length);
   assert.equal(all.tracks.length, 12);
   const second = await searchTracks({ page: 2 });
   assert.ok(!second.tracks.some((t) => all.tracks.some((a) => a.id === t.id)));
   const last = await searchTracks({ page: 999 });
   assert.equal(last.page, last.pages);
   assert.ok(last.tracks.length > 0);
-  assert.equal((await searchTracks({ release: 'take-care-deluxe' })).total, 19);
+  assert.equal(
+    (await searchTracks({ release: 'take-care-deluxe' })).total,
+    19 + additions.tracks.filter((t) => t.release_id === 'take-care-deluxe').length,
+  );
   const combined = await searchTracks({
     release: 'take-care-deluxe',
     era: 'the-blue-hour',
@@ -61,7 +67,9 @@ test('search, partial matching, filtering, pagination and sorting are database b
         t.release_id === 'take-care-deluxe' &&
         t.artist_ids.includes('drake') &&
         t.release_date.startsWith('2011') &&
+        t.energy !== null &&
         t.energy <= 50 &&
+        t.valence !== null &&
         t.valence <= 50,
     ),
   );
@@ -93,14 +101,26 @@ test('search, partial matching, filtering, pagination and sorting are database b
 });
 test('mood queries and deterministic explanations produce relevant recommendations', async () => {
   assert.ok(
-    (await searchTracks({ mood: 'night' })).tracks.every((t) => t.energy <= 50 && t.valence <= 50),
+    (await searchTracks({ mood: 'night' })).tracks.every(
+      (t) => t.energy !== null && t.energy <= 50 && t.valence !== null && t.valence <= 50,
+    ),
   );
   assert.ok(
     (await searchTracks({ mood: 'drive' })).tracks.every(
-      (t) => t.dance >= 65 && t.energy >= 40 && t.energy <= 75,
+      (t) =>
+        t.dance !== null &&
+        t.dance >= 65 &&
+        t.energy !== null &&
+        t.energy >= 40 &&
+        t.energy !== null &&
+        t.energy <= 75,
     ),
   );
-  assert.ok((await searchTracks({ mood: 'energy' })).tracks.every((t) => t.energy >= 70));
+  assert.ok(
+    (await searchTracks({ mood: 'energy' })).tracks.every(
+      (t) => t.energy !== null && t.energy >= 70,
+    ),
+  );
   const a = await related(first.id),
     b = await related(first.id);
   assert.deepEqual(a, b);
@@ -114,7 +134,10 @@ test('connection graph expands chronologically through albums and credits', asyn
   assert.ok(chapter.nodes.some((n) => n.kind === 'release'));
   assert.ok(chapter.nodes.some((n) => n.kind === 'milestone'));
   const album = await graph('release:take-care-deluxe');
-  assert.equal(album.nodes.filter((n) => n.kind === 'track').length, 19);
+  assert.equal(
+    album.nodes.filter((n) => n.kind === 'track').length,
+    19 + additions.tracks.filter((t) => t.release_id === 'take-care-deluxe').length,
+  );
   const track = await graph('track:' + first.id);
   assert.ok(track.nodes.some((n) => n.kind === 'artist' && n.label === '21 Savage'));
   for (const map of [chapter, album, track])

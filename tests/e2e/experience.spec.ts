@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import additions from '../../data/genius-catalog.json';
 test('lobby and room routes support direct visits, history and refresh', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
@@ -30,7 +31,9 @@ test('lobby and room routes support direct visits, history and refresh', async (
 });
 test('search, URL filters, pagination and favorites survive navigation', async ({ page }) => {
   await page.goto('/listening-room');
-  await expect(page.getByRole('status').first()).toContainText('414 TRACKS');
+  await expect(page.getByRole('status').first()).toContainText(
+    `${414 + additions.tracks.length} TRACKS`,
+  );
   await page.getByRole('searchbox').fill('Marvins Room');
   await expect(page).toHaveURL(/q=Marvins/);
   await expect(page.getByRole('status').first()).toContainText('1 TRACKS');
@@ -47,7 +50,9 @@ test('search, URL filters, pagination and favorites survive navigation', async (
   await page.getByRole('button', { name: 'Favorite Marvins Room', exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Make this room yours.' })).toBeVisible();
   await page.getByRole('button', { name: 'Explore the catalog' }).click();
-  await expect(page.getByRole('status').first()).toContainText('414 TRACKS');
+  await expect(page.getByRole('status').first()).toContainText(
+    `${414 + additions.tracks.length} TRACKS`,
+  );
   await page.getByRole('button', { name: 'Next page', exact: true }).click();
   await expect(page).toHaveURL(/page=2/);
   await expect(page.getByRole('status').first()).toContainText('PAGE 2');

@@ -36,6 +36,12 @@ async function initialize(): Promise<Database> {
   await db.exec(
     await readFile(path.join(process.cwd(), 'supabase/migrations/001_catalog.sql'), 'utf8'),
   );
+  await db.exec(
+    await readFile(
+      path.join(process.cwd(), 'supabase/migrations/003_external_catalog.sql'),
+      'utf8',
+    ),
+  );
   await seed(db);
   return db;
 }

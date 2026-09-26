@@ -1,7 +1,8 @@
 import { z } from 'zod';
 import { query } from './db';
 import type { Track, Release, Era, Milestone, GraphData, GraphNode } from './types';
-export const trackId = z.string().regex(/^[a-zA-Z0-9]{22}$/);
+import { trackId } from './track-identity';
+export { trackId } from './track-identity';
 export const searchSchema = z.object({
   q: z.string().trim().max(120).default(''),
   release: z.string().max(160).default(''),
@@ -15,16 +16,17 @@ export const searchSchema = z.object({
   limit: z.coerce.number().int().min(1).max(50).default(12),
   ids: z
     .string()
-    .max(12000)
+    .max(100000)
     .refine((value) => {
       const ids = value.split(',').filter(Boolean);
-      return ids.length <= 414 && ids.every((id) => trackId.safeParse(id).success);
+      return ids.length <= 5000 && ids.every((id) => trackId.safeParse(id).success);
     }, 'Invalid favorite identifiers')
     .optional(),
 });
 export type Search = z.input<typeof searchSchema>;
 const trackSelect = `SELECT t.id,t.title,t.release_id,t.duration,t.bpm,t.musical_key,t.energy,t.dance,t.valence,t.acoustic,t.popularity,t.explicit,t.rank,
- r.title release_title,r.release_date,r.cover_url,r.apple_url,
+ CASE WHEN t.id ~ '^[a-zA-Z0-9]{22}$' THEN t.id ELSE t.raw->>'spotify_id' END spotify_id, t.raw->>'genius_url' genius_url, t.raw->>'source_release_date' source_release_date,
+ r.title release_title,r.release_date,coalesce(r.cover_url,t.raw->>'source_cover_url') cover_url,r.apple_url,
  coalesce((SELECT json_agg(a.name ORDER BY ta.position) FROM track_artists ta JOIN artists a ON a.id=ta.artist_id WHERE ta.track_id=t.id),'[]') artist_names,
  coalesce((SELECT json_agg(a.id ORDER BY ta.position) FROM track_artists ta JOIN artists a ON a.id=ta.artist_id WHERE ta.track_id=t.id),'[]') artist_ids,
  EXISTS(SELECT 1 FROM audio_assets aa WHERE aa.track_id=t.id AND aa.status='published') downloadable
@@ -49,10 +51,10 @@ export async function searchTracks(input: Search = {}) {
     conditions.push(
       `EXISTS(SELECT 1 FROM track_artists ta WHERE ta.track_id=t.id AND ta.artist_id=${add(f.artist)})`,
     );
-  if (f.year) conditions.push(`left(r.release_date,4)::int=${add(f.year)}`);
+  if (f.year) conditions.push(`nullif(left(r.release_date,4),'')::int=${add(f.year)}`);
   if (f.era)
     conditions.push(
-      `EXISTS(SELECT 1 FROM eras e WHERE e.id=${add(f.era)} AND e.published AND left(r.release_date,4)::int BETWEEN e.start_year AND e.end_year)`,
+      `EXISTS(SELECT 1 FROM eras e WHERE e.id=${add(f.era)} AND e.published AND nullif(left(r.release_date,4),'')::int BETWEEN e.start_year AND e.end_year)`,
     );
   if (f.clean === 'true') conditions.push('NOT t.explicit');
   if (f.ids !== undefined) {
@@ -75,10 +77,10 @@ export async function searchTracks(input: Search = {}) {
   const sort = {
     rank: 't.rank',
     title: 't.title',
-    newest: 'r.release_date DESC',
-    oldest: 'r.release_date',
-    energy: 't.energy DESC',
-    popularity: 't.popularity DESC',
+    newest: "nullif(r.release_date,'') DESC NULLS LAST",
+    oldest: "nullif(r.release_date,'') NULLS LAST",
+    energy: 't.energy DESC NULLS LAST',
+    popularity: 't.popularity DESC NULLS LAST',
   }[f.sort];
   const tracks = await query<Track>(
     `${trackSelect}${where} ORDER BY ${sort},t.id LIMIT ${add(f.limit)} OFFSET ${add((page - 1) * f.limit)}`,
@@ -93,7 +95,7 @@ export async function getTrack(id: string) {
 export async function randomTracks(limit = 1, exclude?: string) {
   return query<Track>(
     `${trackSelect} WHERE ($1::text IS NULL OR t.id<>$1) ORDER BY random() LIMIT $2`,
-    [exclude || null, Math.min(Math.max(limit, 1), 414)],
+    [exclude || null, Math.min(Math.max(limit, 1), 10000)],
   );
 }
 export async function releases(featured = false) {
@@ -132,26 +134,36 @@ export async function related(id: string) {
       const collaborators = other.artist_ids.filter(
         (a) => a !== 'drake' && track.artist_ids.includes(a),
       );
-      const distance =
-        (Math.abs(track.energy - other.energy) +
-          Math.abs(track.dance - other.dance) +
-          Math.abs(track.valence - other.valence)) /
-          300 +
-        Math.abs(track.bpm - other.bpm) / 250;
-      const score =
-        distance -
-        (collaborators.length ? 0.2 : 0) -
-        (other.release_id === track.release_id ? 0.05 : 0);
+      const sharedRecord = other.release_id === track.release_id;
+      const traits = ['energy', 'dance', 'valence', 'bpm'] as const;
+      const available = traits.filter((key) => track[key] !== null && other[key] !== null);
+      const distance = available.length
+        ? available.reduce(
+            (total, key) =>
+              total + Math.abs(track[key]! - other[key]!) / (key === 'bpm' ? 250 : 100),
+            0,
+          ) / available.length
+        : 1;
+      const score = distance - (collaborators.length ? 0.2 : 0) - (sharedRecord ? 0.05 : 0);
+
       return {
         track: other,
         score,
         reason: collaborators.length
           ? 'Shared collaborator'
-          : Math.abs(track.energy - other.energy) <= 10
+          : track.energy !== null &&
+              other.energy !== null &&
+              Math.abs(track.energy - other.energy) <= 10
             ? 'Similar energy'
-            : Math.abs(track.dance - other.dance) <= 10
+            : track.dance !== null &&
+                other.dance !== null &&
+                Math.abs(track.dance - other.dance) <= 10
               ? 'A familiar rhythm'
-              : 'A related sonic mood',
+              : sharedRecord
+                ? 'From the same record'
+                : available.length
+                  ? 'A related sonic mood'
+                  : 'More from the collection',
       };
     })
     .sort((a, b) => a.score - b.score || a.track.id.localeCompare(b.track.id))
@@ -234,6 +246,16 @@ export async function graph(root: string | null = null): Promise<GraphData> {
       });
   }
   if (release) {
+    append({
+      id: 'release:' + release.id,
+      kind: 'release',
+      label: release.title,
+      description: release.release_date.slice(0, 4) || 'Date unknown',
+      href: '/records/' + release.id,
+      x: 0,
+      y: 200,
+      image: release.cover_url,
+    });
     const songs = (await searchTracks({ release: release.id, limit: 50 })).tracks;
     songs.forEach((t, i) => {
       append({

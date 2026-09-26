@@ -1,4 +1,5 @@
 'use client';
+import { trackIdPattern, spotifyId } from '@/lib/track-identity';
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -21,7 +22,7 @@ import {
 import type { Track } from '@/lib/types';
 import s from './experience.module.css';
 import { RandomSong } from './random-song';
-type Playing = Pick<Track, 'id' | 'title' | 'artist_names' | 'apple_url'>;
+type Playing = Pick<Track, 'id' | 'title' | 'artist_names' | 'apple_url' | 'spotify_id'>;
 type Experience = {
   favorites: string[];
   toggleFavorite: (id: string) => void;
@@ -79,7 +80,7 @@ export function ExperienceProvider({ children }: { children: ReactNode }) {
       if (Array.isArray(data))
         setFavorites([
           ...new Set(
-            data.filter((id: unknown) => typeof id === 'string' && /^[a-zA-Z0-9]{22}$/.test(id)),
+            data.filter((id: unknown) => typeof id === 'string' && trackIdPattern.test(id)),
           ),
         ]);
       setEffects(localStorage.getItem('weloveovo.effects') !== 'off');
@@ -181,7 +182,7 @@ export function ExperienceProvider({ children }: { children: ReactNode }) {
         favorites,
         toggleFavorite,
         listen: (track) => {
-          setPlaying(track);
+          if (spotifyId(track)) setPlaying(track);
           setCollapsed(false);
         },
         ready,
@@ -296,7 +297,7 @@ export function ExperienceProvider({ children }: { children: ReactNode }) {
                 <small>{playing.artist_names.join(', ')}</small>
               </div>
               <a
-                href={`https://open.spotify.com/track/${playing.id}`}
+                href={`https://open.spotify.com/track/${spotifyId(playing)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Open this track on Spotify"
@@ -318,7 +319,7 @@ export function ExperienceProvider({ children }: { children: ReactNode }) {
               <iframe
                 key={playing.id}
                 title={`Listen to ${playing.title} on Spotify`}
-                src={`https://open.spotify.com/embed/track/${playing.id}?theme=0`}
+                src={`https://open.spotify.com/embed/track/${spotifyId(playing)}?theme=0`}
                 width="100%"
                 height="152"
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
@@ -351,16 +352,31 @@ export function ExperienceProvider({ children }: { children: ReactNode }) {
 export function TrackActions({ track, compact = false }: { track: Track; compact?: boolean }) {
   const { favorites, toggleFavorite, listen } = useExperience();
   const saved = favorites.includes(track.id);
+  const playable = spotifyId(track);
   return (
     <div className={s.actions}>
-      <button
-        onClick={() => listen(track)}
-        className={compact ? s.iconButton : s.listen}
-        aria-label={`Listen to ${track.title}`}
-      >
-        <Play size={compact ? 16 : 14} fill="currentColor" />
-        {!compact && 'Listen on Spotify'}
-      </button>
+      {playable ? (
+        <button
+          onClick={() => listen(track)}
+          className={compact ? s.iconButton : s.listen}
+          aria-label={`Listen to ${track.title}`}
+        >
+          <Play size={compact ? 16 : 14} fill="currentColor" />
+          {!compact && 'Listen on Spotify'}
+        </button>
+      ) : track.genius_url ? (
+        <a
+          href={track.genius_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={compact ? s.iconButton : s.listen}
+          aria-label={`View ${track.title} on Genius`}
+        >
+          ↗{!compact && 'View on Genius'}
+        </a>
+      ) : (
+        <span>Playback unavailable</span>
+      )}
       <button
         className={s.favorite}
         aria-label={`Favorite ${track.title}`}

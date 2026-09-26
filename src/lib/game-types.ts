@@ -1,3 +1,4 @@
+import { trackIdPattern } from '@/lib/track-identity';
 import type { Track } from './types';
 export const gameModes = [
   {
@@ -54,9 +55,7 @@ export function readProgress(raw: string | null): GameProgress {
       correct: value.correct,
       tracks: [
         ...new Set<string>(
-          value.tracks.filter(
-            (id: unknown) => typeof id === 'string' && /^[a-zA-Z0-9]{22}$/.test(id),
-          ),
+          value.tracks.filter((id: unknown) => typeof id === 'string' && trackIdPattern.test(id)),
         ),
       ],
     };

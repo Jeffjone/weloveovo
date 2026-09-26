@@ -19,6 +19,13 @@ function shuffled<T>(items: T[]): T[] {
   return result;
 }
 function correctChoice(track: Track, mode: GameMode) {
+  if (
+    (mode === 'year' && !track.release_date) ||
+    (mode !== 'credits' &&
+      (track.release_id === 'genius-unassigned' ||
+        /unreleased|unofficial|unconfirmed/i.test(track.release_title)))
+  )
+    return null;
   if (mode === 'year')
     return { id: track.release_date.slice(0, 4), label: track.release_date.slice(0, 4) };
   if (mode === 'credits') {
@@ -29,11 +36,13 @@ function correctChoice(track: Track, mode: GameMode) {
 }
 export async function gameDeck(mode: GameMode): Promise<Question[]> {
   const [tracks, records, artists] = await Promise.all([
-    randomTracks(414),
+    randomTracks(10000),
     releases(),
     query<{ id: string; name: string }>('SELECT id,name FROM artists WHERE id<>$1', ['drake']),
   ]);
-  const years = [...new Set(records.map((r) => r.release_date.slice(0, 4)))];
+  const years = [
+    ...new Set(records.filter((r) => r.release_date).map((r) => r.release_date.slice(0, 4))),
+  ];
   const deck: Question[] = [];
   const seen = new Set<string>();
   for (const track of tracks) {
@@ -51,7 +60,11 @@ export async function gameDeck(mode: GameMode): Promise<Question[]> {
               .filter((a) => !track.artist_ids.includes(a.id))
               .map((a) => ({ id: a.id, label: a.name }))
           : records
-              .filter((r) => mode !== 'cover' || r.cover_url !== track.cover_url)
+              .filter(
+                (r) =>
+                  r.id !== 'genius-unassigned' &&
+                  (mode !== 'cover' || r.cover_url !== track.cover_url),
+              )
               .map((r) => ({ id: r.id, label: r.title }));
     const labels = new Set([answer.label.toLowerCase()]);
     const alternatives = shuffled(pool)
@@ -91,6 +104,6 @@ export async function checkAnswer(input: z.input<typeof answerInput>): Promise<A
   const explanation =
     mode === 'credits'
       ? `The catalog credits ${track.artist_names.join(', ')} on “${track.title}”.`
-      : `“${track.title}” appears on ${track.release_title}. This edition is dated ${track.release_date} in the collection.`;
+      : `“${track.title}” appears on ${track.release_title}. ${track.release_date ? `This edition is dated ${track.release_date} in the collection.` : 'Its release date is not confirmed in the collection.'}`;
   return { correct: choice === answer.id, answer: answer.id, explanation, track };
 }

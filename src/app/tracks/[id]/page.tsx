@@ -27,7 +27,7 @@ export default async function TrackPage({ params }: { params: Promise<{ id: stri
         />
         <div>
           <p className={ui.eyebrow}>
-            IN YOUR ROTATION / {track.release_date.slice(0, 4)}
+            IN YOUR ROTATION / {track.release_date.slice(0, 4) || 'Date unknown'}
             {track.explicit ? ' / EXPLICIT' : ''}
           </p>
           <h1>{track.title}</h1>
@@ -47,10 +47,10 @@ export default async function TrackPage({ params }: { params: Promise<{ id: stri
               </b>
             </span>
             <span>
-              TIME<b>{track.duration}</b>
+              TIME<b>{track.duration || 'Unknown'}</b>
             </span>
             <span>
-              TEMPO<b>{track.bpm} BPM</b>
+              TEMPO<b>{track.bpm === null ? 'Unknown' : `${track.bpm} BPM`}</b>
             </span>
           </div>
           <TrackActions track={track} />
@@ -62,7 +62,9 @@ export default async function TrackPage({ params }: { params: Promise<{ id: stri
       </section>
       <section className={ui.narrative} aria-labelledby="song-file-heading">
         <div>
-          <p className={ui.eyebrow}>THE SONG FILE / {track.release_date.slice(0, 4)}</p>
+          <p className={ui.eyebrow}>
+            THE SONG FILE / {track.release_date.slice(0, 4) || 'Date unknown'}
+          </p>
           <h2 id="song-file-heading">Inside this song.</h2>
           <Link className={ui.outlineButton} href="/games">
             Test your catalog knowledge ↗
@@ -70,20 +72,47 @@ export default async function TrackPage({ params }: { params: Promise<{ id: stri
         </div>
         <div>
           <p>
-            “{track.title}” appears on{' '}
+            “{track.title}”{' '}
+            {track.release_id === 'genius-unassigned' ? 'is filed under' : 'appears on'}{' '}
             <Link href={'/records/' + track.release_id}>{track.release_title}</Link>. The collection
-            dates this edition to {track.release_date}. Its credited performers are{' '}
-            {track.artist_names.join(', ')}.
+            {track.release_date
+              ? `dates this edition to ${track.release_date}`
+              : 'does not have a confirmed release date for this edition'}
+            . Its credited performers are {track.artist_names.join(', ')}.
           </p>
-          <p>
-            At {track.duration}, the track is cataloged at {track.bpm} BPM in {track.musical_key}.
-            Its audio profile pairs an energy score of {track.energy}/100 with danceability of{' '}
-            {track.dance}/100 and acoustic character of {track.acoustic}/100. Use those traits to
-            follow a similar sound in the recommendations below.
-          </p>
+          {track.bpm !== null &&
+          track.energy !== null &&
+          track.dance !== null &&
+          track.acoustic !== null ? (
+            <p>
+              At {track.duration || 'Unknown'}, the track is cataloged at{' '}
+              {track.bpm === null ? 'Unknown' : `${track.bpm} BPM`} in {track.musical_key}. Its
+              audio profile pairs an energy score of {track.energy}/100 with danceability of{' '}
+              {track.dance}/100 and acoustic character of {track.acoustic}/100. Use those traits to
+              follow a similar sound in the recommendations below.
+            </p>
+          ) : (
+            <p>
+              Audio measurements and duration are not available from this catalog source. Explore
+              the credited artists and record for more context.
+            </p>
+          )}
           <p className={ui.subtle}>
             These notes describe the supplied catalog metadata and this release edition.
           </p>
+          {track.source_release_date && (
+            <p>Genius lists this recording’s release date as {track.source_release_date}.</p>
+          )}
+          {track.genius_url && (
+            <a
+              className={ui.source}
+              href={track.genius_url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Song metadata on Genius ↗
+            </a>
+          )}
           {track.apple_url && (
             <a
               className={ui.source}
@@ -106,20 +135,23 @@ export default async function TrackPage({ params }: { params: Promise<{ id: stri
           </h2>
         </div>
         <div className={ui.featureBars}>
+          {track.energy === null && <p>Audio profile unavailable.</p>}
           {[
             ['Energy', track.energy],
             ['Danceability', track.dance],
             ['Brightness', track.valence],
             ['Acoustic', track.acoustic],
-          ].map(([label, value]) => (
-            <div className={ui.feature} key={label}>
-              <span>{label}</span>
-              <span aria-hidden="true">
-                <i style={{ width: value + '%' }} />
-              </span>
-              <b>{value}</b>
-            </div>
-          ))}
+          ]
+            .filter(([, value]) => value !== null)
+            .map(([label, value]) => (
+              <div className={ui.feature} key={label}>
+                <span>{label}</span>
+                <span aria-hidden="true">
+                  <i style={{ width: value + '%' }} />
+                </span>
+                <b>{value}</b>
+              </div>
+            ))}
         </div>
       </div>
       <div className={ui.sectionBar}>

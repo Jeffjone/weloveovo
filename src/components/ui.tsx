@@ -82,7 +82,7 @@ export function RecordCard({ release }: { release: Release }) {
         </span>
       </span>
       <span className={s.recordMeta}>
-        {release.release_date.slice(0, 4)}
+        {release.release_date.slice(0, 4) || 'Date unknown'}
         <span>{release.track_count} TRACKS</span>
       </span>
       <h3>{release.title}</h3>
@@ -112,7 +112,7 @@ export function TrackList({ tracks }: { tracks: Track[] }) {
           <Link className={s.trackRelease} href={'/records/' + t.release_id}>
             {t.release_title}
           </Link>
-          <span className={s.duration}>{t.duration}</span>
+          <span className={s.duration}>{t.duration || '—'}</span>
           <TrackActions track={t} compact />
         </article>
       ))}

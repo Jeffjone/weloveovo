@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { gameDeck, checkAnswer, gameMode, answerInput } from '../src/lib/game-server';
 import { getTrack, randomTracks } from '../src/lib/catalog';
+import additions from '../data/genius-catalog.json';
 import { readProgress } from '../src/lib/game-types';
 test('every game mode produces ten distinct, answerable questions without exposing the answer', async () => {
   for (const mode of gameMode.options) {
@@ -27,10 +28,10 @@ test('every game mode produces ten distinct, answerable questions without exposi
 test('random discovery excludes the current song and only returns existing catalog IDs', async () => {
   const [first] = await randomTracks();
   assert.ok(first);
-  const rest = await randomTracks(414, first.id);
-  assert.equal(rest.length, 413);
+  const rest = await randomTracks(10000, first.id);
+  assert.equal(rest.length, 413 + additions.tracks.length);
   assert.ok(!rest.some((track) => track.id === first.id));
-  assert.equal(new Set(rest.map((track) => track.id)).size, 413);
+  assert.equal(new Set(rest.map((track) => track.id)).size, 413 + additions.tracks.length);
   assert.equal((await getTrack((await randomTracks(1, first.id))[0].id))?.downloadable, false);
 });
 test('invalid modes, missing songs, and corrupt saved progress are handled safely', async () => {

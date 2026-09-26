@@ -23,12 +23,14 @@ export default async function Record({ params }: { params: Promise<{ id: string 
       <section className={ui.detail}>
         <Cover release={r} className={ui.detailCover} />
         <div>
-          <p className={ui.eyebrow}>THE RECORD ROOM / {r.release_date.slice(0, 4)}</p>
+          <p className={ui.eyebrow}>
+            THE RECORD ROOM / {r.release_date.slice(0, 4) || 'Date unknown'}
+          </p>
           <h1>{r.title}</h1>
           <p>{total} tracks from this release, connected to a much bigger story.</p>
           <div className={ui.metadata}>
             <span>
-              RELEASED<b>{r.release_date}</b>
+              RELEASED<b>{r.release_date || 'Unknown'}</b>
             </span>
             <span>
               IN THIS COLLECTION<b>{total} tracks</b>

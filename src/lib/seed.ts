@@ -1,15 +1,35 @@
-import catalog from '../../data/catalog.json';
+import original from '../../data/catalog.json';
+import additions from '../../data/genius-catalog.json';
+const catalog = {
+  ...original,
+  releases: [...original.releases, ...additions.releases],
+  artists: [...original.artists, ...additions.artists],
+  tracks: [...original.tracks, ...additions.tracks],
+};
 export type Database = {
   query<T = Record<string, unknown>>(text: string, params?: unknown[]): Promise<{ rows: T[] }>;
   exec(text: string): Promise<unknown>;
 };
 export async function seed(db: Database, progress: (message: string) => void = () => {}) {
+  return seedCatalog(db, catalog, progress);
+}
+export async function seedCatalog(
+  db: Database,
+  data: {
+    releases: object[];
+    artists: object[];
+    tracks: object[];
+    eras?: object[];
+    milestones?: object[];
+  },
+  progress: (message: string) => void = () => {},
+) {
   await db.exec('BEGIN');
   try {
     for (const table of ['releases', 'artists', 'tracks', 'eras', 'milestones'] as const) {
       let completed = 0;
-      progress(`Importing ${catalog[table].length} ${table}…`);
-      for (const record of catalog[table]) {
+      progress(`Importing ${(data[table] || []).length} ${table}…`);
+      for (const record of data[table] || []) {
         const row = { ...record } as Record<string, unknown>;
         const artistIds = row.artist_ids as string[] | undefined;
         delete row.artist_ids;
@@ -25,8 +45,8 @@ export async function seed(db: Database, progress: (message: string) => void = (
               [row.id, artistIds[i], i],
             );
         completed++;
-        if (completed % 25 === 0 || completed === catalog[table].length)
-          progress(`${table}: ${completed}/${catalog[table].length}`);
+        if (completed % 25 === 0 || completed === (data[table] || []).length)
+          progress(`${table}: ${completed}/${(data[table] || []).length}`);
       }
     }
     progress('Updating search index…');

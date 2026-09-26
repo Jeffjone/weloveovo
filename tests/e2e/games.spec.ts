@@ -9,7 +9,7 @@ test('song cards open song files and random discovery opens a different track wi
   const original = page.url();
   await page.getByRole('button', { name: 'Random song', exact: true }).click();
   await expect(page).not.toHaveURL(original);
-  await expect(page).toHaveURL(/\/tracks\/[a-zA-Z0-9]{22}$/);
+  await expect(page).toHaveURL(/\/tracks\/(?:[a-zA-Z0-9]{22}|genius-[0-9]+)$/);
   await expect(page.getByRole('heading', { name: 'Inside this song.' })).toBeVisible();
   await expect(page.locator('iframe')).toHaveCount(0);
   await page.goBack();

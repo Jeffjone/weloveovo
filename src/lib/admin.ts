@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { trackId } from './track-identity';
 import { query } from './db';
 import { AccessError } from './supabase';
 import { NextResponse } from 'next/server';
@@ -8,24 +9,30 @@ const source = z
   .string()
   .url()
   .refine((s) => new URL(s).protocol === 'https:', 'Use an HTTPS source');
-const pct = z.coerce.number().int().min(0).max(100);
+const pct = z.preprocess(
+  (v) => (v === '' || v == null ? null : v),
+  z.coerce.number().int().min(0).max(100).nullable(),
+);
 export const schemas = {
   tracks: z.object({
-    id: z.string().regex(/^[a-zA-Z0-9]{22}$/),
+    id: trackId,
     title: text,
-    bpm: z.coerce.number().int().min(0).max(400),
-    musical_key: z.string().max(30),
+    bpm: z.preprocess(
+      (v) => (v === '' || v == null ? null : v),
+      z.coerce.number().int().min(0).max(400).nullable(),
+    ),
+    musical_key: z.string().max(30).nullable(),
     energy: pct,
     dance: pct,
     valence: pct,
     acoustic: pct,
     popularity: pct,
-    explicit: z.boolean(),
+    explicit: z.boolean().nullable(),
   }),
   releases: z.object({
     id,
     title: text,
-    release_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    release_date: z.string().regex(/^(?:\d{4}(?:-\d{2}(?:-\d{2})?)?)?$/),
     featured: z.boolean(),
   }),
   artists: z.object({ id, name: text }),
@@ -38,10 +45,7 @@ export const schemas = {
       start_year: z.coerce.number().int().min(1900).max(2100),
       end_year: z.coerce.number().int().min(1900).max(2100),
       release_id: id,
-      track_id: z
-        .string()
-        .regex(/^[a-zA-Z0-9]{22}$/)
-        .nullable(),
+      track_id: trackId.nullable(),
       source_url: source,
       published: z.boolean(),
       position: z.coerce.number().int().min(0).max(100),
