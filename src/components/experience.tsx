@@ -365,7 +365,7 @@ export function TrackActions({ track, compact = false }: { track: Track; compact
           <Play size={compact ? 16 : 14} fill="currentColor" />
           {!compact && 'Listen on Spotify'}
         </button>
-      ) : track.genius_url ? (
+      ) : track.genius_url && track.source_available !== false ? (
         <a
           href={track.genius_url}
           target="_blank"

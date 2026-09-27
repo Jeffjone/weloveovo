@@ -11,8 +11,8 @@ export async function GET(request: Request) {
 }
 export async function POST(request: Request) {
   try {
-    await requireCurator(request);
-    return NextResponse.json(await saveContent(await request.json()));
+    const user = await requireCurator(request);
+    return NextResponse.json(await saveContent(await request.json(), user.id));
   } catch (e) {
     return adminFailure(e);
   }

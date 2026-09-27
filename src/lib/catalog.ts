@@ -25,7 +25,9 @@ export const searchSchema = z.object({
 });
 export type Search = z.input<typeof searchSchema>;
 const trackSelect = `SELECT t.id,t.title,t.release_id,t.duration,t.bpm,t.musical_key,t.energy,t.dance,t.valence,t.acoustic,t.popularity,t.explicit,t.rank,
- CASE WHEN t.id ~ '^[a-zA-Z0-9]{22}$' THEN t.id ELSE t.raw->>'spotify_id' END spotify_id, t.raw->>'genius_url' genius_url, t.raw->>'source_release_date' source_release_date,
+ coalesce(nullif(t.raw->>'spotify_id',''),CASE WHEN t.id ~ '^[a-zA-Z0-9]{22}$' THEN t.id END) spotify_id, t.raw->>'genius_url' genius_url, t.raw->>'source_release_date' source_release_date,
+ (SELECT max(s.checked_at)::text FROM source_songs s WHERE s.track_id=t.id) source_checked_at,
+ coalesce(t.raw->>'source_available','true') <> 'false' source_available,
  r.title release_title,r.release_date,coalesce(r.cover_url,t.raw->>'source_cover_url') cover_url,r.apple_url,
  coalesce((SELECT json_agg(a.name ORDER BY ta.position) FROM track_artists ta JOIN artists a ON a.id=ta.artist_id WHERE ta.track_id=t.id),'[]') artist_names,
  coalesce((SELECT json_agg(a.id ORDER BY ta.position) FROM track_artists ta JOIN artists a ON a.id=ta.artist_id WHERE ta.track_id=t.id),'[]') artist_ids,
@@ -54,7 +56,7 @@ export async function searchTracks(input: Search = {}) {
   if (f.year) conditions.push(`nullif(left(r.release_date,4),'')::int=${add(f.year)}`);
   if (f.era)
     conditions.push(
-      `EXISTS(SELECT 1 FROM eras e WHERE e.id=${add(f.era)} AND e.published AND nullif(left(r.release_date,4),'')::int BETWEEN e.start_year AND e.end_year)`,
+      `EXISTS(SELECT 1 FROM era_releases er JOIN eras e ON e.id=er.era_id WHERE e.id=${add(f.era)} AND er.release_id=t.release_id AND er.published AND e.published)`,
     );
   if (f.clean === 'true') conditions.push('NOT t.explicit');
   if (f.ids !== undefined) {
@@ -103,8 +105,11 @@ export async function releases(featured = false) {
     `SELECT r.*,count(t.id)::int track_count FROM releases r LEFT JOIN tracks t ON t.release_id=r.id ${featured ? 'WHERE r.featured' : ''} GROUP BY r.id ORDER BY r.release_date,r.title`,
   );
 }
-export function onEraShelf(release: Pick<Release, 'id' | 'featured'>) {
-  return release.featured || release.id === 'genius-album-516437';
+export async function eraReleases(eraId: string) {
+  return query<Release>(
+    `SELECT r.*, (SELECT count(*)::int FROM tracks t WHERE t.release_id=r.id) track_count FROM era_releases er JOIN releases r ON r.id=er.release_id JOIN eras e ON e.id=er.era_id WHERE er.era_id=$1 AND er.published AND e.published ORDER BY er.position,r.release_date,r.title`,
+    [eraId],
+  );
 }
 export async function getRelease(id: string) {
   return (await query<Release>('SELECT * FROM releases WHERE id=$1', [id]))[0] || null;
@@ -207,19 +212,15 @@ export async function graph(root: string | null = null): Promise<GraphData> {
     track = await getTrack(id);
     if (track) release = await getRelease(track.release_id);
   }
-  if (release)
-    selectedEra = chapters.find(
-      (e) =>
-        Number(release!.release_date.slice(0, 4)) >= e.start_year &&
-        Number(release!.release_date.slice(0, 4)) <= e.end_year,
+  if (release) {
+    const memberships = await query<{ era_id: string }>(
+      'SELECT er.era_id FROM era_releases er JOIN eras e ON e.id=er.era_id WHERE er.release_id=$1 AND er.published AND e.published ORDER BY e.position,er.position',
+      [release.id],
     );
+    selectedEra = chapters.find((e) => e.id === memberships[0]?.era_id);
+  }
   if (selectedEra) {
-    const albums = (await releases()).filter(
-      (r) =>
-        (onEraShelf(r) || r.id === release?.id) &&
-        Number(r.release_date.slice(0, 4)) >= selectedEra!.start_year &&
-        Number(r.release_date.slice(0, 4)) <= selectedEra!.end_year,
-    );
+    const albums = await eraReleases(selectedEra.id);
     albums.forEach((r, i) => {
       append({
         id: 'release:' + r.id,

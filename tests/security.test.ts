@@ -10,9 +10,17 @@ test('hosted policies deny anonymous catalog writes, drafts and audio access', a
     );
     await db.exec(await readFile('supabase/migrations/001_catalog.sql', 'utf8'));
     await db.exec(await readFile('supabase/migrations/002_security.sql', 'utf8'));
+    await db.exec(await readFile('supabase/migrations/005_early_records_vault.sql', 'utf8'));
+    await db.exec(await readFile('supabase/migrations/006_editorial_sync.sql', 'utf8'));
     await db.exec('SET ROLE anon');
     for (const sql of [
       'SELECT * FROM editorial_drafts',
+      'SELECT * FROM source_songs',
+      'SELECT * FROM source_changes',
+      'SELECT * FROM sync_settings',
+      'SELECT * FROM content_revisions',
+      "INSERT INTO stories VALUES('home','bad','bad','',true)",
+      'SELECT * FROM vault_entries',
       'SELECT * FROM audio_assets',
       'SELECT * FROM curators',
       "INSERT INTO artists(id,name) VALUES('bad','bad')",

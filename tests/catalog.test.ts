@@ -166,7 +166,23 @@ test('editorial drafts stay private and publication is explicit', async () => {
     record: { ...track, title: 'A test catalog edit' },
   });
   assert.equal((await getTrack(first.id))?.title, 'A test catalog edit');
+  const credits = await query<{ artist_id: string; position: number }>(
+    'SELECT artist_id,position FROM track_artists WHERE track_id=$1',
+    [first.id],
+  );
+  await query('DELETE FROM track_artists WHERE track_id=$1', [first.id]);
   await seed(await database());
+  assert.equal(
+    (await query('SELECT artist_id FROM track_artists WHERE track_id=$1', [first.id])).length,
+    0,
+    'reimports preserve reviewed credit removals',
+  );
+  for (const credit of credits)
+    await query('INSERT INTO track_artists(track_id,artist_id,position) VALUES($1,$2,$3)', [
+      first.id,
+      credit.artist_id,
+      credit.position,
+    ]);
   assert.equal(
     (await getTrack(first.id))?.title,
     'A test catalog edit',

@@ -25,9 +25,8 @@ export default async function Vault({
         description="Unreleased recordings, leaks, snippets, and unrecorded freestyle references. A place for the fragments and unfinished stories."
       />
       <p className={s.note}>
-        The Vault is being prepared. No entries have been added yet. This space will hold unreleased
-        recordings, leaks, snippets, and unrecorded freestyle references, with source context and
-        clear audio availability.
+        This archive is reserved for unreleased recordings, leaks, snippets, and unrecorded
+        freestyle references. Published entries carry source context and clear audio availability.
       </p>
       {!parsed.success && (
         <p role="alert" className={ui.error}>

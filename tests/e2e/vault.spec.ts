@@ -19,11 +19,13 @@ test('vault is an empty mobile-accessible room with shareable filters', async ({
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/vault');
   await expect(page.getByRole('heading', { name: 'Nothing Filed Here Yet.' })).toBeVisible();
-  await page.getByLabel('Material Type').selectOption('snippet');
+  await page.getByRole('combobox', { name: 'Material Type', exact: true }).selectOption('snippet');
   await page.getByRole('button', { name: 'Search Vault' }).click();
   await expect(page).toHaveURL(/category=snippet/);
   await page.reload();
-  await expect(page.getByLabel('Material Type')).toHaveValue('snippet');
+  await expect(page.getByRole('combobox', { name: 'Material Type', exact: true })).toHaveValue(
+    'snippet',
+  );
   await page.getByRole('link', { name: 'Reset', exact: true }).click();
   await expect(page).toHaveURL(/\/vault$/);
   await page.getByRole('button', { name: 'Rooms', exact: true }).click();

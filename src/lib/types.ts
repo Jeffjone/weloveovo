@@ -22,6 +22,8 @@ export type Track = {
   explicit: boolean | null;
   spotify_id?: string | null;
   genius_url?: string | null;
+  source_available?: boolean;
+  source_checked_at?: string | null;
   source_release_date?: string | null;
   rank: number;
   artist_names: string[];

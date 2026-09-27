@@ -19,7 +19,8 @@
     "db:seed": "node --env-file-if-exists=.env.local --import tsx scripts/database/manage.ts seed",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "genius:report": "node --import tsx scripts/genius/report.ts"
+    "genius:report": "node --import tsx scripts/genius/report.ts",
+    "genius:sync": "node --env-file-if-exists=.env.local --import tsx scripts/genius/sync.ts"
   },
   "engines": {
     "node": ">=22.0.0"

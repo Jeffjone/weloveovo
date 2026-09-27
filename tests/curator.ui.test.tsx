@@ -1,3 +1,4 @@
+vi.mock('@/components/sync-manager', () => ({ SyncManager: () => null }));
 import { afterEach, beforeEach, expect, test, vi } from 'vitest';
 import { cleanup, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -179,7 +180,7 @@ test('editorial preview and draft save do not publish', async () => {
   );
   vi.stubGlobal('fetch', fetchMock);
   render(<Curator initial={initial} />);
-  await user.click(screen.getByRole('button', { name: 'eras' }));
+  await user.click(screen.getByRole('button', { name: 'Eras' }));
   await user.selectOptions(screen.getByLabelText('Select eras'), 'blue-hour');
   await user.clear(screen.getByLabelText('body'));
   await user.type(screen.getByLabelText('body'), 'A revised story');
@@ -227,7 +228,7 @@ test('a new connection keeps the draft ID when subsequently published', async ()
     }),
   );
   render(<Curator initial={content} />);
-  await user.click(screen.getByRole('button', { name: 'connections' }));
+  await user.click(screen.getByRole('button', { name: 'Connections' }));
   await user.click(screen.getByRole('button', { name: 'Create new' }));
   await user.type(screen.getByLabelText('source'), 'era:the-blue-hour');
   await user.type(screen.getByLabelText('target'), 'release:take-care-deluxe');
@@ -237,4 +238,32 @@ test('a new connection keeps the draft ID when subsequently published', async ()
   await screen.findByText('Changes published.');
   expect(posts.map((p) => p.action)).toEqual(['draft', 'publish']);
   expect(posts[1].record.id).toBe(savedId);
+});
+
+test('homepage artwork previews the selected release before explicit publication', async () => {
+  const user = userEvent.setup();
+  const initial = {
+    tracks: [],
+    releases: [{ id: 'views', title: 'Views', cover_url: '/assets/views.jpg' }],
+    artists: [],
+    eras: [],
+    drafts: [],
+    revisions: [],
+    homepage_features: [{ id: 'records', release_id: 'views', published: true }],
+  };
+  const fetchMock = vi.fn(async (_url: string, options?: RequestInit) =>
+    response(options?.method === 'POST' ? { id: 'records' } : initial),
+  );
+  vi.stubGlobal('fetch', fetchMock);
+  render(<Curator initial={initial} />);
+  await user.click(screen.getByRole('button', { name: 'Homepage Artwork' }));
+  await user.selectOptions(screen.getByLabelText('Select homepage_features'), 'records');
+  await user.click(screen.getByRole('button', { name: 'Preview' }));
+  expect(screen.getByRole('img', { name: 'Views cover' }).getAttribute('src')).toBe(
+    '/assets/views.jpg',
+  );
+  expect(fetchMock).not.toHaveBeenCalled();
+  await user.click(screen.getByRole('button', { name: 'Save draft' }));
+  await screen.findByText('Draft saved. The published version is unchanged.');
+  expect(JSON.parse(String(fetchMock.mock.calls[0][1]?.body)).action).toBe('draft');
 });

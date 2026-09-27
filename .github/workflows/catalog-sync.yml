@@ -1,0 +1,37 @@
+name: Refresh Genius Catalog
+on:
+  schedule:
+    - cron: '23 7 * * *'
+  workflow_dispatch:
+    inputs:
+      review_only:
+        description: Only propose changes; do not auto-refresh artwork or source links
+        type: boolean
+        default: true
+permissions:
+  contents: read
+concurrency:
+  group: genius-catalog-sync
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Refresh persisted source snapshots
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          GENIUS_ACCESS_TOKEN: ${{ secrets.GENIUS_ACCESS_TOKEN }}
+          REVIEW_ONLY: ${{ inputs.review_only }}
+        run: |
+          if [ "$REVIEW_ONLY" = "true" ]; then
+            npm run genius:sync -- --review
+          else
+            npm run genius:sync
+          fi

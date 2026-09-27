@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getEra, getTrack, releases, onEraShelf } from '@/lib/catalog';
+import { getEra, getTrack, eraReleases } from '@/lib/catalog';
 import { Cover, ConnectionLink, RecordCard, ui } from '@/components/ui';
 import { TrackActions } from '@/components/experience';
 export const dynamic = 'force-dynamic';
@@ -11,12 +11,7 @@ export default async function EraPage({ params }: { params: Promise<{ id: string
   const era = await getEra((await params).id);
   if (!era) notFound();
   const track = era.track_id ? await getTrack(era.track_id) : null;
-  const albums = (await releases()).filter(
-    (r) =>
-      onEraShelf(r) &&
-      Number(r.release_date.slice(0, 4)) >= era.start_year &&
-      Number(r.release_date.slice(0, 4)) <= era.end_year,
-  );
+  const albums = await eraReleases(era.id);
   return (
     <div className={ui.container}>
       <nav className={ui.breadcrumb} aria-label="Breadcrumb">

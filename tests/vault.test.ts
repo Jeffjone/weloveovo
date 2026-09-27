@@ -37,7 +37,7 @@ test('vault starts empty and searches only explicitly classified entries', async
   const [track] = await query<{ id: string }>('SELECT id FROM tracks ORDER BY id LIMIT 1');
   try {
     await query(
-      "INSERT INTO vault_entries VALUES ($1,'snippet','Test fixture','https://example.com')",
+      "INSERT INTO vault_entries VALUES ($1,'snippet','Test fixture','https://example.com',true)",
       [track.id],
     );
     assert.equal((await vaultTracks({ category: 'snippet' })).total, 1);

@@ -22,11 +22,21 @@ Spotify loads only after Listen is selected. Its iframe remains mounted during r
 
 Favorites stay in your browser. If storage is blocked, they work for the current visit. Effects honor reduced motion, pause when the page is hidden, and can be disabled independently. There are no public accounts, comments, ratings, locked chapters, or progress gates.
 
-The Listening Room defaults to clickable song cards, with a URL-backed Track list option. Every song file includes a reading section generated from its catalog metadata, performer credits, and release edition. The header's Random song button selects a track on the server, excludes the current song, and opens its page without autoplay. The Game Room is linked from the lobby and Rooms menu. Quizzes use this collection's release editions, not claims about a song's earliest release.
+The Listening Room defaults to clickable song cards, with a URL-backed Track list option. Song pages can include curator-published, sourced notes, with factual catalog descriptions as a fallback. The header's Random song button selects a track on the server, excludes the current song, and opens its page without autoplay. The Game Room is linked from the lobby and Rooms menu. Quizzes use this collection's release editions, not claims about a song's earliest release.
 
 Learning progress records question totals and the songs you have studied. It stays in your browser, remains separate from favorites, and lasts only for the current visit when storage is blocked. Games are for personal practice, with no competitive scores or public account requirements.
 
 The Game Room also includes **Name Drake songs**: enter titles from memory with a 1-, 3-, 5-, or 10-minute timer, or choose no time limit. The server checks each title against the collection; punctuation, capitalization, and featured-artist credits are ignored, and repeated titles count once. Timed sessions show the number of songs named. Untimed sessions add fan-level milestones, from First listen to Legend of the 6. Naming progress lasts while the Game Room stays open; switching experiences keeps the session running, including its timer. Completed lists link to song pages.
+
+## Keeping the collection current
+
+Public pages read the published PostgreSQL catalog. A resumable Genius worker checks source metadata on a daily schedule; API outages leave the published collection available. The curator studio shows actual run completion times and a review queue.
+
+Only validated source links and source-managed artwork can refresh automatically for linked songs. New recordings, dates, titles, credits, release assignments, playback identifiers, and availability changes require curator approval. Existing corrections and duplicate/clean-version exclusions are preserved. Source-check timestamps are separate from release dates; popularity and audio traits remain imported measurements.
+
+The studio supports drafts, previews, publication, and revision restoration for homepage copy and artwork selections, Legacy stories, sourced song notes, era membership, and Vault entries. Era membership is ordered independently of Records featuring. Automated imports cannot populate the Vault.
+
+See [content architecture](docs/content-architecture.md) for the publishing boundaries and recovery model.
 
 ## Typography
 
@@ -66,6 +76,7 @@ Visitors may use the deployed site through its intended interface. This license 
 | `data/source/`         | Original source metadata                                        |
 | `data/review/`         | Curated Genius import decisions                                 |
 | `reports/genius/`      | Complete import audit and readable review lists                 |
+| `.github/workflows/`   | Scheduled and manually dispatched catalog refresh worker        |
 | `scripts/genius/`      | Catalog discovery, comparison, reporting, and import tools      |
 | `scripts/database/`    | Database maintenance tools                                      |
 | `supabase/migrations/` | Versioned database schema and policies                          |

@@ -1,4 +1,6 @@
 'use client';
+import { editorialKinds, contentLabels } from '@/lib/content-kinds';
+import { SyncManager } from './sync-manager';
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Upload } from 'tus-js-client';
@@ -20,8 +22,13 @@ const fields: Record<string, string[]> = {
     'popularity',
     'explicit',
   ],
-  releases: ['title', 'release_date', 'featured'],
+  releases: ['title', 'release_date', 'cover_url', 'featured'],
   artists: ['name'],
+  stories: ['id', 'title', 'body', 'source_url'],
+  song_notes: ['id', 'title', 'body', 'source_url'],
+  homepage_features: ['id', 'release_id'],
+  era_releases: ['id', 'era_id', 'release_id', 'position'],
+  vault_entries: ['id', 'category', 'note', 'source_url'],
   eras: [
     'id',
     'label',
@@ -151,7 +158,7 @@ export function Curator({ initial }: { initial: Content }) {
       setBusy(false);
     }
   }
-  const editorial = ['eras', 'milestones', 'connections'].includes(kind);
+  const editorial = (editorialKinds as readonly string[]).includes(kind);
   const items = [
     ...(data[kind] || []),
     ...data.drafts
@@ -170,6 +177,14 @@ export function Curator({ initial }: { initial: Content }) {
         source_url: '',
       });
     if (kind === 'connections') Object.assign(base, { source: '', target: '', label: 'Connected' });
+    if (kind === 'stories')
+      Object.assign(base, { id: 'home', title: '', body: '', source_url: '' });
+    if (kind === 'song_notes') Object.assign(base, { id: '', title: '', body: '', source_url: '' });
+    if (kind === 'homepage_features') Object.assign(base, { id: 'records', release_id: '' });
+    if (kind === 'era_releases')
+      Object.assign(base, { id: crypto.randomUUID(), era_id: '', release_id: '', position: 0 });
+    if (kind === 'vault_entries')
+      Object.assign(base, { id: '', category: 'unreleased', note: '', source_url: '' });
     setRecord(base);
     setSelected('new');
   }
@@ -191,14 +206,13 @@ export function Curator({ initial }: { initial: Content }) {
           Sign out
         </button>
       </div>
+      <SyncManager />
       <div className={s.tabs}>
-        {['tracks', 'releases', 'artists', 'eras', 'milestones', 'connections', 'audio'].map(
-          (tab) => (
-            <button key={tab} aria-pressed={kind === tab} onClick={() => changeKind(tab)}>
-              {tab}
-            </button>
-          ),
-        )}
+        {['tracks', 'releases', 'artists', ...editorialKinds, 'audio'].map((tab) => (
+          <button key={tab} aria-pressed={kind === tab} onClick={() => changeKind(tab)}>
+            {contentLabels[tab] || tab}
+          </button>
+        ))}
       </div>
       {kind === 'audio' ? (
         <AudioManager tracks={data.tracks} assets={data.audio} onRefresh={refresh} />
@@ -211,7 +225,17 @@ export function Curator({ initial }: { initial: Content }) {
                 <option value="">Choose a record…</option>
                 {items.map((r) => (
                   <option value={String(r.id)} key={String(r.id)}>
-                    {String(r.title || r.name || r.label || r.id)}
+                    {String(
+                      r.title ||
+                        r.name ||
+                        r.label ||
+                        (kind === 'song_notes' || kind === 'vault_entries'
+                          ? data.tracks.find((t) => t.id === r.id)?.title
+                          : kind === 'era_releases' || kind === 'homepage_features'
+                            ? data.releases.find((t) => t.id === r.release_id)?.title
+                            : null) ||
+                        r.id,
+                    )}
                     {data.drafts.some((d) => d.kind === kind && d.entity_id === r.id)
                       ? ' · DRAFT'
                       : ''}
@@ -219,7 +243,7 @@ export function Curator({ initial }: { initial: Content }) {
                 ))}
               </select>
             </label>
-            {['milestones', 'connections'].includes(kind) && (
+            {editorial && kind !== 'eras' && (
               <button className={ui.outlineButton} onClick={create}>
                 <Plus size={13} />
                 Create new
@@ -246,8 +270,31 @@ export function Curator({ initial }: { initial: Content }) {
                 {preview ? (
                   <article className={s.preview}>
                     <span>{String(record.start_year || record.year || '')}</span>
-                    <h2>{String(record.title || record.label || 'Connection')}</h2>
-                    <p>{String(record.body || `${record.source} → ${record.target}`)}</p>
+                    <h2>{String(record.title || record.label || contentLabels[kind])}</h2>
+                    {kind === 'homepage_features' &&
+                      (() => {
+                        const release = data.releases.find((r) => r.id === record.release_id);
+                        return release?.cover_url ? (
+                          <img
+                            src={String(release.cover_url)}
+                            alt={`${release.title} cover`}
+                            width={200}
+                            height={200}
+                            style={{ objectFit: 'cover' }}
+                          />
+                        ) : (
+                          <p>Artwork unavailable.</p>
+                        );
+                      })()}
+                    <p style={{ whiteSpace: 'pre-line' }}>
+                      {String(
+                        record.body ||
+                          record.note ||
+                          (record.release_id
+                            ? data.releases.find((r) => r.id === record.release_id)?.title
+                            : `${record.source} → ${record.target}`),
+                      )}
+                    </p>
                     {typeof record.source_url === 'string' && (
                       <span className={ui.source}>{record.source_url}</span>
                     )}
@@ -257,7 +304,50 @@ export function Curator({ initial }: { initial: Content }) {
                     {fields[kind].map((field) => (
                       <label key={field}>
                         {field.replaceAll('_', ' ')}
-                        {field === 'explicit' ? (
+                        {['release_id', 'era_id'].includes(field) ||
+                        (field === 'id' &&
+                          ['song_notes', 'vault_entries', 'stories', 'homepage_features'].includes(
+                            kind,
+                          )) ||
+                        field === 'category' ? (
+                          <select
+                            disabled={field === 'id' && selected !== 'new'}
+                            value={String(record[field] || '')}
+                            onChange={(e) => setRecord({ ...record, [field]: e.target.value })}
+                          >
+                            <option value="">Choose…</option>
+                            {(field === 'category'
+                              ? ['unreleased', 'leaked', 'snippet', 'freestyle'].map((id) => ({
+                                  id,
+                                  title: id,
+                                }))
+                              : field === 'release_id'
+                                ? data.releases
+                                : field === 'era_id'
+                                  ? data.eras
+                                  : kind === 'stories'
+                                    ? [
+                                        { id: 'home', title: 'Homepage' },
+                                        { id: 'legacy', title: 'Legacy' },
+                                      ]
+                                    : kind === 'homepage_features'
+                                      ? [
+                                          'records',
+                                          'eras',
+                                          'listening-room',
+                                          'legacy',
+                                          'vault',
+                                        ].map((id) => ({ id, title: id }))
+                                      : data.tracks
+                            ).map((item) => (
+                              <option key={String(item.id)} value={String(item.id)}>
+                                {String(
+                                  item.title || ('label' in item ? item.label : '') || item.id,
+                                )}
+                              </option>
+                            ))}
+                          </select>
+                        ) : field === 'explicit' ? (
                           <select
                             value={record[field] === null ? 'unknown' : String(record[field])}
                             onChange={(e) =>
@@ -278,7 +368,7 @@ export function Curator({ initial }: { initial: Content }) {
                             checked={Boolean(record[field])}
                             onChange={(e) => setRecord({ ...record, [field]: e.target.checked })}
                           />
-                        ) : field === 'body' ? (
+                        ) : ['body', 'note'].includes(field) ? (
                           <textarea
                             value={String(record[field] ?? '')}
                             onChange={(e) => setRecord({ ...record, [field]: e.target.value })}
@@ -304,6 +394,42 @@ export function Curator({ initial }: { initial: Content }) {
                       </label>
                     ))}
                   </div>
+                )}
+                {data.revisions?.some((r) => r.kind === kind && r.entity_id === record.id) && (
+                  <details>
+                    <summary>Publication History</summary>
+                    {data.revisions
+                      .filter((r) => r.kind === kind && r.entity_id === record.id)
+                      .map((revision) => (
+                        <div key={String(revision.id)}>
+                          <span>{new Date(String(revision.created_at)).toLocaleString()}</span>
+                          <button
+                            disabled={busy}
+                            className={ui.outlineButton}
+                            onClick={async () => {
+                              setBusy(true);
+                              try {
+                                await post('/api/admin/content', {
+                                  kind,
+                                  action: 'restore',
+                                  record: { revision_id: revision.id },
+                                });
+                                await refresh();
+                                setRecord(revision.content as Row);
+                                setMessage('Previous version restored.');
+                                router.refresh();
+                              } catch (e) {
+                                setMessage((e as Error).message);
+                              } finally {
+                                setBusy(false);
+                              }
+                            }}
+                          >
+                            Restore This Version
+                          </button>
+                        </div>
+                      ))}
+                  </details>
                 )}
                 <div className={ui.actions}>
                   {editorial ? (

@@ -2,7 +2,7 @@ import type { NextConfig } from 'next';
 const config: NextConfig = {
   agentRules: false,
   turbopack: { root: process.cwd() },
-  outputFileTracingIncludes: { '/*': ['./supabase/migrations/001_catalog.sql'] },
+  outputFileTracingIncludes: { '/*': ['./supabase/migrations/*.sql'] },
   serverExternalPackages: ['@electric-sql/pglite', 'postgres'],
   poweredByHeader: false,
   async headers() {

@@ -21,7 +21,7 @@ export type VaultEntry = {
 export async function vaultTracks(input: z.input<typeof vaultSearch>) {
   const filters = vaultSearch.parse(input);
   const entries = await query<VaultEntry>(
-    "SELECT * FROM vault_entries WHERE ($1='' OR category=$1) ORDER BY track_id",
+    "SELECT * FROM vault_entries WHERE published AND ($1='' OR category=$1) ORDER BY track_id",
     [filters.category],
   );
   const results = await searchTracks({

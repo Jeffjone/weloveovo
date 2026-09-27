@@ -7,6 +7,7 @@ const catalog = {
   tracks: [...original.tracks, ...additions.tracks],
 };
 export type Database = {
+  transaction?<T>(fn: (db: Database) => Promise<T>): Promise<T>;
   query<T = Record<string, unknown>>(text: string, params?: unknown[]): Promise<{ rows: T[] }>;
   exec(text: string): Promise<unknown>;
 };
@@ -34,11 +35,11 @@ export async function seedCatalog(
         const artistIds = row.artist_ids as string[] | undefined;
         delete row.artist_ids;
         const keys = Object.keys(row);
-        await db.query(
-          `INSERT INTO ${table} (${keys.join(',')}) VALUES (${keys.map((key, i) => '$' + (i + 1) + (key === 'raw' ? '::text::jsonb' : '')).join(',')}) ON CONFLICT (id) DO NOTHING`,
+        const inserted = await db.query(
+          `INSERT INTO ${table} (${keys.join(',')}) VALUES (${keys.map((key, i) => '$' + (i + 1) + (key === 'raw' ? '::text::jsonb' : '')).join(',')}) ON CONFLICT (id) DO NOTHING RETURNING id`,
           keys.map((k) => (k === 'raw' ? JSON.stringify(row[k]) : row[k])),
         );
-        if (artistIds)
+        if (artistIds && inserted.rows.length)
           for (let i = 0; i < artistIds.length; i++)
             await db.query(
               'INSERT INTO track_artists(track_id,artist_id,position) VALUES($1,$2,$3) ON CONFLICT DO NOTHING',

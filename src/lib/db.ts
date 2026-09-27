@@ -26,6 +26,20 @@ async function initialize(): Promise<Database> {
     });
     const run = queryQueue();
     return {
+      transaction: async <T>(fn: (db: Database) => Promise<T>) =>
+        run(async () => {
+          const result = await sql.begin(async (tx) =>
+            fn({
+              query: async <R>(text: string, params: unknown[] = []) => ({
+                rows: (await tx.unsafe(text, params as never[])) as unknown as R[],
+              }),
+              exec: async (text: string) => {
+                await tx.unsafe(text);
+              },
+            }),
+          );
+          return result as T;
+        }),
       query: async <T>(text: string, params: unknown[] = []) => ({
         rows: await run(async () => (await sql.unsafe(text, params as never[])) as unknown as T[]),
       }),
@@ -36,6 +50,8 @@ async function initialize(): Promise<Database> {
       },
     };
   }
+  if (process.env.NODE_ENV === 'production')
+    throw new Error('Production catalog requires DATABASE_URL.');
   const { PGlite } = await import('@electric-sql/pglite');
   const db = new PGlite();
   await db.exec(
@@ -54,8 +70,24 @@ async function initialize(): Promise<Database> {
       'utf8',
     ),
   );
-  return db;
+  await db.exec(
+    await readFile(path.join(process.cwd(), 'supabase/migrations/006_editorial_sync.sql'), 'utf8'),
+  );
+  return {
+    query: (text, params) => db.query(text, params),
+    exec: (text) => db.exec(text),
+    transaction: (fn) =>
+      db.transaction((tx) =>
+        fn({ query: (text, params) => tx.query(text, params), exec: (text) => tx.exec(text) }),
+      ),
+  };
 }
 export async function query<T>(text: string, params: unknown[] = []): Promise<T[]> {
   return (await (await database()).query<T>(text, params)).rows;
+}
+
+export async function transaction<T>(fn: (db: Database) => Promise<T>): Promise<T> {
+  const db = await database();
+  if (!db.transaction) throw new Error('Transactional database required.');
+  return db.transaction(fn);
 }

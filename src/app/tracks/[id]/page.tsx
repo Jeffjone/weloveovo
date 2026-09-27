@@ -1,3 +1,4 @@
+import { songNote } from '@/lib/editorial';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getTrack, related } from '@/lib/catalog';
@@ -10,6 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 export default async function TrackPage({ params }: { params: Promise<{ id: string }> }) {
   const track = await getTrack((await params).id);
   if (!track) notFound();
+  const note = await songNote(track.id);
   const recommendations = await related(track.id);
   return (
     <div className={ui.container}>
@@ -60,6 +62,25 @@ export default async function TrackPage({ params }: { params: Promise<{ id: stri
           </div>
         </div>
       </section>
+      {note && (
+        <section className={ui.narrative}>
+          <div>
+            <p className={ui.eyebrow}>CURATOR NOTES</p>
+            <h2>{note.title}</h2>
+          </div>
+          <div>
+            <p style={{ whiteSpace: 'pre-line' }}>{note.body}</p>
+            <a
+              className={ui.source}
+              href={note.source_url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read the Source ↗
+            </a>
+          </div>
+        </section>
+      )}
       <section className={ui.narrative} aria-labelledby="song-file-heading">
         <div>
           <p className={ui.eyebrow}>
@@ -98,12 +119,20 @@ export default async function TrackPage({ params }: { params: Promise<{ id: stri
             </p>
           )}
           <p className={ui.subtle}>
-            These notes describe the supplied catalog metadata and this release edition.
+            These catalog notes describe this release edition. Popularity and audio traits are
+            imported measurements, not live readings.
           </p>
           {track.source_release_date && (
             <p>Genius lists this recording’s release date as {track.source_release_date}.</p>
           )}
-          {track.genius_url && (
+          {track.source_checked_at && (
+            <p>
+              Source checked:{' '}
+              {new Date(track.source_checked_at).toLocaleString('en-US', { timeZone: 'UTC' })} UTC.
+            </p>
+          )}
+          {track.source_available === false && <p>The Genius source is currently unavailable.</p>}
+          {track.genius_url && track.source_available !== false && (
             <a
               className={ui.source}
               href={track.genius_url}

@@ -12,7 +12,7 @@ test('Genius-only songs support direct pages, favorites, and source links withou
   );
   await expect(page.getByRole('button', { name: `Listen to ${song.title}` })).toHaveCount(0);
   await expect(page.locator('iframe')).toHaveCount(0);
-  await expect(page.getByText('Audio profile unavailable.')).toBeVisible();
+  await expect(page.getByRole('main').getByText('Audio profile unavailable.')).toBeVisible();
   await page.getByRole('button', { name: `Favorite ${song.title}`, exact: true }).click();
   await page.reload();
   await expect(

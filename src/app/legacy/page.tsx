@@ -1,10 +1,11 @@
 import Link from 'next/link';
+import { story } from '@/lib/editorial';
 import { milestones } from '@/lib/catalog';
 import { PageHeader, ui } from '@/components/ui';
 export const dynamic = 'force-dynamic';
 export const metadata = { title: 'The Legacy' };
 export default async function Legacy() {
-  const moments = await milestones();
+  const [moments, narrative] = await Promise.all([milestones(), story('legacy')]);
   return (
     <div className={ui.container}>
       <PageHeader
@@ -13,38 +14,29 @@ export default async function Legacy() {
         title="A City in His Voice."
         description="The hometown and the whole world. The melody and the verse. A story that keeps unfolding."
       />
-      <section className={ui.narrative}>
-        <div>
-          <p className={ui.eyebrow}>TORONTO / THE POINT OF ORIGIN</p>
-          <h2>
-            Some cities make artists.
-            <br />
-            Some artists make you
-            <br />
-            hear a city differently.
-          </h2>
-        </div>
-        <div>
-          <p>
-            Drake’s story lives between confidence and confession. The rap verse and the melody. The
-            hometown and the whole world. A catalog that can make an arena feel enormous — and a
-            pair of headphones feel personal.
-          </p>
-          <p>
-            Toronto is the atmosphere: cold air, an after-hours glow, and a skyline that follows the
-            music wherever it goes. Alongside Noah “40” Shebib and Oliver El-Khatib, the OVO
-            collective carries that sensibility into a wider musical community.
-          </p>
-          <a
-            className={ui.source}
-            href="https://music.apple.com/us/artist/drake/271256"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Artist & OVO Sound reference ↗
-          </a>
-        </div>
-      </section>
+      {narrative && (
+        <section className={ui.narrative}>
+          <div>
+            <p className={ui.eyebrow}>TORONTO / THE POINT OF ORIGIN</p>
+            <h2>{narrative.title}</h2>
+          </div>
+          <div>
+            {narrative.body.split('\n\n').map((paragraph, i) => (
+              <p key={i}>{paragraph}</p>
+            ))}
+            {narrative.source_url && (
+              <a
+                className={ui.source}
+                href={narrative.source_url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Artist &amp; OVO Sound Reference ↗
+              </a>
+            )}
+          </div>
+        </section>
+      )}
       <div className={ui.sectionBar}>
         <h2>Moments in the Story</h2>
         <Link href="/connections">See how they connect ↗</Link>
