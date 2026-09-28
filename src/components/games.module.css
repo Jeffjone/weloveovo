@@ -6,9 +6,10 @@
 }
 .main {
   min-width: 0;
-  padding: 34px;
-  border: 1px solid #9dbdd335;
-  background: linear-gradient(135deg, #102336db, #07131eed);
+  padding: var(--space-4);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--ice);
+  background: linear-gradient(135deg, #102131ed, #08111bf5);
 }
 .title {
   font: 500 clamp(34px, 4.5vw, 62px)/1.1 var(--display);
@@ -21,22 +22,26 @@
 .modes {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 13px;
+  gap: 0;
   margin-bottom: 28px;
+  border-left: 1px solid var(--line);
+  border-top: 1px solid var(--line);
 }
 .modes button {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
+  gap: 14px;
   text-align: left;
-  padding: 22px;
+  padding: 28px;
   background: #07152090;
-  border: 1px solid #658aa34f;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
   color: #b3ccdf;
+  position: relative;
   transition:
-    border-color 0.2s,
-    background 0.2s;
+    background var(--speed-medium),
+    color var(--speed-medium);
 }
 .modes button.active,
 .modes button:hover {
@@ -48,8 +53,8 @@
   letter-spacing: 0.1em;
 }
 .modes strong {
-  font: 500 24px/1 var(--display);
-  color: #ecf6ff;
+  font: 500 27px/1.1 var(--display);
+  color: var(--text);
 }
 .modes span {
   font-size: 12px;
@@ -63,11 +68,14 @@
   margin-top: 18px;
 }
 .aside {
+  position: sticky;
+  top: 116px;
   padding: 28px 0;
 }
 .bigNumber {
-  font: 500 84px/1 var(--display);
-  color: #d8eafa;
+  font: 400 100px/0.95 var(--display);
+  letter-spacing: -0.06em;
+  color: var(--ice);
 }
 .bigNumber span {
   font-size: 28px;
@@ -271,7 +279,7 @@
     padding: 15px;
   }
   .question {
-    gap: 16px;
+    gap: var(--space-2);
   }
   .questionTitle {
     font-size: 34px;
@@ -284,10 +292,9 @@
 }
 .memoryInput {
   background: #071520;
-  color: #ecf6ff;
+  color: var(--text);
   border: 1px solid #658aa3;
   padding: 14px;
-  border-radius: 6px;
   font: inherit;
   width: 100%;
   min-width: 0;
@@ -315,4 +322,51 @@
   .memorySongs {
     columns: 1;
   }
+}
+
+.modes button::after {
+  content: '';
+  position: absolute;
+  inset: auto 22px 0;
+  height: 2px;
+  background: var(--ice);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--speed-medium) var(--ease-out);
+}
+.modes button:hover::after,
+.modes button.active::after {
+  transform: scaleX(1);
+}
+.choices button {
+  transition:
+    background var(--speed-fast),
+    border-color var(--speed-fast),
+    transform var(--speed-fast);
+}
+.feedback {
+  animation: feedbackReveal 300ms var(--ease-out);
+}
+@keyframes feedbackReveal {
+  from {
+    opacity: 0.5;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-width: 1000px) {
+  .aside {
+    position: static;
+  }
+}
+
+.experienceNote {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin: 0 0 var(--space-3);
+  max-width: 650px;
 }

@@ -81,12 +81,12 @@ export default async function HomePage() {
           </Link>
         </div>
         <div className={s.heroAside}>
-          <span className={s.coordinates}>EST. IN THE 6</span>
-          <div className={s.orbit}>
+          <span className={s.coordinates}>FROM TORONTO / TO EVERYWHERE</span>
+          <Link href="/connections" className={s.orbit} aria-label="Explore the connections">
             <span>6</span>
             <i />
             <b />
-          </div>
+          </Link>
           <p>
             Some music you listen to.
             <br />
@@ -100,14 +100,20 @@ export default async function HomePage() {
       <div className={s.roomHeading}>
         <span>CHOOSE YOUR ROOM</span>
         <Link href="/games">
-          <Gamepad2 size={13} /> NEW / THE GAME ROOM ↗
+          <Gamepad2 size={13} /> 05 / THE GAME ROOM ↗
         </Link>
       </div>
       <section className={s.rooms} aria-label="Choose a room">
         {entrances.map((room) => (
           <Link className={s.room} href={room.href} key={room.href}>
             {artwork.find((a) => '/' + a.id === room.href)?.cover_url && (
-              <img src={artwork.find((a) => '/' + a.id === room.href)!.cover_url!} alt="" />
+              <img
+                src={artwork.find((a) => '/' + a.id === room.href)!.cover_url!}
+                alt=""
+                loading="lazy"
+                width="400"
+                height="400"
+              />
             )}
             <div className={s.roomTop}>
               <span>{room.number} / ENTER</span>

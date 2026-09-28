@@ -2,10 +2,24 @@
   --body: 'Manrope', Arial, sans-serif;
   --display: 'Space Grotesk', Arial, sans-serif;
   --mono: 'IBM Plex Mono', monospace;
-  --text: #e9f0f7;
-  --muted: #91a4b8;
+  --text: #edf2f5;
+  --ink: #070e16;
+  --surface: #0c1722;
+  --surface-raised: #142334;
+  --gutter: clamp(20px, 4.4vw, 80px);
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 40px;
+  --space-5: 64px;
+  --space-6: 104px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --speed-fast: 180ms;
+  --speed-medium: 360ms;
+  --speed-slow: 700ms;
+  --muted: #a1b4c5;
   --ice: #c2dff4;
-  --line: #a3c3e022;
+  --line: #a3c3e036;
   color-scheme: dark;
 }
 * {
@@ -20,7 +34,7 @@ body {
   color: var(--text);
   font: 14px/1.7 var(--body);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 button,
 input,
@@ -35,6 +49,52 @@ a {
 button {
   cursor: pointer;
   color: inherit;
+  transition:
+    color var(--speed-fast),
+    background var(--speed-fast),
+    border-color var(--speed-fast),
+    transform var(--speed-fast) var(--ease-out);
+}
+button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+button[aria-pressed='true'] svg {
+  filter: drop-shadow(0 0 6px #b6dcf655);
+}
+button,
+input:not([type='checkbox']),
+select {
+  min-height: 44px;
+}
+input,
+select,
+textarea {
+  transition:
+    border-color var(--speed-fast),
+    background var(--speed-fast);
+}
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: #8ab0cc;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  background: #122437;
+}
+summary {
+  cursor: pointer;
+  padding-block: 12px;
+}
+summary:focus-visible {
+  outline: 2px solid var(--ice);
+  outline-offset: 5px;
+}
+@media (hover: hover) {
+  a:active {
+    opacity: 0.8;
+  }
 }
 button:disabled {
   opacity: 0.45;
@@ -95,7 +155,7 @@ textarea {
 }
 input::placeholder,
 textarea::placeholder {
-  color: #75899d;
+  color: #a0b2c3;
 }
 select {
   min-width: 0;

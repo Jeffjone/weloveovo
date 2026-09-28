@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { ScrollScene } from '@/components/scroll-scene';
+import s from './records.module.css';
 import { releases } from '@/lib/catalog';
 import { PageHeader, RecordCard, ui } from '@/components/ui';
 export const dynamic = 'force-dynamic';
@@ -24,11 +26,43 @@ export default async function Records({
           {all ? 'Featured Projects' : 'All Releases'} ↗
         </Link>
       </div>
-      <div className={ui.recordGrid}>
-        {records.map((r) => (
-          <RecordCard key={r.id} release={r} />
-        ))}
-      </div>
+      <ScrollScene variant="sleeves">
+        <div className={s.archive}>
+          <aside className={s.index}>
+            <span>IN THE ARCHIVE</span>
+            <h2>
+              {records.length} editions.
+              <br />
+              Endless replay.
+            </h2>
+            <div className={s.stack} aria-hidden="true">
+              {records
+                .filter((r) => r.cover_url)
+                .slice(0, 4)
+                .map((r) => (
+                  <img
+                    key={r.id}
+                    src={r.cover_url!}
+                    alt=""
+                    width="140"
+                    height="140"
+                    loading="lazy"
+                  />
+                ))}
+            </div>
+            <p>
+              A cover is a doorway.
+              <br />
+              Pull a record. Step inside.
+            </p>
+          </aside>
+          <div className={ui.recordGrid}>
+            {records.map((r) => (
+              <RecordCard key={r.id} release={r} />
+            ))}
+          </div>
+        </div>
+      </ScrollScene>
     </div>
   );
 }

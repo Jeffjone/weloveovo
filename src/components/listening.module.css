@@ -1,20 +1,24 @@
 .moods {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
   margin-bottom: 38px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 .moods > button {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 24px;
+  gap: 22px;
+  padding: 30px 24px;
   text-align: left;
-  border: 1px solid #89b0d032;
-  background: linear-gradient(110deg, #11233899, #09142399);
+  border-right: 1px solid var(--line);
+  background: #0b1a29a6;
+  overflow: hidden;
   transition:
-    border-color 0.25s,
-    background 0.25s;
+    background var(--speed-medium),
+    color var(--speed-medium);
 }
 .moods > button:hover,
 .moods > button.selected {
@@ -26,12 +30,13 @@
   flex-shrink: 0;
 }
 .moods strong {
-  font: 500 22px var(--display);
+  font: 500 28px/1.1 var(--display);
   display: block;
+  margin-bottom: var(--space-1);
 }
 .moods small {
-  font-size: 10px;
-  color: #7e9bb3;
+  font-size: 11px;
+  color: var(--muted);
   display: block;
 }
 .plus {
@@ -43,15 +48,15 @@
   display: flex;
   gap: 30px;
   border-bottom: 1px solid var(--line);
-  margin-bottom: 23px;
+  margin-bottom: 28px;
 }
 .tabs button {
-  font-size: 11px;
-  color: #7f98ad;
-  padding: 12px 0 17px;
+  font: 11px var(--mono);
+  color: var(--muted);
+  padding: 14px 0 18px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--space-1);
   border-bottom: 2px solid transparent;
 }
 .tabs button.active {
@@ -100,15 +105,16 @@
   position: absolute;
   right: 13px;
   font: 10px var(--mono);
-  color: #6a8eaa;
+  color: #a0b4c6;
 }
 .summary {
   display: flex;
-  gap: 25px;
+  gap: var(--space-3);
+  flex-wrap: wrap;
   align-items: center;
   font: 10px var(--mono);
-  color: #86a2ba;
-  padding: 19px 0 25px;
+  color: var(--muted);
+  padding: 22px 0 28px;
 }
 .summary > span {
   margin-right: auto;
@@ -145,7 +151,7 @@
 }
 .pagination i {
   font-style: normal;
-  color: #50738b;
+  color: #a0b4c6;
   margin: 0 12px;
 }
 .pending {
@@ -222,5 +228,41 @@
   }
   .pagination {
     margin-top: 22px;
+  }
+}
+
+.moods > button::after {
+  content: '';
+  position: absolute;
+  inset: auto 24px 0;
+  height: 2px;
+  background: var(--ice);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--speed-medium) var(--ease-out);
+}
+.moods > button.selected::after,
+.moods > button:focus-visible::after,
+.moods > button:hover::after {
+  transform: scaleX(1);
+}
+.moods > button > svg {
+  transition: transform var(--speed-medium) var(--ease-out);
+}
+.moods > button:hover > svg {
+  transform: rotate(-12deg);
+}
+@media (max-width: 600px) {
+  .summary,
+  .summary button,
+  .summary label {
+    font-size: 10px;
+  }
+  .summary label {
+    min-height: 32px;
+  }
+  .moods > button {
+    border-bottom: 1px solid var(--line);
+    border-right: 0;
   }
 }

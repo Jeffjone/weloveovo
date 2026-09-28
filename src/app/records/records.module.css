@@ -1,0 +1,89 @@
+.archive {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 42px;
+  align-items: start;
+}
+.index {
+  position: sticky;
+  top: 120px;
+  padding-top: 20px;
+}
+.index > span {
+  font: 10px var(--mono);
+  color: var(--ice);
+  letter-spacing: 0.14em;
+}
+.index h2 {
+  font: 500 30px/1.1 var(--display);
+  margin-top: 16px;
+}
+.index p {
+  font: 11px/1.8 var(--body);
+  color: var(--muted);
+  margin-top: 18px;
+}
+.stack {
+  height: 230px;
+  position: relative;
+  margin-top: 36px;
+}
+.stack img {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  padding: 6px;
+  background: #101e2c;
+  border: 1px solid #accde94a;
+  box-shadow: 0 15px 30px #0007;
+  transform-origin: bottom left;
+}
+.stack img:nth-child(1) {
+  transform: translateY(calc(var(--scene-progress) * 45px))
+    rotate(calc(var(--scene-progress) * -12deg));
+}
+.stack img:nth-child(2) {
+  transform: translateY(calc(var(--scene-progress) * 25px))
+    rotate(calc(var(--scene-progress) * -4deg));
+}
+.stack img:nth-child(3) {
+  transform: translateY(calc(var(--scene-progress) * 8px))
+    rotate(calc(var(--scene-progress) * 5deg));
+}
+.stack img:nth-child(4) {
+  transform: rotate(calc(var(--scene-progress) * 14deg));
+}
+@media (max-width: 1100px) {
+  .archive {
+    grid-template-columns: 130px minmax(0, 1fr);
+    gap: 28px;
+  }
+  .stack img {
+    width: 108px;
+    height: 108px;
+  }
+  .index h2 {
+    font-size: 25px;
+  }
+}
+@media (max-width: 850px) {
+  .archive {
+    display: block;
+  }
+  .index {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 0 0 24px;
+  }
+  .index h2 {
+    font-size: 18px;
+    margin: 0;
+  }
+  .index p,
+  .stack {
+    display: none;
+  }
+}

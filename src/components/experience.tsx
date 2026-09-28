@@ -3,7 +3,14 @@ import { trackIdPattern, spotifyId } from '@/lib/track-identity';
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { motion, MotionConfig, useReducedMotion, useMotionValue, useSpring } from 'motion/react';
+import {
+  motion,
+  AnimatePresence,
+  MotionConfig,
+  useReducedMotion,
+  useMotionValue,
+  useSpring,
+} from 'motion/react';
 import {
   ArrowUpRight,
   AudioLines,
@@ -218,14 +225,14 @@ export function ExperienceProvider({ children }: { children: ReactNode }) {
         <header className={s.header}>
           <Link href="/" className={s.brand} aria-label="weloveovo home">
             <span className={s.brandMark}>
-              <AudioLines size={24} />
+              <img src="/assets/brand/moonlight.svg" width="26" height="26" alt="" />
             </span>
             <span>
               weloveovo<small>TORONTO BY HEART</small>
             </span>
           </Link>
           <nav className={s.navigation} aria-label="Main navigation">
-            <Link href="/" className={path === '/' ? s.active : ''}>
+            <Link href="/" aria-label="Lobby" className={path === '/' ? s.active : ''}>
               <Home size={15} />
               <span>Lobby</span>
             </Link>
@@ -238,23 +245,51 @@ export function ExperienceProvider({ children }: { children: ReactNode }) {
               >
                 <Layers3 size={15} /> Rooms <ChevronDown size={12} />
               </button>
-              {menu && (
-                <div id="room-switcher" className={s.dropdown}>
-                  {rooms.map((room) => (
-                    <Link
-                      key={room.href}
-                      href={room.href}
-                      aria-current={path.startsWith(room.href) ? 'page' : undefined}
-                    >
-                      <span>{room.number}</span>
-                      {room.label}
-                      <ArrowUpRight size={14} />
-                    </Link>
-                  ))}
-                </div>
-              )}
+              <AnimatePresence initial={false}>
+                {menu && (
+                  <motion.div
+                    id="room-switcher"
+                    className={s.dropdown}
+                    initial={{ opacity: 0, y: reduced ? 0 : -12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: reduced ? 0 : -8 }}
+                    transition={{ duration: reduced ? 0.1 : 0.24, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    <div className={s.menuIntro}>
+                      <span>CHOOSE YOUR FREQUENCY</span>
+                      <strong>
+                        Six rooms.
+                        <br />
+                        One world.
+                      </strong>
+                      <small>Follow the music. Find your own way through.</small>
+                    </div>
+                    <div className={s.menuLinks}>
+                      {rooms.map((room) => (
+                        <Link
+                          key={room.href}
+                          href={room.href}
+                          onClick={() => setMenu(false)}
+                          aria-current={path.startsWith(room.href) ? 'page' : undefined}
+                        >
+                          <span>{room.number}</span>
+                          <span className={s.menuIdentity}>
+                            {room.label}
+                            <small>{room.subtitle}</small>
+                          </span>
+                          <ArrowUpRight size={14} />
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
-            <Link href="/connections" className={path === '/connections' ? s.active : ''}>
+            <Link
+              href="/connections"
+              aria-label="Connections"
+              className={path === '/connections' ? s.active : ''}
+            >
               <Map size={15} />
               <span>Connections</span>
             </Link>
@@ -286,59 +321,65 @@ export function ExperienceProvider({ children }: { children: ReactNode }) {
             Curator access <ArrowUpRight size={10} />
           </Link>
         </footer>
-        {playing && (
-          <aside
-            className={`${s.player} ${collapsed ? s.collapsed : ''}`}
-            aria-label="Spotify listening tray"
-          >
-            <div className={s.playerTop}>
-              <AudioLines size={17} />
-              <div>
-                <strong>{playing.title}</strong>
-                <small>{playing.artist_names.join(', ')}</small>
-              </div>
-              <a
-                href={`https://open.spotify.com/track/${spotifyId(playing)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open this track on Spotify"
-              >
-                <ArrowUpRight size={16} />
-              </a>
-              <button
-                onClick={() => setCollapsed(!collapsed)}
-                aria-label={collapsed ? 'Expand Player' : 'Collapse Player'}
-                aria-expanded={!collapsed}
-              >
-                {collapsed ? <ChevronUp size={17} /> : <ChevronDown size={17} />}
-              </button>
-              <button onClick={() => setPlaying(null)} aria-label="Close Player">
-                <X size={17} />
-              </button>
-            </div>
-            <div className={s.embed} hidden={collapsed}>
-              <iframe
-                key={playing.id}
-                title={`Listen to ${playing.title} on Spotify`}
-                src={`https://open.spotify.com/embed/track/${spotifyId(playing)}?theme=0`}
-                width="100%"
-                height="152"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="eager"
-              />
-              <p>
-                Playback is provided by Spotify.{' '}
+        <AnimatePresence initial={false}>
+          {playing && (
+            <motion.aside
+              className={`${s.player} ${collapsed ? s.collapsed : ''}`}
+              initial={{ opacity: 0, y: reduced ? 0 : 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: reduced ? 0 : 16 }}
+              transition={{ duration: reduced ? 0.1 : 0.25 }}
+              aria-label="Spotify listening tray"
+            >
+              <div className={s.playerTop}>
+                <AudioLines size={17} />
+                <div>
+                  <strong>{playing.title}</strong>
+                  <small>{playing.artist_names.join(', ')}</small>
+                </div>
                 <a
-                  href={playing.apple_url || 'https://music.apple.com/us/artist/drake/271256'}
+                  href={`https://open.spotify.com/track/${spotifyId(playing)}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Open this track on Spotify"
                 >
-                  Open Apple Music ↗
+                  <ArrowUpRight size={16} />
                 </a>
-              </p>
-            </div>
-          </aside>
-        )}
+                <button
+                  onClick={() => setCollapsed(!collapsed)}
+                  aria-label={collapsed ? 'Expand Player' : 'Collapse Player'}
+                  aria-expanded={!collapsed}
+                >
+                  {collapsed ? <ChevronUp size={17} /> : <ChevronDown size={17} />}
+                </button>
+                <button onClick={() => setPlaying(null)} aria-label="Close Player">
+                  <X size={17} />
+                </button>
+              </div>
+              <div className={s.embed} hidden={collapsed}>
+                <iframe
+                  key={playing.id}
+                  title={`Listen to ${playing.title} on Spotify`}
+                  src={`https://open.spotify.com/embed/track/${spotifyId(playing)}?theme=0`}
+                  width="100%"
+                  height="152"
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="eager"
+                />
+                <p>
+                  Playback is provided by Spotify.{' '}
+                  <a
+                    href={playing.apple_url || 'https://music.apple.com/us/artist/drake/271256'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open Apple Music ↗
+                  </a>
+                </p>
+              </div>
+            </motion.aside>
+          )}
+        </AnimatePresence>
         <div
           role="status"
           aria-live="polite"
@@ -391,15 +432,9 @@ export function TrackActions({ track, compact = false }: { track: Track; compact
   );
 }
 export function Enter({ children }: { children: ReactNode }) {
-  const reduced = useReducedMotion();
   return (
-    <motion.div
-      data-page-transition
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: reduced ? 0.15 : 0.35, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <div data-page-transition className={s.arrival} style={{ opacity: 1 }}>
       {children}
-    </motion.div>
+    </div>
   );
 }

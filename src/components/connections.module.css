@@ -23,13 +23,14 @@
 }
 .toolbar p {
   font-size: 10px;
-  color: #6f91ac;
+  color: #a0b4c6;
 }
 .workspace {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 275px;
-  border: 1px solid #a4c9e334;
-  background: #071321bb;
+  grid-template-columns: minmax(0, 1fr) 290px;
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--ice);
+  background: #071321e6;
   min-height: 565px;
 }
 .canvas {
@@ -40,10 +41,14 @@
 .node {
   width: 205px;
   padding: 17px;
-  background: linear-gradient(135deg, #152d42, #0b1726);
-  border: 1px solid #486b8599;
-  box-shadow: 0 7px 30px #0005;
-  color: #d1e4f3;
+  background: linear-gradient(135deg, #192f42, #0b1726);
+  border: 1px solid #759bb6;
+  border-left: 3px solid var(--ice);
+  box-shadow: 5px 5px 0 #b2d6f00b;
+  color: var(--text);
+  transition:
+    border-color var(--speed-fast),
+    background var(--speed-fast);
 }
 .node.selected {
   border-color: #badfff;
@@ -51,7 +56,7 @@
 }
 .nodeType {
   font: 10px var(--mono);
-  color: #7aa6c7;
+  color: var(--ice);
   letter-spacing: 0.18em;
 }
 .nodeIdentity {
@@ -70,7 +75,7 @@
 }
 .node small {
   display: block;
-  color: #7492aa;
+  color: var(--muted);
   font: 10px var(--mono);
   max-width: 170px;
   white-space: nowrap;
@@ -79,9 +84,10 @@
 }
 .details {
   border-left: 1px solid var(--line);
-  padding: 27px 24px;
+  padding: 28px;
   max-height: 565px;
   overflow: auto;
+  background: #0b1725;
 }
 .details > img {
   width: 130px;

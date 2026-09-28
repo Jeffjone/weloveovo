@@ -1,19 +1,20 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 22px;
+  gap: 28px;
 }
 .card {
   min-width: 0;
-  background: #0b1724c9;
-  border: 1px solid #86aed033;
+  background: #0a1520ed;
+  border: 1px solid var(--line);
+  position: relative;
   transition:
-    border-color 0.2s,
-    transform 0.2s;
+    border-color var(--speed-medium),
+    transform var(--speed-medium) var(--ease-out);
 }
 .card:hover {
-  border-color: #b3d9f3;
-  transform: translateY(-3px);
+  border-color: var(--ice);
+  transform: translateY(-5px);
 }
 .cardLink {
   display: block;
@@ -22,7 +23,8 @@
   position: relative;
   aspect-ratio: 1;
   overflow: hidden;
-  background: #102438;
+  background: var(--surface-raised);
+  margin: 8px;
 }
 .art > img,
 .art > span:first-child {
@@ -48,16 +50,17 @@
   color: #e0effb;
 }
 .copy {
-  padding: 18px 17px 14px;
+  padding: 18px 20px 24px;
 }
 .meta {
   font: 10px var(--mono);
   color: #9abbcf;
 }
 .copy h3 {
-  font: 500 24px/1.08 var(--display);
-  margin: 12px 0 8px;
+  font: 500 26px/1.15 var(--display);
+  margin: 12px 0 10px;
   overflow-wrap: anywhere;
+  letter-spacing: -0.035em;
 }
 .copy p {
   color: #bed1df;
@@ -75,12 +78,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 7px 12px;
-  border-top: 1px solid #86aed021;
+  padding: 8px 12px;
+  border-top: 1px solid var(--line);
+  background: #14253555;
 }
 .cardFooter > span {
   font: 10px var(--mono);
-  color: #7896ad;
+  color: #a0b4c6;
   letter-spacing: 0.1em;
 }
 .random {
@@ -122,11 +126,11 @@
   justify-content: space-between;
   gap: 14px;
   flex-wrap: wrap;
-  margin-bottom: 24px;
+  margin-bottom: var(--space-3);
 }
 .view {
   display: flex;
-  gap: 8px;
+  gap: var(--space-1);
 }
 .view button {
   padding: 9px 13px;
@@ -168,5 +172,44 @@
   .randomIcon {
     width: 27px;
     height: 27px;
+  }
+}
+
+.card:focus-within {
+  border-color: var(--ice);
+}
+.card:focus-within .art > img {
+  transform: scale(1.035);
+}
+.randomButton:hover,
+.randomIcon:hover {
+  background: #badcf518;
+  border-color: var(--ice);
+}
+.randomButton svg,
+.randomIcon svg {
+  transition: transform var(--speed-medium) var(--ease-out);
+}
+.randomButton:hover svg,
+.randomIcon:hover svg {
+  transform: rotate(-18deg);
+}
+.read svg {
+  transition: transform var(--speed-medium) var(--ease-out);
+}
+.card:hover .read svg {
+  transform: translate(3px, -3px);
+}
+@media (max-width: 700px) {
+  .copy h3 {
+    font-size: 23px;
+  }
+  .cardFooter > span {
+    font-size: 9px;
+    letter-spacing: 0;
+  }
+  .cardFooter {
+    flex-wrap: wrap;
+    gap: 4px;
   }
 }

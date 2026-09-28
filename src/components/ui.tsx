@@ -1,9 +1,11 @@
 import Link from 'next/link';
-import { ArrowUpRight, Disc3, ChevronRight, Network } from 'lucide-react';
+import { ArrowUpRight, ChevronRight, Network } from 'lucide-react';
 import type { Track, Release } from '@/lib/types';
 import { TrackActions } from './experience';
 import { DownloadButton } from './download';
 import s from './ui.module.css';
+import { Cover } from './cover';
+export { Cover } from './cover';
 export { s as ui };
 export function PageHeader({
   number,
@@ -44,32 +46,6 @@ export function PageHeader({
         </span>
       </header>
     </>
-  );
-}
-export function Cover({
-  release,
-  className = '',
-}: {
-  release: { cover_url: string | null; title: string };
-  className?: string;
-}) {
-  return release.cover_url ? (
-    <img
-      className={className}
-      src={release.cover_url}
-      alt={`${release.title} cover`}
-      width="600"
-      height="600"
-      loading="lazy"
-    />
-  ) : (
-    <span
-      className={`${s.coverFallback} ${className}`}
-      aria-label={`${release.title} artwork unavailable`}
-    >
-      <Disc3 />
-      <small>{release.title}</small>
-    </span>
   );
 }
 export function RecordCard({ release }: { release: Release }) {

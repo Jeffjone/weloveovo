@@ -1,0 +1,143 @@
+.chapters {
+  border-top: 1px solid var(--line);
+}
+.chapter {
+  display: grid;
+  grid-template-columns: 0.65fr 1.4fr 1fr;
+  gap: 36px;
+  min-height: 470px;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding: 36px 0 70px;
+}
+.year {
+  align-self: start;
+  padding-top: 36px;
+  color: var(--ice);
+  font: 11px var(--mono);
+}
+.year b {
+  display: block;
+  font: 400 clamp(54px, 6vw, 96px)/1 var(--display);
+  letter-spacing: -0.06em;
+  margin-bottom: 16px;
+}
+.art {
+  overflow: hidden;
+  background: #142536;
+  aspect-ratio: 1.1;
+  padding: 24px;
+  box-shadow: 10px 10px 0 #c2dff408;
+}
+.art > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter var(--speed-medium);
+  filter: saturate(0.65);
+}
+.chapter:hover img {
+  filter: saturate(1);
+}
+.copy {
+  padding: 12px 0 12px 10px;
+}
+.copy > span {
+  font: 10px var(--mono);
+  color: var(--muted);
+  letter-spacing: 0.14em;
+}
+.copy h2 {
+  font: 500 clamp(30px, 3.4vw, 56px)/1.05 var(--display);
+  margin: 20px 0;
+  text-transform: capitalize;
+}
+.copy p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.copy > i {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  font: normal 11px var(--mono);
+  color: var(--ice);
+  border-bottom: 1px solid var(--line);
+  padding-block: 28px 12px;
+}
+.copy svg {
+  transition: transform var(--speed-medium) var(--ease-out);
+}
+.chapter:hover .copy svg {
+  transform: translate(4px, -4px);
+}
+@media (min-width: 1100px) {
+  .chapters > section:nth-child(even) .art {
+    order: 3;
+  }
+  .chapters > section:nth-child(even) .chapter {
+    grid-template-columns: 0.65fr 1fr 1.4fr;
+  }
+  .chapters > section:nth-child(even) .copy {
+    padding-right: 20px;
+  }
+}
+@media (max-width: 1000px) {
+  .chapter {
+    gap: 24px;
+    min-height: 370px;
+    grid-template-columns: 0.55fr 1.2fr 1fr;
+  }
+  .art {
+    padding: 14px;
+  }
+  .copy h2 {
+    font-size: 32px;
+  }
+}
+@media (max-width: 700px) {
+  .chapter {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 18px;
+    padding: 16px 0 28px;
+  }
+  .year {
+    grid-column: 1/-1;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 0;
+  }
+  .year b {
+    font-size: 46px;
+    margin: 0;
+  }
+  .art {
+    aspect-ratio: 0.85;
+    padding: 10px;
+  }
+  .copy {
+    padding: 0;
+  }
+  .copy h2 {
+    font-size: 28px;
+    margin-block: 12px;
+  }
+  .copy p {
+    font-size: 11px;
+  }
+  .copy > span {
+    font-size: 8px;
+  }
+  .copy > i {
+    font-size: 9px;
+    gap: 8px;
+    padding-top: 16px;
+  }
+}

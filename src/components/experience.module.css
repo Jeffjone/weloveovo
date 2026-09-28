@@ -72,15 +72,17 @@
   }
 }
 .header {
-  height: 92px;
-  padding: 0 4.5vw;
+  height: 88px;
+  padding: 0 var(--gutter);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  border-bottom: 1px solid #bdd4ec18;
-  background: #050b1455;
-  position: relative;
+  gap: var(--space-3);
+  border-bottom: 1px solid var(--line);
+  background: #070e16ed;
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
   z-index: 30;
 }
 .brand {
@@ -135,37 +137,47 @@
   cursor: pointer;
 }
 .dropdown {
-  position: absolute;
-  top: 44px;
-  left: -55px;
-  width: 260px;
-  background: #0b1522;
-  border: 1px solid #2b3d52;
-  padding: 9px;
-  box-shadow: 0 25px 70px #0009;
+  position: fixed;
+  top: 88px;
+  left: var(--gutter);
+  right: var(--gutter);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  background: #09131ff7;
+  border: 1px solid #69859d;
+  padding: 34px;
+  box-shadow: 0 35px 100px #000a;
+  max-height: calc(100svh - 112px);
+  overflow: auto;
 }
 .dropdown a {
   display: flex;
   align-items: center;
-  gap: 13px;
-  padding: 15px 10px;
-  font-size: 12px;
+  gap: 18px;
+  padding: 24px 16px;
+  border-bottom: 1px solid var(--line);
+  min-height: 94px;
+  transition:
+    background var(--speed-fast),
+    color var(--speed-fast);
 }
 .dropdown a:hover,
 .dropdown a[aria-current='page'] {
   background: #142335;
 }
 .dropdown a span {
-  font: 10px var(--mono);
-  color: #6f8daa;
+  font: 11px var(--mono);
+  color: var(--muted);
 }
 .dropdown a svg {
   margin-left: auto;
+  flex-shrink: 0;
+  transition: transform var(--speed-medium) var(--ease-out);
 }
 .utility {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: var(--space-3);
 }
 .clock {
   font: 10px var(--mono);
@@ -174,7 +186,7 @@
   gap: 9px;
 }
 .clock > span {
-  color: #71859a;
+  color: #a1b4c5;
   font-size: 8px;
 }
 .clock i {
@@ -210,7 +222,7 @@
   justify-content: space-between;
   gap: 18px;
   border-top: 1px solid #bdd4ec13;
-  color: #607389;
+  color: #a1b4c5;
   font: 10px var(--mono);
   letter-spacing: 0.07em;
 }
@@ -255,7 +267,7 @@
 }
 .playerTop small {
   font-size: 9px;
-  color: #7791a9;
+  color: #a1b4c5;
 }
 .playerTop button,
 .playerTop a {
@@ -354,7 +366,7 @@
   .header {
     padding: 0 24px;
     height: 80px;
-    gap: 16px;
+    gap: var(--space-2);
   }
   .navigation {
     gap: 20px;
@@ -363,7 +375,7 @@
     display: none;
   }
   .utility {
-    gap: 8px;
+    gap: var(--space-1);
   }
   .main {
     min-height: calc(100svh - 145px);
@@ -382,7 +394,7 @@
   }
   .brand {
     font-size: 10px;
-    gap: 8px;
+    gap: var(--space-1);
     letter-spacing: 0.04em;
   }
   .brandMark {
@@ -420,9 +432,7 @@
     margin-left: -3px;
     gap: 5px;
   }
-  .dropdown {
-    left: -100px;
-  }
+
   .footer {
     font-size: 7px;
     padding: 18px;
@@ -452,7 +462,7 @@
 @media (max-width: 370px) {
   .header {
     padding-inline: 12px;
-    gap: 8px;
+    gap: var(--space-1);
   }
   .brandMark {
     display: none;
@@ -461,4 +471,183 @@
 
 .environment[data-room='vault'] .city {
   filter: saturate(0.6) brightness(0.65);
+}
+
+.menuIntro {
+  padding: 18px 38px 18px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: var(--space-3);
+}
+.menuIntro > span {
+  font: 10px var(--mono);
+  letter-spacing: 0.12em;
+  color: var(--ice);
+}
+.menuIntro strong {
+  font: 500 clamp(36px, 4vw, 64px)/1 var(--display);
+  letter-spacing: -0.05em;
+}
+.menuIntro small {
+  max-width: 180px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.menuLinks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 24px;
+}
+.dropdown a .menuIdentity {
+  font: 500 24px/1.2 var(--display);
+  color: var(--text);
+}
+.menuIdentity small {
+  display: block;
+  font: 11px/1.5 var(--body);
+  color: var(--muted);
+  margin-top: var(--space-1);
+}
+.dropdown a:hover svg {
+  transform: translate(3px, -3px);
+}
+.navigation > a {
+  min-height: 44px;
+}
+.roomMenu > button[aria-expanded='true'] {
+  color: var(--text);
+}
+.roomMenu > button[aria-expanded='true'] > svg:last-child {
+  transform: rotate(180deg);
+}
+.roomMenu > button > svg:last-child {
+  transition: transform var(--speed-medium);
+}
+.effects {
+  min-width: 44px;
+}
+.brandMark {
+  background: #bdd7ee0a;
+}
+.brandMark img {
+  width: 26px;
+  height: 26px;
+}
+.favorite,
+.listen {
+  transition:
+    background var(--speed-fast),
+    border-color var(--speed-fast),
+    transform var(--speed-fast);
+}
+.favorite:hover {
+  border-color: var(--ice);
+  background: #accde912;
+}
+.favorite[aria-pressed='true'] {
+  background: #accde919;
+  border-color: #a8cbe07a;
+}
+.iconButton {
+  min-width: 40px;
+}
+.playerTop button,
+.playerTop a {
+  min-width: 32px;
+  min-height: 44px;
+}
+.player {
+  border-top: 2px solid var(--ice);
+}
+.arrival {
+  position: relative;
+  animation: routeArrival 420ms var(--ease-out) both;
+}
+@keyframes routeArrival {
+  from {
+    transform: translateX(14px);
+  }
+  to {
+    transform: none;
+  }
+}
+.arrival::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ice), transparent);
+  transform-origin: left;
+  animation: arrival 650ms var(--ease-out) both;
+  pointer-events: none;
+}
+@keyframes arrival {
+  from {
+    transform: scaleX(0);
+    opacity: 0.8;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 0;
+  }
+}
+@media (max-width: 850px) {
+  .dropdown {
+    top: 80px;
+    padding: var(--space-3);
+    grid-template-columns: 1fr;
+  }
+  .menuIntro {
+    flex-direction: row;
+    align-items: center;
+    padding: 0 0 18px;
+  }
+  .menuIntro strong {
+    margin-left: auto;
+    font-size: 28px;
+  }
+  .menuIntro small {
+    display: none;
+  }
+}
+@media (max-width: 540px) {
+  .dropdown {
+    top: 76px;
+    padding: 18px;
+  }
+  .menuLinks {
+    grid-template-columns: 1fr;
+  }
+  .dropdown a {
+    min-height: 72px;
+    padding: 14px 6px;
+  }
+  .dropdown a .menuIdentity {
+    font-size: 23px;
+  }
+  .menuIdentity small {
+    margin-top: 5px;
+  }
+  .menuIntro strong {
+    font-size: 24px;
+  }
+  .menuIntro > span {
+    font-size: 8px;
+  }
+  .navigation {
+    gap: 6px;
+  }
+  .navigation > a {
+    min-width: 28px;
+    justify-content: center;
+  }
+  .effects {
+    min-width: 36px;
+  }
+  .header {
+    gap: 10px;
+  }
 }
